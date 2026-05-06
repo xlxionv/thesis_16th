@@ -1,0 +1,64 @@
+program: /Users/nhi/thesis_14th-1/onpolicy/scripts/train_bosch_scripts/run_sweep.py
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+method: bayes
+metric:
+  name: Eval_Costs/TOTAL
+  goal: minimize
+
+early_terminate:
+  type: hyperband
+  min_iter: 3
+  eta: 3
+
+parameters:
+  # PPO / RL
+  lr:
+    distribution: log_uniform_values
+    min: 1.0e-5
+    max: 1.0e-3
+  critic_lr:
+    distribution: log_uniform_values
+    min: 1.0e-5
+    max: 1.0e-3
+  entropy_coef:
+    distribution: log_uniform_values
+    min: 0.001
+    max: 0.1
+  clip_param:
+    distribution: uniform
+    min: 0.1
+    max: 0.4
+  ppo_epoch:
+    distribution: int_uniform
+    min: 5
+    max: 20
+  gamma:
+    distribution: uniform
+    min: 0.95
+    max: 0.999
+  gae_lambda:
+    distribution: uniform
+    min: 0.90
+    max: 0.99
+
+  # Reward shaping — categorical so 0.0 is included (log_uniform can't sample zero)
+  activation_penalty:
+    values: [0.0, 5.0, 10.0, 20.0, 50.0, 100.0]
+  load_balance_penalty:
+    values: [0.0, 10.0, 25.0, 50.0, 100.0, 200.0]
+  dense_production_reward:
+    distribution: uniform
+    min: 0.5
+    max: 3.0
+  dense_setup_penalty:
+    distribution: uniform
+    min: 0.5
+    max: 5.0
+
+  # Network
+  hidden_size:
+    values: [64, 128, 256]

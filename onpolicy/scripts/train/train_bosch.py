@@ -286,6 +286,12 @@ def parse_args(args, parser):
         help="Per-activated-slot penalty for manager reward.",
     )
     parser.add_argument(
+        "--load_balance_penalty",
+        type=float,
+        default=0.0,
+        help="Penalty weight on std-dev of per-line setup costs, added to manager reward.",
+    )
+    parser.add_argument(
         "--allocator_mode",
         type=str,
         default="heuristic",

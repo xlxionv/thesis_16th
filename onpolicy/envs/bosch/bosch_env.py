@@ -242,6 +242,7 @@ class BoschEnv(object):
         self.dense_setup_penalty = float(cfg.get("dense_setup_penalty", getattr(self.args, "dense_setup_penalty", 2.0)))
         self.dense_pm_penalty = float(cfg.get("dense_pm_penalty", getattr(self.args, "dense_pm_penalty", 1.0)))
         self.activation_penalty = float(cfg.get("activation_penalty", getattr(self.args, "activation_penalty", 0.0)))
+        self.load_balance_penalty = float(cfg.get("load_balance_penalty", getattr(self.args, "load_balance_penalty", 0.0)))
 
         self.allocator_mode = str(cfg.get("allocator_mode", getattr(self.args, "allocator_mode", "heuristic"))).strip().lower()
         if self.allocator_mode in ("milp", "relaxed", "relaxed_lp"):
@@ -1103,6 +1104,10 @@ class BoschEnv(object):
         if self.activation_penalty > 0.0:
             num_activated = float(np.sum(self.last_manager_masks))
             rewards[0, 0] -= self.activation_penalty * num_activated
+
+        if self.load_balance_penalty > 0.0:
+            setup_std = float(np.std(self.period_setup_costs))
+            rewards[0, 0] -= self.load_balance_penalty * setup_std
 
         rewards[1:, 0] = 0.0
 

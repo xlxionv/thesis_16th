@@ -46,12 +46,12 @@ def generate_test_instance(P, L, T):
 
 if __name__ == "__main__":
     # Choose your locked-in size for the whole training experiment
-    P = 17
-    L = 6
+    P = 13
+    L = 4
     T = 4
     NUM_FILES = 100
     
-    target_dir = "dataset/test_benchmark_17_6_4"
+    target_dir = "dataset/test_benchmark_13_4_4"
     os.makedirs(target_dir, exist_ok=True)
     
     print(f"Generating {NUM_FILES} fixed evaluation sets for P={P}, L={L}, T={T}...")

@@ -1,8 +1,11 @@
 #!/bin/sh
 
+# Load W&B API key from environment file
+source ~/.wandb_env
+
 env="BOSCH"
-algo="rmappo"  # or "mappo"
-exp="bosch_check"
+algo="rmappo"
+exp="large_27_9_4_milp_agent0_active"
 seed_max=1
 
 echo "env is ${env}, algo is ${algo}, exp is ${exp}, max seed is ${seed_max}"
@@ -10,12 +13,41 @@ echo "env is ${env}, algo is ${algo}, exp is ${exp}, max seed is ${seed_max}"
 for seed in `seq ${seed_max}`;
 do
     echo "seed is ${seed}:"
-    CUDA_VISIBLE_DEVICES=0 python ../train/train_bosch.py --env_name ${env} --algorithm_name ${algo} --experiment_name ${exp} \
-    --seed ${seed} --num_lines 6 --num_products 3 --num_periods 24 \
-    --n_training_threads 1 --n_rollout_threads 8 --num_mini_batch 1 --ppo_epoch 15 \
-    --capacity_per_line 100.0 --max_lot_size 10 --holding_cost 1.0 --backlog_cost 10.0 \
-    --production_cost 1.0 --setup_cost 2.0 --pm_cost 20.0 --cm_cost 40.0 \
-    --pm_time 2.0 --cm_time 4.0 --processing_time 1.0,1.0,1.0 --mean_demand 10.0,10.0,10.0 \
-    --alpha_cost_weight 0.1 --hazard_rate 0.001 --max_actions_per_period 8 --use_wandb False --share_policy
+    # To change experiment settings (products/lines/periods/eval configs), edit the
+    # option values below. Keep each option on its own line (no inline comments).
+    CUDA_VISIBLE_DEVICES=0 python3 ../train/train_bosch.py \
+      --algorithm_name ${algo} \
+      --experiment_name "${exp}" \
+      --seed ${seed} \
+      --num_products 27 \
+      --num_lines 9 \
+      --num_periods 4 \
+      --lookahead_days 4 \
+      --allocator_mode relaxed_milp \
+      --relaxed_milp_lookahead 4 \
+      --relaxed_milp_time_limit 30 \
+      --relaxed_milp_setup_time_mode p90 \
+      --relaxed_milp_capacity_safety 0.85 \
+      --relaxed_milp_use_manager_mask \
+      --dense_setup_penalty 1.0 \
+      --dense_production_reward 1.0 \
+      --alpha_cost_weight 1.0 \
+      --activation_penalty 20.0 \
+      --load_balance_penalty 50.0 \
+      --n_rollout_threads 8 \
+      --n_training_threads 1 \
+      --use_eval \
+      --n_eval_rollout_threads 4 \
+      --eval_interval 50 \
+      --eval_configs dataset/test_benchmark_27_9_4/*.json \
+      --num_env_steps 1000000 \
+      --log_interval 5 \
+      --entropy_coef 0.01 \
+      --lr 3e-4 \
+      --critic_lr 3e-4 \
+      --clip_param 0.2 \
+      --ppo_epoch 10 \
+      --num_mini_batch 1 \
+      --use_linear_lr_decay \
+      --use_wandb
 done
-

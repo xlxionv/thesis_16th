@@ -84,19 +84,29 @@ class Runner(object):
             if not os.path.exists(self.gif_dir):
                 os.makedirs(self.gif_dir)
         else:
-            if self.use_wandb and wandb is not None and wandb.run is not None:
-                self.save_dir = str(wandb.run.dir)
-                self.run_dir = config["run_dir"]
-                self.log_dir = str(self.run_dir / 'logs')
+            # If wandb is requested, prefer using it when fully initialized.
+            # However, wandb may be None (not installed) or wandb.run may be None
+            # (not initialized). In those cases fall back to local directories
+            # and TensorBoard SummaryWriter so logging calls remain valid.
+            self.run_dir = config["run_dir"]
+            self.log_dir = str(self.run_dir / 'logs')
+            if not os.path.exists(self.log_dir):
+                os.makedirs(self.log_dir)
+
+            # summary writer is always useful as a fallback/secondary logger
+            self.writter = SummaryWriter(self.log_dir)
+
+            if self.use_wandb and wandb is not None and getattr(wandb, 'run', None) is not None:
+                try:
+                    self.save_dir = str(wandb.run.dir)
+                except Exception:
+                    # If wandb.run.dir is unavailable for some reason, use local models dir
+                    self.save_dir = str(self.run_dir / 'models')
             else:
-                self.run_dir = config["run_dir"]
-                self.log_dir = str(self.run_dir / 'logs')
-                if not os.path.exists(self.log_dir):
-                    os.makedirs(self.log_dir)
-                self.writter = SummaryWriter(self.log_dir)
                 self.save_dir = str(self.run_dir / 'models')
-                if not os.path.exists(self.save_dir):
-                    os.makedirs(self.save_dir)
+
+            if not os.path.exists(self.save_dir):
+                os.makedirs(self.save_dir)
 
 
         if self.all_args.algorithm_name == "happo":
@@ -262,8 +272,13 @@ class Runner(object):
         for agent_id in range(self.num_agents):
             for k, v in train_infos[agent_id].items():
                 agent_k = "agent%i/" % agent_id + k
-                if self.use_wandb:
-                    wandb.log({agent_k: v}, step=total_num_steps)
+                # Only call wandb.log when wandb is available and a run is active.
+                if self.use_wandb and wandb is not None and getattr(wandb, 'run', None) is not None:
+                    try:
+                        wandb.log({agent_k: v}, step=total_num_steps)
+                    except Exception:
+                        # On any wandb failure, fall back to SummaryWriter
+                        self.writter.add_scalars(agent_k, {agent_k: v}, total_num_steps)
                 else:
                     self.writter.add_scalars(agent_k, {agent_k: v}, total_num_steps)
 
@@ -273,8 +288,12 @@ class Runner(object):
             if len(v) > 0:
                 mean_val = np.mean(v)
                 mean_infos[k] = mean_val
-                if self.use_wandb:
-                    wandb.log({k: mean_val}, step=total_num_steps)
+                # Prefer wandb when configured and active, otherwise use tensorboard
+                if self.use_wandb and wandb is not None and getattr(wandb, 'run', None) is not None:
+                    try:
+                        wandb.log({k: mean_val}, step=total_num_steps)
+                    except Exception:
+                        self.writter.add_scalars(k, {k: mean_val}, total_num_steps)
                 else:
                     self.writter.add_scalars(k, {k: mean_val}, total_num_steps)
 

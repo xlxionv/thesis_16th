@@ -775,8 +775,11 @@ class MPERunner(Runner):
         print(f"\n[EVAL] BOSCH MARL Inference Solving Time for {self.episode_length} periods: {eval_duration:.4f} seconds")
         
         # 1. Log Inference Time directly
-        if self.use_wandb:
-            wandb.log({"Eval/inference_seconds": eval_duration}, step=total_num_steps)
+        if self.use_wandb and wandb is not None and getattr(wandb, 'run', None) is not None:
+            try:
+                wandb.log({"Eval/inference_seconds": eval_duration}, step=total_num_steps)
+            except Exception:
+                self.writter.add_scalar("Eval/inference_seconds", eval_duration, total_num_steps)
         else:
             self.writter.add_scalar("Eval/inference_seconds", eval_duration, total_num_steps)
 
@@ -785,8 +788,11 @@ class MPERunner(Runner):
         for agent_id in range(self.num_agents):
             eval_average_episode_rewards = np.mean(np.sum(eval_episode_rewards[:, :, agent_id], axis=0))
             print("eval average episode rewards of agent%i: " % agent_id + str(eval_average_episode_rewards))
-            if self.use_wandb:
-                wandb.log({f"Eval/average_episode_reward_agent_{agent_id}": eval_average_episode_rewards}, step=total_num_steps)
+            if self.use_wandb and wandb is not None and getattr(wandb, 'run', None) is not None:
+                try:
+                    wandb.log({f"Eval/average_episode_reward_agent_{agent_id}": eval_average_episode_rewards}, step=total_num_steps)
+                except Exception:
+                    self.writter.add_scalar(f"Eval/average_episode_reward_agent_{agent_id}", eval_average_episode_rewards, total_num_steps)
             else:
                 self.writter.add_scalar(f"Eval/average_episode_reward_agent_{agent_id}", eval_average_episode_rewards, total_num_steps)
 
@@ -797,8 +803,11 @@ class MPERunner(Runner):
         print("eval average episode costs: " + ", ".join([f"{name}: {cost:.2f}" for name, cost in zip(cost_names, mean_eval_costs)]))
         
         for i, cost_name in enumerate(cost_names):
-            if self.use_wandb:
-                wandb.log({f"Eval_Costs/{cost_name}": mean_eval_costs[i]}, step=total_num_steps)
+            if self.use_wandb and wandb is not None and getattr(wandb, 'run', None) is not None:
+                try:
+                    wandb.log({f"Eval_Costs/{cost_name}": mean_eval_costs[i]}, step=total_num_steps)
+                except Exception:
+                    self.writter.add_scalar(f"Eval_Costs/{cost_name}", mean_eval_costs[i], total_num_steps)
             else:
                 self.writter.add_scalar(f"Eval_Costs/{cost_name}", mean_eval_costs[i], total_num_steps)
 

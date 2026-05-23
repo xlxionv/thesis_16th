@@ -1,0 +1,37 @@
+share_observation_space:  [Box(-inf, inf, (312,), float32), Box(-inf, inf, (312,), float32), Box(-inf, inf, (312,), float32)]
+observation_space:  [Box(-inf, inf, (104,), float32), Box(-inf, inf, (104,), float32), Box(-inf, inf, (104,), float32)]
+action_space:  [MultiDiscrete10, Discrete(7), Discrete(7)]
+Using shared machine policy: agent 0 separate; agents 1..2 share.
+
+ Scenario BOSCH Algo rmappo Exp benchmark_eval updates 0/5 episodes, total num timesteps 36/200, FPS 69.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 0.0658 seconds
+eval average episode rewards of agent0: -2.9958038
+eval average episode rewards of agent1: -0.64534634
+eval average episode rewards of agent2: -0.6038311
+eval average episode costs: Backlog: 0.00, Inventory: 0.00, Maintenance: 13.01, Production: 2592.72, Setup: 793.16, TOTAL: 3398.89
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 0.0652 seconds
+eval average episode rewards of agent0: -2.9984293
+eval average episode rewards of agent1: -0.6493766
+eval average episode rewards of agent2: -0.61030257
+eval average episode costs: Backlog: 0.00, Inventory: 0.00, Maintenance: 13.01, Production: 2592.72, Setup: 798.41, TOTAL: 3404.14
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 0.0639 seconds
+eval average episode rewards of agent0: -2.9958038
+eval average episode rewards of agent1: -0.64534634
+eval average episode rewards of agent2: -0.6038311
+eval average episode costs: Backlog: 0.00, Inventory: 0.00, Maintenance: 13.01, Production: 2592.72, Setup: 793.16, TOTAL: 3398.89
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 0.0624 seconds
+eval average episode rewards of agent0: -2.9951825
+eval average episode rewards of agent1: -0.64286125
+eval average episode rewards of agent2: -0.6038311
+eval average episode costs: Backlog: 0.00, Inventory: 0.00, Maintenance: 13.01, Production: 2592.72, Setup: 791.92, TOTAL: 3397.64
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 0.0628 seconds
+eval average episode rewards of agent0: -2.9958038
+eval average episode rewards of agent1: -0.64534634
+eval average episode rewards of agent2: -0.6038311
+eval average episode costs: Backlog: 0.00, Inventory: 0.00, Maintenance: 13.01, Production: 2592.72, Setup: 793.16, TOTAL: 3398.89

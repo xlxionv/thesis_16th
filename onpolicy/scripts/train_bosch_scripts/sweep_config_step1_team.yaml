@@ -1,0 +1,60 @@
+program: /Users/nhi/thesis_14th-1/onpolicy/scripts/train_bosch_scripts/run_sweep_step1_team.py
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+run_cap: 30
+method: bayes
+metric:
+  name: Eval_Costs/TOTAL
+  goal: minimize
+
+parameters:
+  # --- PPO / RL core ---
+  lr:
+    distribution: log_uniform_values
+    min: 1.0e-5
+    max: 1.0e-3
+  critic_lr:
+    distribution: log_uniform_values
+    min: 1.0e-5
+    max: 1.0e-3
+  entropy_coef:
+    distribution: log_uniform_values
+    min: 0.001
+    max: 0.1
+  clip_param:
+    distribution: uniform
+    min: 0.1
+    max: 0.4
+  ppo_epoch:
+    distribution: int_uniform
+    min: 5
+    max: 20
+  gamma:
+    distribution: uniform
+    min: 0.95
+    max: 0.999
+  gae_lambda:
+    distribution: uniform
+    min: 0.90
+    max: 0.99
+
+  # --- Team reward shaping ---
+  # dense_setup_penalty is fixed to 0 — setup cost is already in the team reward,
+  # keeping it would double-count changeover costs.
+  # Machine Agent: bonus for producing (encourages within-period production,
+  # not double-counted since production cost is excluded from the team reward).
+  dense_production_reward:
+    distribution: uniform
+    min: 0.5
+    max: 3.0
+  # Kill switch: must dominate a full episode's team reward (~1000–5000 per period,
+  # 4 periods => 4000–20000 total). Use large values to guarantee it's the dominant signal.
+  kill_switch_penalty:
+    values: [2000.0, 5000.0, 10000.0, 20000.0]
+
+  # --- Network ---
+  hidden_size:
+    values: [64, 128, 256]

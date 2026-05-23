@@ -798,6 +798,17 @@ class MPERunner(Runner):
 
         # 3. Log Eval Costs (Average across the eval episodes)
         mean_eval_costs = np.mean(eval_accumulated_costs, axis=0)
+
+        # Save per-instance TOTAL costs to JSON (overwrites each eval; final file = last eval)
+        if hasattr(self.all_args, 'eval_configs') and self.all_args.eval_configs:
+            per_instance = {}
+            n = min(self.n_eval_rollout_threads, len(self.all_args.eval_configs))
+            for i in range(n):
+                name = os.path.basename(self.all_args.eval_configs[i])
+                per_instance[name] = float(eval_accumulated_costs[i, 5])
+            out_path = os.path.join(self.save_dir, "eval_per_instance.json")
+            with open(out_path, "w") as f:
+                json.dump(per_instance, f, indent=2)
         cost_names = ["Backlog", "Inventory", "Maintenance", "Production", "Setup", "TOTAL"]
         
         print("eval average episode costs: " + ", ".join([f"{name}: {cost:.2f}" for name, cost in zip(cost_names, mean_eval_costs)]))

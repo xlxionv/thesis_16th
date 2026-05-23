@@ -19,8 +19,8 @@ do
       --algorithm_name ${algo} \
       --experiment_name "${exp}" \
       --seed ${seed} \
-      --num_products 27 \
-      --num_lines 9 \
+      --num_products 17 \
+      --num_lines 6 \
       --num_periods 4 \
       --lookahead_days 4 \
       --allocator_mode relaxed_milp \
@@ -39,7 +39,7 @@ do
       --use_eval \
       --n_eval_rollout_threads 4 \
       --eval_interval 50 \
-      --eval_configs dataset/test_benchmark_27_9_4/*.json \
+      --eval_configs dataset/test_benchmark_17_6_4/*.json \
       --num_env_steps 1000000 \
       --log_interval 5 \
       --entropy_coef 0.01 \

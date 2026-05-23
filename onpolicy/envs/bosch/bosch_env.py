@@ -1,3 +1,5 @@
+import json
+import os
 import numpy as np
 import random
 
@@ -278,6 +280,18 @@ class BoschEnv(object):
             
         self.avg_demand_per_product = np.mean(self.demand, axis=0).astype(np.float32)
 
+        self.reward_mode = str(cfg.get("reward_mode", getattr(self.args, "reward_mode", "full"))).strip().lower()
+        self.kill_switch_penalty = float(cfg.get("kill_switch_penalty", getattr(self.args, "kill_switch_penalty", 1000.0)))
+        self.obs_mode = str(cfg.get("obs_mode", getattr(self.args, "obs_mode", "full"))).strip().lower()
+
+        milp_lot_sizes_path = cfg.get("milp_lot_sizes_path", getattr(self.args, "milp_lot_sizes_path", None))
+        self.milp_lot_sizes = None
+        if milp_lot_sizes_path:
+            _p = str(milp_lot_sizes_path)
+            if os.path.exists(_p):
+                with open(_p) as _f:
+                    self.milp_lot_sizes = json.load(_f)
+
     def seed(self, seed=None):
         if seed is not None:
             self.rng.seed(seed)
@@ -299,12 +313,11 @@ class BoschEnv(object):
         rewards = np.zeros((self.num_agents, 1), dtype=np.float32)
         done = False
 
-        is_manager_step = self.step_in_period == 0
-
-        if is_manager_step:
-            self._manager_step(actions_env)
-        else:
-            self._machines_step(actions_env, rewards)
+        # Per-micro-step: manager allocates then machines produce at every step.
+        # MILP inference mode (Step 3) keeps old queue-drain behaviour — manager
+        # loads lot sizes at step 0 only; machines drain over all steps.
+        self._manager_step(actions_env)
+        self._machines_step(actions_env, rewards)
 
         self.period_queue_sum += np.sum(self.queue, axis=1)
         self.period_queue_steps += 1
@@ -329,14 +342,13 @@ class BoschEnv(object):
                 done = True
 
         obs = self._build_observations()
-        next_is_manager_step = self.step_in_period == 0
         dones = [done for _ in range(self.num_agents)]
         next_available_actions = self._build_available_actions()
         infos = []
         for agent_id in range(self.num_agents):
             info = {"available_actions": next_available_actions[agent_id].copy()}
             if agent_id == 0:
-                info["manager_active"] = 1.0 if next_is_manager_step else 0.0
+                info["manager_active"] = 1.0  # manager acts at every micro-step
                 if end_of_period:
                     info["period_inv_cost"] = float(self.last_inv_cost)
                     info["period_backlog_cost"] = float(self.last_backlog_cost)
@@ -380,7 +392,7 @@ class BoschEnv(object):
                     self.episode_total_cost += period_total
                     info["episode_total_cost"] = float(self.episode_total_cost)
             else:
-                info["machine_active"] = 0.0 if next_is_manager_step else 1.0
+                info["machine_active"] = 1.0  # machines act at every micro-step
             infos.append(info)
 
         rewards *= 0.001
@@ -444,6 +456,8 @@ class BoschEnv(object):
         self.last_utilization_per_line = np.zeros(self.num_lines, dtype=np.float32)
         self.last_allocator_status = ""
         self.last_allocator_objective = 0.0
+        self.micro_step_masks = {}
+        self.last_period_micro_step_masks = {}
 
     def _start_new_period(self):
         self.remaining_capacity[:] = self.capacity_per_line
@@ -455,13 +469,46 @@ class BoschEnv(object):
         self.period_cm_costs.fill(0.0)
         self.period_queue_sum.fill(0.0)
         self.period_queue_steps = 0
+        self.micro_step_masks = {}
+        self.last_manager_masks[:] = 0.0
+        # Step 3 inference: pre-load MILP lot sizes so that _build_available_actions()
+        # at the end of the previous period (and at reset) sees queue > 0 and marks
+        # products as available — without this, machines commit to "end" before
+        # _manager_step() runs at step 0 and loads the queue.
+        if self.milp_lot_sizes is not None:
+            self.queue[:] = 0.0
+            period_key = f"period_{self.period_index}"
+            if period_key in self.milp_lot_sizes:
+                queue_additions = np.array(self.milp_lot_sizes[period_key], dtype=np.float32)
+                self.queue[:] = queue_additions * self.line_eligibility
 
     def _manager_step(self, actions_env):
         masks = self._decode_agent0_action(actions_env[0])
         masks = masks * self.line_eligibility
-        self.queue[:] = 0.0
 
-        if self.allocator_mode == "relaxed_milp":
+        # Record per-step mask for Step 2a export (4D allocation)
+        self.micro_step_masks[self.step_in_period] = masks.copy()
+
+        if self.milp_lot_sizes is not None:
+            # Step 3 inference: queue was pre-loaded in _start_new_period() so
+            # _build_available_actions() could see it. Nothing to do here.
+            # For all steps: do not touch the queue; machines drain it.
+            step_mask = (self.queue > 1e-6).astype(np.float32)
+            self.last_manager_masks = np.maximum(self.last_manager_masks, (step_mask > 0.5).astype(np.float32))
+            self.last_manager_horizons = np.zeros(self.num_lines, dtype=np.float32)
+            self.last_manager_products = np.full(self.num_lines, -1, dtype=np.int32)
+            for l in range(self.num_lines):
+                active_prods = np.where(self.last_manager_masks[l] > 0.5)[0]
+                if len(active_prods) > 0:
+                    self.last_manager_products[l] = int(active_prods[0])
+                    self.last_manager_horizons[l] = float(self.allocator_lookahead)
+            return
+
+        # Training modes: fresh per-step allocation; machines consume immediately.
+        self.queue[:] = 0.0
+        if self.allocator_mode == "jit":
+            queue_additions = self._jit_allocate(masks)
+        elif self.allocator_mode == "relaxed_milp":
             allowed_masks = (
                 masks.copy()
                 if self.relaxed_milp_use_manager_mask
@@ -479,15 +526,62 @@ class BoschEnv(object):
             queue_additions = self._heuristic_allocate(masks)
 
         self.queue += queue_additions
-        self.last_manager_masks = (queue_additions > 1e-6).astype(np.float32)
+        step_mask = (queue_additions > 1e-6).astype(np.float32)
+        # Union accumulation: track every (line, product) activated across micro-steps
+        self.last_manager_masks = np.maximum(self.last_manager_masks, step_mask)
 
         self.last_manager_horizons = np.zeros(self.num_lines, dtype=np.float32)
         self.last_manager_products = np.full(self.num_lines, -1, dtype=np.int32)
         for l in range(self.num_lines):
-            active_prods = np.where(self.last_manager_masks[l] > 0.5)[0]
+            active_prods = np.where(step_mask[l] > 0.5)[0]
             if len(active_prods) > 0:
                 self.last_manager_products[l] = int(active_prods[0])
                 self.last_manager_horizons[l] = float(self.allocator_lookahead)
+
+    def _jit_allocate(self, masks):
+        """Per-micro-step JIT allocator.
+
+        At each step, queues the full outstanding demand for every activated
+        (line, product) pair.  The queue is reset before this call, so machines
+        consume what they can this step; any unconsumed quota is naturally
+        re-queued next step from the updated period_produced_per_product.
+
+        Dividing by remaining_steps is deliberately avoided: it makes the
+        per-step quota too small relative to setup overhead, causing machines
+        to stall after a single unit of production.  Full-remaining queuing
+        lets machines work at full pace whenever the manager activates a slot.
+        """
+        L, P = self.num_lines, self.num_products
+        queue_add = np.zeros((L, P), dtype=np.float32)
+        t = self.period_index
+        demand = self.demand[t].astype(np.float32)
+
+        # Remaining demand after what has already been produced this period
+        remaining_demand = np.maximum(demand - self.period_produced_per_product, 0.0)
+
+        for p in range(P):
+            if remaining_demand[p] <= 0.0:
+                continue
+
+            active_lines = [
+                l for l in range(L)
+                if masks[l, p] > 0.5 and self.line_eligibility[l, p] > 0.5
+            ]
+            # If manager activated no line for this product, fall back to all
+            # eligible lines — guarantees every demanded product gets queued so
+            # the manager learns routing (which line) not gatekeeping (whether).
+            if not active_lines:
+                active_lines = [
+                    l for l in range(L) if self.line_eligibility[l, p] > 0.5
+                ]
+            if not active_lines:
+                continue
+
+            qty_per_line = remaining_demand[p] / len(active_lines)
+            for l in active_lines:
+                queue_add[l, p] = qty_per_line
+
+        return queue_add
 
     def _heuristic_allocate(self, masks):
         L, P = self.num_lines, self.num_products
@@ -591,8 +685,12 @@ class BoschEnv(object):
         mode = self.relaxed_milp_setup_time_mode
         if mode == "worst":
             return float(np.max(candidates))
+        if mode == "p95":
+            return float(np.percentile(candidates, 95))
         if mode == "p90":
             return float(np.percentile(candidates, 90))
+        if mode == "p85":
+            return float(np.percentile(candidates, 85))
         if mode == "p75":
             return float(np.percentile(candidates, 75))
         if mode == "mean_std":
@@ -901,6 +999,12 @@ class BoschEnv(object):
                 rewards[agent_id, 0] -= (
                     self.dense_setup_penalty * float(setup_cost)
                 )
+                # Running penalty for Process Agent: forward each setup cost as
+                # it fires so its critic learns the allocation → changeover link
+                # immediately, not just at period-end via the team reward.
+                # Only active in step1 mode; full mode uses a different reward path.
+                if self.reward_mode == "step1":
+                    rewards[0, 0] -= float(setup_cost)
 
             cap = float(self.capacity_per_line[line_idx])
             if cap > 0.0:
@@ -958,21 +1062,53 @@ class BoschEnv(object):
         if available_for_proc <= 0.0:
             return False
 
-        # Apply continuous float fix here as well
         max_qty_cap = available_for_proc / proc_time_per_unit
         if max_qty_cap <= 1e-5:
             return False
 
         return True
 
+    def _can_produce_with_demand(self, line_idx, product_idx):
+        """Training-mode availability: demand-based instead of queue-based.
+
+        In the per-micro-step architecture, the queue is reset and refilled at
+        the START of each step (inside _manager_step), so it is 0 when
+        _build_available_actions() runs at the END of the previous step.
+        Using current queue state would permanently block machines.  Instead,
+        check whether there is remaining demand and physical capacity.
+        """
+        if self.line_eligibility[line_idx, product_idx] < 0.5:
+            return False
+
+        t = min(self.period_index, self.num_periods - 1)
+        remaining = (
+            float(self.demand[t, product_idx])
+            - float(self.period_produced_per_product[product_idx])
+        )
+        if remaining <= 1e-3:
+            return False
+
+        proc_time_per_unit = float(self.processing_time_matrix[line_idx, product_idx])
+        if proc_time_per_unit <= 0.0:
+            return False
+
+        last_prod = int(self.line_setup[line_idx])
+        setup_time = 0.0
+        if last_prod < 0:
+            setup_time = float(self.first_setup_time[line_idx])
+        elif last_prod != product_idx:
+            setup_time = float(self.setup_time_matrix[line_idx, last_prod, product_idx])
+
+        available_for_proc = self.remaining_capacity[line_idx] - setup_time
+        if available_for_proc <= 0.0:
+            return False
+
+        return available_for_proc / proc_time_per_unit > 1e-5
+
     def _line_available_actions(self, line_idx):
         pm_index = self.num_products
         end_index = self.num_products + 1
         mask = np.zeros(self.num_products + 2, dtype=np.float32)
-
-        if self.step_in_period == 0:
-            mask[end_index] = 1.0
-            return mask
 
         if self.line_done[line_idx]:
             mask[end_index] = 1.0
@@ -981,10 +1117,20 @@ class BoschEnv(object):
         pm_time_l = float(self.pm_time[line_idx]) if np.ndim(self.pm_time) > 0 else float(self.pm_time)
         if self.remaining_capacity[line_idx] >= max(pm_time_l, 1e-6):
             mask[pm_index] = 1.0
-        
+
+        # In training modes (no pre-loaded MILP lot sizes) the queue is 0 when
+        # this is called because _manager_step refills it at the START of the
+        # NEXT step.  Use demand-based feasibility so machines are not blocked.
+        use_demand_check = self.milp_lot_sizes is None
+
         can_work = False
         for product_idx in range(self.num_products):
-            if self._can_process_product(line_idx, product_idx):
+            ok = (
+                self._can_produce_with_demand(line_idx, product_idx)
+                if use_demand_check
+                else self._can_process_product(line_idx, product_idx)
+            )
+            if ok:
                 mask[product_idx] = 1.0
                 can_work = True
 
@@ -1020,6 +1166,8 @@ class BoschEnv(object):
 
     def _end_period(self):
         self.last_period_index = self.period_index
+        # Persist per-step masks before _start_new_period clears micro_step_masks
+        self.last_period_micro_step_masks = {k: v.copy() for k, v in self.micro_step_masks.items()}
 
         inv_cost, backlog_cost, inv_costs, backlog_costs = self._update_inventory_and_backlog(
             self.period_produced_per_product
@@ -1097,19 +1245,51 @@ class BoschEnv(object):
 
         rewards = np.zeros((self.num_agents, 1), dtype=np.float32)
 
-        rewards[0, 0] = -float(manager_direct_costs) + self.alpha_cost_weight * (
-            -float(worker_total_direct_costs)
-        )
+        if self.reward_mode == "step1":
+            # Kill switch: if any demand was unmet this period, apply a flat penalty
+            # to every agent and wipe the backlog so it does not degrade future states.
+            unmet = float(np.sum(self.backlog))
+            if unmet > 1e-3:
+                rewards[:, 0] -= self.kill_switch_penalty
+                self.backlog[:] = 0.0
+                self.last_backlog_qty = 0.0
+                self.last_backlog_per_product[:] = 0.0
+                self.last_unmet_demand_per_product[:] = 0.0
+            else:
+                # Team reward: all agents share -(proc_time + setup + PM + CM).
+                # Covers every cost that is a structural decision (allocation,
+                # sequencing, maintenance timing). Inventory and backlog are
+                # excluded — lot sizing is MILP's job in Step 2.
+                total_proc_time = float(
+                    np.sum(self.period_produced_per_line * self.processing_time_matrix)
+                )
+                team = -(total_proc_time + float(worker_total_direct_costs))
 
-        if self.activation_penalty > 0.0:
-            num_activated = float(np.sum(self.last_manager_masks))
-            rewards[0, 0] -= self.activation_penalty * num_activated
+                # Process Agent shaping: penalise over-activation and load imbalance.
+                # These only update agent 0 — machine agents are not responsible
+                # for the allocation decision.
+                if self.activation_penalty > 0.0:
+                    num_activated = float(np.sum(self.last_manager_masks))
+                    team -= self.activation_penalty * num_activated
+                if self.load_balance_penalty > 0.0:
+                    setup_std = float(np.std(self.period_setup_costs))
+                    team -= self.load_balance_penalty * setup_std
 
-        if self.load_balance_penalty > 0.0:
-            setup_std = float(np.std(self.period_setup_costs))
-            rewards[0, 0] -= self.load_balance_penalty * setup_std
+                rewards[:, 0] = team
+        else:
+            rewards[0, 0] = -float(manager_direct_costs) + self.alpha_cost_weight * (
+                -float(worker_total_direct_costs)
+            )
 
-        rewards[1:, 0] = 0.0
+            if self.activation_penalty > 0.0:
+                num_activated = float(np.sum(self.last_manager_masks))
+                rewards[0, 0] -= self.activation_penalty * num_activated
+
+            if self.load_balance_penalty > 0.0:
+                setup_std = float(np.std(self.period_setup_costs))
+                rewards[0, 0] -= self.load_balance_penalty * setup_std
+
+            rewards[1:, 0] = 0.0
 
         beta = float(self.machine_service_cost_share_beta)
         if beta > 0.0 and self.num_lines > 0:
@@ -1206,12 +1386,23 @@ class BoschEnv(object):
 
     def _build_observations(self):
         remaining_periods = self.num_periods - self.period_index
+        binary_mode = (self.obs_mode == "binary")
 
-        inv = np.log1p(self.inventory.astype(np.float32))
-        back = np.log1p(self.backlog.astype(np.float32))
+        if binary_mode:
+            # Quantity-blind: agents see WHAT needs to be done, not HOW MANY units.
+            # Continuous quantities are replaced with binary (present/absent) signals.
+            # The reward function still uses raw quantities — agents feel the
+            # consequences (kill switch, setup costs) without seeing the magnitudes.
+            inv = (self.inventory > 0).astype(np.float32)
+            back = (self.backlog > 0).astype(np.float32)
+            queue_total = (np.sum(self.queue, axis=0) > 0).astype(np.float32)
+        else:
+            inv = np.log1p(self.inventory.astype(np.float32))
+            back = np.log1p(self.backlog.astype(np.float32))
+            queue_total = np.log1p(np.sum(self.queue, axis=0).astype(np.float32))
+
         queue_segment_len = self.num_lines * self.num_products
         coverage = (self.queue > 0).astype(np.float32).sum(axis=0)
-        queue_total = np.log1p(np.sum(self.queue, axis=0).astype(np.float32))
         if self.num_lines > 0:
             coverage /= float(self.num_lines)
         demand_window = np.zeros(
@@ -1220,7 +1411,10 @@ class BoschEnv(object):
         for d in range(self.lookahead_days):
             target_idx = self.period_index + d
             if target_idx < self.num_periods:
-                demand_window[d] = np.log1p(self.demand[target_idx])
+                if binary_mode:
+                    demand_window[d] = (self.demand[target_idx] > 0).astype(np.float32)
+                else:
+                    demand_window[d] = np.log1p(self.demand[target_idx])
 
         contention = np.zeros(self.num_lines, dtype=np.float32)
         if self.num_periods > 0:
@@ -1291,14 +1485,20 @@ class BoschEnv(object):
             pos += self.num_products
 
             if agent_id == 0:
-                queue_vec = np.log1p(self.queue.reshape(-1).astype(np.float32))
+                if binary_mode:
+                    queue_vec = (self.queue > 0).astype(np.float32).reshape(-1)
+                else:
+                    queue_vec = np.log1p(self.queue.reshape(-1).astype(np.float32))
             else:
                 queue_vec = np.zeros(queue_segment_len, dtype=np.float32)
                 line_idx = agent_id - 1
                 if 0 <= line_idx < self.num_lines:
                     start = line_idx * self.num_products
                     end = start + self.num_products
-                    queue_vec[start:end] = np.log1p(self.queue[line_idx].astype(np.float32))
+                    if binary_mode:
+                        queue_vec[start:end] = (self.queue[line_idx] > 0).astype(np.float32)
+                    else:
+                        queue_vec[start:end] = np.log1p(self.queue[line_idx].astype(np.float32))
             vec[pos : pos + queue_segment_len] = queue_vec
             pos += queue_segment_len
 
@@ -1313,7 +1513,10 @@ class BoschEnv(object):
             if agent_id == 0:
                 raw_demand_next = np.sum(self.demand[self.period_index : self.period_index + self.lookahead_days], axis=0)
                 raw_shortfall = raw_demand_next + self.backlog - self.inventory - np.sum(self.queue, axis=0)
-                shortfall = np.log1p(np.maximum(raw_shortfall, 0.0))
+                if binary_mode:
+                    shortfall = (raw_shortfall > 0).astype(np.float32)
+                else:
+                    shortfall = np.log1p(np.maximum(raw_shortfall, 0.0))
                 vec[pos : pos + self.num_products] = shortfall.astype(np.float32)
             pos += self.num_products
 

@@ -295,7 +295,7 @@ def parse_args(args, parser):
         "--allocator_mode",
         type=str,
         default="heuristic",
-        choices=["heuristic", "relaxed_milp", "milp", "relaxed", "relaxed_lp"],
+        choices=["heuristic", "jit", "relaxed_milp", "milp", "relaxed", "relaxed_lp"],
         help="Queue allocator used after the manager step.",
     )
     parser.add_argument(
@@ -327,7 +327,7 @@ def parse_args(args, parser):
         "--relaxed_milp_setup_time_mode",
         type=str,
         default="average",
-        choices=["average", "mean", "mean_std", "p75", "p90", "worst"],
+        choices=["average", "mean", "mean_std", "p75", "p85", "p90", "p95", "worst"],
         help="Robust setup-time estimate used in relaxed MILP capacity.",
     )
     parser.add_argument(
@@ -366,6 +366,50 @@ def parse_args(args, parser):
         dest="shared_machine_policy",
         action="store_false",
         help="Disable shared machine policy and use one policy per machine agent.",
+    )
+    parser.add_argument(
+        "--kill_switch_penalty",
+        type=float,
+        default=1000.0,
+        help=(
+            "Flat penalty applied to all agents when any demand goes unmet at the "
+            "end of a period (only active in reward_mode=step1). Backlog is wiped "
+            "to zero after the penalty so it does not degrade future states."
+        ),
+    )
+    parser.add_argument(
+        "--obs_mode",
+        type=str,
+        default="full",
+        choices=["full", "binary"],
+        help=(
+            "Observation representation. 'full': log-scaled continuous quantities "
+            "(default). 'binary': quantity-blind — inventory, backlog, queue, and "
+            "demand are shown as binary present/absent signals. The reward still "
+            "uses raw quantities; agents feel consequences without seeing magnitudes."
+        ),
+    )
+    parser.add_argument(
+        "--reward_mode",
+        type=str,
+        default="full",
+        choices=["full", "step1"],
+        help=(
+            "Reward signal for RL agents. "
+            "'full': inventory+backlog+production+setup costs (default). "
+            "'step1': Process Agent minimizes total processing time; "
+            "Machine Agents minimize setup costs only (Step 1 of 3-step pipeline)."
+        ),
+    )
+    parser.add_argument(
+        "--milp_lot_sizes_path",
+        type=str,
+        default=None,
+        help=(
+            "Path to a JSON file containing MILP-optimized lot sizes per period "
+            "(output of milp_posthoc.py). When set, the environment pre-fills the "
+            "queue with these quantities and bypasses the RL allocator (Step 3 inference)."
+        ),
     )
 
     all_args = parser.parse_known_args(args)[0]

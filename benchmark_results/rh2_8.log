@@ -1,0 +1,84 @@
+
+[RH2] Loading dataset/Small/test_benchmark_5_2_4/test_P5_L2_T4_8.json...
+
+Starting RH2 MILP Baseline (Periods: 4, Lookahead: 3)
+Per | Total ($) |     Inv | Backlog |    Prod |   Setup |   PM/CM | Time(s)
+---------------------------------------------------------------------------
+  1 |    641.95 |   24.50 |    0.00 |  482.73 |  131.60 |    3.12 |    2.8
+  2 |    408.79 |    0.00 |    0.00 |  350.10 |   56.44 |    2.26 |    3.1
+  3 |    933.78 |    0.00 |    0.00 |  846.33 |   82.16 |    5.30 |    0.9
+  4 |    682.04 |    0.00 |    0.00 |  595.24 |   83.13 |    3.68 |    0.1
+
+=====================================================================================
+ 🏭 DETAILED RH2 SCHEDULE ANALYSIS (WHAT THE SOLVER DECIDED)
+=====================================================================================
+
+[ PERIOD 1 ] - Demand for today: [8, 109, 57, 92, 67]
+--------------------------------------------------
+MACHINE ACTIONS:
+  Line 0: 📦 Prod 0 (Qty: 8), 📦 Prod 2 (Qty: 57), 📦 Prod 4 (Qty: 67)
+  Line 1: 📦 Prod 1 (Qty: 123), 📦 Prod 3 (Qty: 92)
+
+END OF DAY STATUS:
+  Prod 0 | Demand:    8 | Inventory:    0 | Backlog:    0
+  Prod 1 | Demand:  109 | Inventory:   14 | Backlog:    0
+  Prod 2 | Demand:   57 | Inventory:    0 | Backlog:    0
+  Prod 3 | Demand:   92 | Inventory:    0 | Backlog:    0
+  Prod 4 | Demand:   67 | Inventory:    0 | Backlog:    0
+=====================================================================================
+
+[ PERIOD 2 ] - Demand for today: [47, 14, 72, 106, 31]
+--------------------------------------------------
+MACHINE ACTIONS:
+  Line 0: 📦 Prod 2 (Qty: 72), 📦 Prod 4 (Qty: 31)
+  Line 1: 📦 Prod 0 (Qty: 47), 📦 Prod 3 (Qty: 106)
+
+END OF DAY STATUS:
+  Prod 0 | Demand:   47 | Inventory:    0 | Backlog:    0
+  Prod 1 | Demand:   14 | Inventory:    0 | Backlog:    0
+  Prod 2 | Demand:   72 | Inventory:    0 | Backlog:    0
+  Prod 3 | Demand:  106 | Inventory:    0 | Backlog:    0
+  Prod 4 | Demand:   31 | Inventory:    0 | Backlog:    0
+=====================================================================================
+
+[ PERIOD 3 ] - Demand for today: [125, 144, 139, 91, 113]
+--------------------------------------------------
+MACHINE ACTIONS:
+  Line 0: 📦 Prod 2 (Qty: 139), 📦 Prod 4 (Qty: 113)
+  Line 1: 📦 Prod 0 (Qty: 125), 📦 Prod 1 (Qty: 144), 📦 Prod 3 (Qty: 91)
+
+END OF DAY STATUS:
+  Prod 0 | Demand:  125 | Inventory:    0 | Backlog:    0
+  Prod 1 | Demand:  144 | Inventory:    0 | Backlog:    0
+  Prod 2 | Demand:  139 | Inventory:    0 | Backlog:    0
+  Prod 3 | Demand:   91 | Inventory:    0 | Backlog:    0
+  Prod 4 | Demand:  113 | Inventory:    0 | Backlog:    0
+=====================================================================================
+
+[ PERIOD 4 ] - Demand for today: [58, 70, 80, 74, 147]
+--------------------------------------------------
+MACHINE ACTIONS:
+  Line 0: 📦 Prod 2 (Qty: 80), 📦 Prod 4 (Qty: 147)
+  Line 1: 📦 Prod 0 (Qty: 58), 📦 Prod 1 (Qty: 70), 📦 Prod 3 (Qty: 74)
+
+END OF DAY STATUS:
+  Prod 0 | Demand:   58 | Inventory:    0 | Backlog:    0
+  Prod 1 | Demand:   70 | Inventory:    0 | Backlog:    0
+  Prod 2 | Demand:   80 | Inventory:    0 | Backlog:    0
+  Prod 3 | Demand:   74 | Inventory:    0 | Backlog:    0
+  Prod 4 | Demand:  147 | Inventory:    0 | Backlog:    0
+=====================================================================================
+
+=======================================================
+ RH2 BASELINE FINAL RESULTS (Total Time: 6.9s)
+=======================================================
+  Inventory Cost    :  $     24.50
+  Backlog Cost      :  $      0.00
+  Production Cost   :  $   2274.39
+  Setup Cost        :  $    353.32
+  Maintenance Cost  :  $     14.36
+-------------------------------------------------------
+  TOTAL COST        :  $   2666.56
+=======================================================
+
+✅ Exported Expert Action Data to rh2_expert_data.json

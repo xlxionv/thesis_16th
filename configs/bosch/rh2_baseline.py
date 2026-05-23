@@ -257,10 +257,13 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="RH2 Baseline for SD-CLSP")
-    parser.add_argument("--config", type=str, default="lines3.json", help="Path to the JSON config file")
+    parser.add_argument("--config", type=str, default="dataset/Small/test_benchmark_5_2_4/test_P5_L2_T4_1.json", help="Path to the JSON config file")
     parser.add_argument("--lookahead", type=int, default=3, help="Lookahead window in periods")
-    parser.add_argument("--time_limit", type=float, default=150.0, help="Time limit per solve in seconds")
-    
+    parser.add_argument("--time_limit", type=float, default=1000.0, help="Time limit per solve in seconds")
+    parser.add_argument("--output", type=str, default=None, help="CSV file to append a result row (instance,backlog,inventory,maintenance,production,setup,total)")
+    parser.add_argument("--instance_id", type=int, default=None, help="Instance number to write in the CSV output row")
+    parser.add_argument("--quiet", action="store_true", help="Suppress detailed schedule printout")
+
     args = parser.parse_args()
 
     config_path = args.config
@@ -333,10 +336,11 @@ if __name__ == "__main__":
     wall_total = time.time() - wall_start
     
     # 5. PRINT RESULTS
-    print_detailed_schedule(period_summaries, data)
-    
+    if not args.quiet:
+        print_detailed_schedule(period_summaries, data)
+
     print("\n" + "=" * 55)
-    print(f" 🏆 RH2 BASELINE FINAL RESULTS (Total Time: {wall_total:.1f}s)")
+    print(f" RH2 BASELINE FINAL RESULTS (Total Time: {wall_total:.1f}s)")
     print("=" * 55)
     print(f"  Inventory Cost    :  ${history['inv']:>10.2f}")
     print(f"  Backlog Cost      :  ${history['back']:>10.2f}")
@@ -346,6 +350,25 @@ if __name__ == "__main__":
     print("-" * 55)
     print(f"  TOTAL COST        :  ${total_integrated_cost:>10.2f}")
     print("=" * 55)
+
+    # 6. WRITE CSV ROW (for batch benchmark comparison)
+    if args.output:
+        import csv, os as _os
+        write_header = not _os.path.exists(args.output)
+        with open(args.output, "a", newline="") as csvf:
+            writer = csv.writer(csvf)
+            if write_header:
+                writer.writerow(["instance", "backlog", "inventory", "maintenance", "production", "setup", "total", "time_s"])
+            writer.writerow([
+                args.instance_id if args.instance_id is not None else _os.path.basename(args.config),
+                f"{history['back']:.4f}",
+                f"{history['inv']:.4f}",
+                f"{history['pm'] + history['cm']:.4f}",
+                f"{history['prod']:.4f}",
+                f"{history['setup']:.4f}",
+                f"{total_integrated_cost:.4f}",
+                f"{wall_total:.2f}",
+            ])
 
     # ==========================================================
     # 6. EXPORT EXPERT DATA FOR RL BEHAVIORAL CLONING

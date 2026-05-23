@@ -4,15 +4,11 @@ command:
   - python3
   - ${program}
   - ${args}
+run_cap: 30
 method: bayes
 metric:
   name: Eval_Costs/TOTAL
   goal: minimize
-
-early_terminate:
-  type: hyperband
-  min_iter: 3
-  eta: 3
 
 parameters:
   # PPO / RL

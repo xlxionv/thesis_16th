@@ -27,7 +27,9 @@ class BoschEnv(object):
         
         # Load evaluation configs if we are in testing mode
         self.eval_configs = getattr(args, "eval_config_dicts", []) if is_eval else []
-        self.eval_idx = 0
+        # Each eval env is pinned to one fixed instance (rank-based) so W&B tracks
+        # progress on the same instances every eval call rather than cycling.
+        self.eval_idx = rank % max(1, len(self.eval_configs)) if is_eval else 0
 
         # Extract fixed dimensions (These CANNOT change during a single training run)
         self.num_lines = int(getattr(args, "num_lines", 6))
@@ -228,7 +230,7 @@ class BoschEnv(object):
         
         self.alpha_cost_weight = float(cfg.get("alpha_cost_weight", getattr(self.args, "alpha_cost_weight", 0.5)))
 
-        self.machine_service_cost_share_beta = float(cfg.get("machine_service_cost_share_beta", getattr(self.args, "machine_service_cost_share_beta", 0.1)))
+        self.machine_service_cost_share_beta = float(cfg.get("machine_service_cost_share_beta", getattr(self.args, "machine_service_cost_share_beta", 0.0)))
         self.machine_service_cost_share_mode = str(cfg.get("machine_service_cost_share_mode", "assignment")).strip().lower()
         self.machine_service_cost_share_include_inventory = bool(cfg.get("machine_service_cost_share_include_inventory", False))
         self.machine_service_cost_share_include_backlog = bool(cfg.get("machine_service_cost_share_include_backlog", True))
@@ -298,8 +300,7 @@ class BoschEnv(object):
 
     def reset(self):
         if self.is_eval and len(self.eval_configs) > 0:
-            cfg = self.eval_configs[self.eval_idx]
-            self.eval_idx = (self.eval_idx + 1) % len(self.eval_configs)
+            cfg = self.eval_configs[self.eval_idx]  # always same instance for this env
             self._load_config(cfg)
         else:
             cfg = self._generate_random_instance()
@@ -1246,36 +1247,36 @@ class BoschEnv(object):
         rewards = np.zeros((self.num_agents, 1), dtype=np.float32)
 
         if self.reward_mode == "step1":
-            # Kill switch: if any demand was unmet this period, apply a flat penalty
-            # to every agent and wipe the backlog so it does not degrade future states.
+            # Proportional backlog penalty: scales with unmet demand so agents always
+            # benefit from producing more. Wipe backlog so it does not accumulate
+            # across periods (lot sizing is MILP's job in Step 2).
             unmet = float(np.sum(self.backlog))
             if unmet > 1e-3:
-                rewards[:, 0] -= self.kill_switch_penalty
-                self.backlog[:] = 0.0
-                self.last_backlog_qty = 0.0
-                self.last_backlog_per_product[:] = 0.0
-                self.last_unmet_demand_per_product[:] = 0.0
-            else:
-                # Team reward: all agents share -(proc_time + setup + PM + CM).
-                # Covers every cost that is a structural decision (allocation,
-                # sequencing, maintenance timing). Inventory and backlog are
-                # excluded — lot sizing is MILP's job in Step 2.
-                total_proc_time = float(
-                    np.sum(self.period_produced_per_line * self.processing_time_matrix)
-                )
-                team = -(total_proc_time + float(worker_total_direct_costs))
+                rewards[:, 0] -= self.kill_switch_penalty * unmet
+                if not self.is_eval:
+                    self.backlog[:] = 0.0
+                    self.last_backlog_qty = 0.0
+                    self.last_backlog_per_product[:] = 0.0
+                    self.last_unmet_demand_per_product[:] = 0.0
 
-                # Process Agent shaping: penalise over-activation and load imbalance.
-                # These only update agent 0 — machine agents are not responsible
-                # for the allocation decision.
-                if self.activation_penalty > 0.0:
-                    num_activated = float(np.sum(self.last_manager_masks))
-                    team -= self.activation_penalty * num_activated
-                if self.load_balance_penalty > 0.0:
-                    setup_std = float(np.std(self.period_setup_costs))
-                    team -= self.load_balance_penalty * setup_std
+            # Team reward always applied: -(proc_time + setup + PM + CM).
+            # Covers structural decisions (allocation, sequencing, maintenance).
+            # Given alongside the proportional backlog penalty above so agents
+            # learn efficiency even when demand is not fully met.
+            total_proc_time = float(
+                np.sum(self.period_produced_per_line * self.processing_time_matrix)
+            )
+            team = -(total_proc_time + float(worker_total_direct_costs))
 
-                rewards[:, 0] = team
+            # Process Agent shaping: penalise over-activation and load imbalance.
+            if self.activation_penalty > 0.0:
+                num_activated = float(np.sum(self.last_manager_masks))
+                team -= self.activation_penalty * num_activated
+            if self.load_balance_penalty > 0.0:
+                setup_std = float(np.std(self.period_setup_costs))
+                team -= self.load_balance_penalty * setup_std
+
+            rewards[:, 0] += team
         else:
             rewards[0, 0] = -float(manager_direct_costs) + self.alpha_cost_weight * (
                 -float(worker_total_direct_costs)

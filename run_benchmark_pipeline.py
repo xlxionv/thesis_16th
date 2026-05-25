@@ -45,9 +45,32 @@ BEST_HPARAMS = {
 BASE_KILL_SWITCH = 5000   # for P=5; scaled proportionally for larger P
 BASE_P = 5
 
+# P>=10 uses proportional kill_switch (penalty × unmet_qty per period).
+# Value of 20 per unit means 600 unmet units → -12,000 penalty, which clearly
+# dominates the efficiency reward (~2,000–4,000/period) without being unstable.
+LARGE_P_KILL_SWITCH  = 20     # per-unit backlog penalty for proportional reward mode
+LARGE_P_ENTROPY_COEF = 0.01   # ~6× the P=5 optimized value; prevents premature collapse
+
 
 def get_kill_switch(P):
+    if P >= 10:
+        return LARGE_P_KILL_SWITCH
     return int(BASE_KILL_SWITCH * P / BASE_P)
+
+
+def get_entropy_coef(P):
+    if P >= 10:
+        return LARGE_P_ENTROPY_COEF
+    return BEST_HPARAMS["entropy_coef"]
+
+
+def get_num_steps(P):
+    if P <= 13:   # Small
+        return 500_000
+    elif P <= 22: # Medium
+        return 1_000_000
+    else:         # Large
+        return 3_000_000
 
 
 def results_dir(P, L, T):
@@ -58,8 +81,17 @@ def model_dir(P, L, T):
     return os.path.join(results_dir(P, L, T), "model")
 
 
+def dataset_size(P):
+    if P <= 13:
+        return "Small"
+    elif P <= 22:
+        return "Medium"
+    else:
+        return "Large"
+
+
 def dataset_dir(P, L, T):
-    return os.path.join(PROJECT_ROOT, "dataset", "Small", f"test_benchmark_{P}_{L}_{T}")
+    return os.path.join(PROJECT_ROOT, "dataset", dataset_size(P), f"test_benchmark_{P}_{L}_{T}")
 
 
 def instance_path(P, L, T, i):
@@ -81,7 +113,7 @@ def train(P, L, T):
     print(f"{'='*60}")
 
     eval_configs = [
-        f"dataset/Small/test_benchmark_{P}_{L}_{T}/test_P{P}_L{L}_T{T}_{i}.json"
+        f"dataset/{dataset_size(P)}/test_benchmark_{P}_{L}_{T}/test_P{P}_L{L}_T{T}_{i}.json"
         for i in range(1, 101)
     ]
 
@@ -100,7 +132,7 @@ def train(P, L, T):
         "--max_actions_per_period", "8",
         "--n_rollout_threads",      "8",
         "--n_training_threads",     "1",
-        "--num_env_steps",          "500000",
+        "--num_env_steps",          str(get_num_steps(P)),
         "--log_interval",           "5",
         "--num_mini_batch",         "1",
         "--use_linear_lr_decay",
@@ -113,7 +145,7 @@ def train(P, L, T):
         "--lr",                     str(BEST_HPARAMS["lr"]),
         "--critic_lr",              str(BEST_HPARAMS["critic_lr"]),
         "--dense_production_reward",str(BEST_HPARAMS["dense_production_reward"]),
-        "--entropy_coef",           str(BEST_HPARAMS["entropy_coef"]),
+        "--entropy_coef",           str(get_entropy_coef(P)),
         "--clip_param",             str(BEST_HPARAMS["clip_param"]),
         "--ppo_epoch",              str(BEST_HPARAMS["ppo_epoch"]),
         "--gae_lambda",             str(BEST_HPARAMS["gae_lambda"]),
@@ -342,9 +374,9 @@ def approach_rh2(config_path):
     cmd = [sys.executable,
            os.path.join(PROJECT_ROOT, "configs/bosch/rh2_baseline.py"),
            "--config", config_path, "--quiet",
-           "--time_limit", "1000"]
+           "--time_limit", "300"]
     result = subprocess.run(cmd, capture_output=True, text=True,
-                            cwd=PROJECT_ROOT, timeout=5000)
+                            cwd=PROJECT_ROOT, timeout=1500)
     output = result.stdout + result.stderr
     match = re.search(r'TOTAL COST\s*:\s*\$\s*([\d,]+\.?\d*)', output)
     if match:

@@ -137,16 +137,21 @@ def solve_lot_sizes(start_t, window, data, state, rl_alloc, time_limit=60):
     (period → step → L×P) allocation formats.  The 4D format enables
     exact setup-overhead accounting; the 2D format uses the conservative
     worst-case bound.
+
+    Backlog is allowed with a per-unit penalty equal to data["backlog_cost"],
+    making the LP always feasible when the RL allocation is capacity-constrained.
     """
     P, L = data["num_products"], data["num_lines"]
     K = data["capacity_per_line"]
     elig = data["eligibility_matrix"]
     proc = data["processing_time_matrix"]
+    b_cost = float(data.get("backlog_cost", 1.0))
 
     prob = pulp.LpProblem(f"PosthocLotSizing_{start_t}", pulp.LpMinimize)
 
-    x = [[[pulp.LpVariable(f"x_{t}_{l}_{p}", lowBound=0) for p in range(P)] for l in range(L)] for t in range(window)]
-    inv = [[pulp.LpVariable(f"inv_{t}_{p}", lowBound=0) for p in range(P)] for t in range(window)]
+    x    = [[[pulp.LpVariable(f"x_{t}_{l}_{p}",    lowBound=0) for p in range(P)] for l in range(L)] for t in range(window)]
+    inv  = [[pulp.LpVariable(f"inv_{t}_{p}",  lowBound=0) for p in range(P)] for t in range(window)]
+    back = [[pulp.LpVariable(f"back_{t}_{p}", lowBound=0) for p in range(P)] for t in range(window)]
 
     for t in range(window):
         global_t = start_t + t
@@ -155,11 +160,12 @@ def solve_lot_sizes(start_t, window, data, state, rl_alloc, time_limit=60):
         y_union = _get_period_union_mask(rl_alloc, alloc_key, L, P)
         demand_t = data["demand_profile"][global_t]
 
-        # Inventory balance: production >= demand (no backlog allowed)
+        # Inventory balance: allow backlog so the LP is always feasible even when
+        # the RL allocation over-concentrates products on a single line.
         for p in range(P):
             prev_inv = state["inv"][p] if t == 0 else inv[t - 1][p]
             produced = pulp.lpSum([x[t][l][p] for l in range(L)])
-            prob += prev_inv + produced - inv[t][p] == demand_t[p]
+            prob += prev_inv + produced - inv[t][p] + back[t][p] == demand_t[p]
 
         # Feasibility shield per line using exact setup overhead
         for l in range(L):
@@ -180,7 +186,7 @@ def solve_lot_sizes(start_t, window, data, state, rl_alloc, time_limit=60):
 
             prob += pulp.lpSum(proc[l][p] * x[t][l][p] for p in active_products) <= effective_cap
 
-    # Objective: minimize inventory holding + production + maintenance costs
+    # Objective: minimize inventory holding + production + maintenance + backlog costs
     obj = []
     for t in range(window):
         global_t = start_t + t
@@ -188,6 +194,7 @@ def solve_lot_sizes(start_t, window, data, state, rl_alloc, time_limit=60):
         y_union = _get_period_union_mask(rl_alloc, alloc_key, L, P)
         for p in range(P):
             obj.append(data["holding_cost"] * inv[t][p])
+            obj.append(b_cost * back[t][p])
             for l in range(L):
                 if y_union[l][p] > 0.5 and elig[l][p] > 0.5:
                     obj.append(data["production_cost_matrix"][l][p] * x[t][l][p])
@@ -199,6 +206,7 @@ def solve_lot_sizes(start_t, window, data, state, rl_alloc, time_limit=60):
     lot_sizes = np.zeros((L, P), dtype=np.float32)
     new_inv = state["inv"].copy()
     new_last = state["last_prod"].copy()
+    period_backlog = np.zeros(P, dtype=np.float32)
 
     if prob.status == 1:
         for l in range(L):
@@ -207,17 +215,19 @@ def solve_lot_sizes(start_t, window, data, state, rl_alloc, time_limit=60):
                 if val is not None and val > 1e-5:
                     lot_sizes[l][p] = float(val)
 
-        produced_t0 = np.sum(lot_sizes, axis=0)
         for p in range(P):
-            new_inv[p] = max(0.0, state["inv"][p] + produced_t0[p] - data["demand_profile"][start_t][p])
+            inv_val = pulp.value(inv[0][p])
+            new_inv[p] = float(inv_val) if inv_val is not None and inv_val > 1e-5 else 0.0
+            back_val = pulp.value(back[0][p])
+            if back_val is not None and back_val > 1e-5:
+                period_backlog[p] = float(back_val)
 
-        alloc_key = f"period_{start_t}"
         for l in range(L):
             active = [p for p in range(P) if lot_sizes[l][p] > 1e-5]
             if active:
                 new_last[l] = active[-1]
 
-    return lot_sizes, new_inv, new_last, prob.status == 1
+    return lot_sizes, new_inv, new_last, prob.status == 1, period_backlog
 
 
 if __name__ == "__main__":
@@ -255,14 +265,15 @@ if __name__ == "__main__":
     print(f"\n[milp_posthoc] Config: {args.config}")
     print(f"[milp_posthoc] RL allocation: {args.rl_allocation} ({alloc_format})")
     print(f"[milp_posthoc] Periods: {T}, Lookahead: {args.lookahead}")
-    print(f"[milp_posthoc] No backlog allowed — production >= demand is a hard constraint")
-    print(f"\n{'Per':>3} | {'Status':>8} | {'Time(s)':>7}")
-    print("-" * 28)
+    print(f"[milp_posthoc] Backlog allowed with per-unit penalty = backlog_cost (LP always feasible)")
+    print(f"\n{'Per':>3} | {'Status':>8} | {'Time(s)':>7} | {'Backlog qty':>11}")
+    print("-" * 45)
 
+    total_backlog = 0.0
     for t in range(T):
         t0 = time.time()
         window = min(args.lookahead, T - t)
-        lot_sizes, new_inv, new_last, solved = solve_lot_sizes(
+        lot_sizes, new_inv, new_last, solved, period_backlog = solve_lot_sizes(
             t, window, data, state, rl_alloc, args.time_limit
         )
         state["inv"] = new_inv
@@ -270,8 +281,14 @@ if __name__ == "__main__":
 
         output[f"period_{t}"] = lot_sizes.tolist()
         elapsed = time.time() - t0
-        status_str = "OK" if solved else "INFEASIBLE"
-        print(f"{t+1:>3} | {status_str:>8} | {elapsed:>7.2f}")
+        status_str = "OK" if solved else "FAILED"
+        back_qty = float(np.sum(period_backlog))
+        total_backlog += back_qty
+        back_str = f"{back_qty:.1f}" if back_qty > 0 else "-"
+        print(f"{t+1:>3} | {status_str:>8} | {elapsed:>7.2f} | {back_str:>11}")
+
+    if total_backlog > 0:
+        print(f"\n  WARNING: total backlog across all periods = {total_backlog:.1f} units")
 
     with open(args.output, "w") as f:
         json.dump(output, f, indent=2)

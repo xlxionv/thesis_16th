@@ -1,0 +1,12 @@
+allocator_mode:
+  value: jit
+hidden_size:
+  value: 128
+max_actions_per_period:
+  value: 8
+obs_mode:
+  value: binary
+recurrent_N:
+  value: 1
+reward_mode:
+  value: step1

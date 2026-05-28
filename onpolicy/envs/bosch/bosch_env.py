@@ -285,6 +285,10 @@ class BoschEnv(object):
         self.reward_mode = str(cfg.get("reward_mode", getattr(self.args, "reward_mode", "full"))).strip().lower()
         self.kill_switch_penalty = float(cfg.get("kill_switch_penalty", getattr(self.args, "kill_switch_penalty", 1000.0)))
         self.obs_mode = str(cfg.get("obs_mode", getattr(self.args, "obs_mode", "full"))).strip().lower()
+        self.pm_action_mode = str(cfg.get("pm_action_mode", getattr(self.args, "pm_action_mode", "normal"))).strip().lower()
+        if self.pm_action_mode not in ("normal", "no_pm", "gated"):
+            self.pm_action_mode = "normal"
+        self.pm_gate_risk_threshold = float(cfg.get("pm_gate_risk_threshold", getattr(self.args, "pm_gate_risk_threshold", 1.0)))
 
         milp_lot_sizes_path = cfg.get("milp_lot_sizes_path", getattr(self.args, "milp_lot_sizes_path", None))
         self.milp_lot_sizes = None
@@ -1115,10 +1119,6 @@ class BoschEnv(object):
             mask[end_index] = 1.0
             return mask
 
-        pm_time_l = float(self.pm_time[line_idx]) if np.ndim(self.pm_time) > 0 else float(self.pm_time)
-        if self.remaining_capacity[line_idx] >= max(pm_time_l, 1e-6):
-            mask[pm_index] = 1.0
-
         # In training modes (no pre-loaded MILP lot sizes) the queue is 0 when
         # this is called because _manager_step refills it at the START of the
         # NEXT step.  Use demand-based feasibility so machines are not blocked.
@@ -1134,6 +1134,16 @@ class BoschEnv(object):
             if ok:
                 mask[product_idx] = 1.0
                 can_work = True
+
+        pm_time_l = float(self.pm_time[line_idx]) if np.ndim(self.pm_time) > 0 else float(self.pm_time)
+        pm_capacity_ok = self.remaining_capacity[line_idx] >= max(pm_time_l, 1e-6)
+        if pm_capacity_ok and self.pm_action_mode == "normal":
+            mask[pm_index] = 1.0
+        elif pm_capacity_ok and self.pm_action_mode == "gated":
+            age_risk = float(self.hazard_rate[line_idx]) * float(self.ages[line_idx])
+            produced_this_period = float(np.sum(self.period_produced_per_line[line_idx])) > 1e-6
+            if (not can_work) or (produced_this_period and age_risk >= self.pm_gate_risk_threshold):
+                mask[pm_index] = 1.0
 
         if not can_work:
             mask[end_index] = 1.0

@@ -1,0 +1,189 @@
+{
+  "instance_1": {
+    "step1_no_pm": 75196.429459095,
+    "step1_no_pm_actions": {
+      "prod": 288,
+      "pm": 0,
+      "end": 0,
+      "other": 0
+    },
+    "step1_no_pm_time": 1.9855408668518066,
+    "step123_no_pm": 12801.247916221619,
+    "step123_no_pm_actions": {
+      "prod": 100,
+      "pm": 0,
+      "end": 92,
+      "other": 0
+    },
+    "step123_no_pm_time": 1.7241930961608887
+  },
+  "instance_2": {
+    "step1_no_pm": 81727.10576808453,
+    "step1_no_pm_actions": {
+      "prod": 288,
+      "pm": 0,
+      "end": 0,
+      "other": 0
+    },
+    "step1_no_pm_time": 1.858938217163086,
+    "step123_no_pm": 13608.893070220947,
+    "step123_no_pm_actions": {
+      "prod": 104,
+      "pm": 0,
+      "end": 128,
+      "other": 0
+    },
+    "step123_no_pm_time": 1.0687122344970703
+  },
+  "instance_3": {
+    "step1_no_pm": 72157.88550412655,
+    "step1_no_pm_actions": {
+      "prod": 288,
+      "pm": 0,
+      "end": 0,
+      "other": 0
+    },
+    "step1_no_pm_time": 2.3771331310272217,
+    "step123_no_pm": 12584.164594650269,
+    "step123_no_pm_actions": {
+      "prod": 103,
+      "pm": 0,
+      "end": 89,
+      "other": 0
+    },
+    "step123_no_pm_time": 0.8940858840942383
+  },
+  "instance_4": {
+    "step1_no_pm": 77528.92784512043,
+    "step1_no_pm_actions": {
+      "prod": 288,
+      "pm": 0,
+      "end": 0,
+      "other": 0
+    },
+    "step1_no_pm_time": 1.4657609462738037,
+    "step123_no_pm": 13506.634019851685,
+    "step123_no_pm_actions": {
+      "prod": 103,
+      "pm": 0,
+      "end": 113,
+      "other": 0
+    },
+    "step123_no_pm_time": 0.9922020435333252
+  },
+  "instance_5": {
+    "step1_no_pm": 79800.97952225059,
+    "step1_no_pm_actions": {
+      "prod": 288,
+      "pm": 0,
+      "end": 0,
+      "other": 0
+    },
+    "step1_no_pm_time": 1.4205551147460938,
+    "step123_no_pm": 12543.784994125366,
+    "step123_no_pm_actions": {
+      "prod": 101,
+      "pm": 0,
+      "end": 107,
+      "other": 0
+    },
+    "step123_no_pm_time": 1.222985029220581
+  },
+  "instance_6": {
+    "step1_no_pm": 74167.93859767914,
+    "step1_no_pm_actions": {
+      "prod": 288,
+      "pm": 0,
+      "end": 0,
+      "other": 0
+    },
+    "step1_no_pm_time": 1.3298840522766113,
+    "step123_no_pm": 12384.004148483276,
+    "step123_no_pm_actions": {
+      "prod": 103,
+      "pm": 0,
+      "end": 113,
+      "other": 0
+    },
+    "step123_no_pm_time": 0.8683969974517822
+  },
+  "instance_7": {
+    "step1_no_pm": 72717.10245513916,
+    "step1_no_pm_actions": {
+      "prod": 288,
+      "pm": 0,
+      "end": 0,
+      "other": 0
+    },
+    "step1_no_pm_time": 1.2706470489501953,
+    "step123_no_pm": 12327.65280532837,
+    "step123_no_pm_actions": {
+      "prod": 101,
+      "pm": 0,
+      "end": 139,
+      "other": 0
+    },
+    "step123_no_pm_time": 0.9273738861083984
+  },
+  "instance_8": {
+    "step1_no_pm": 67665.34441232681,
+    "step1_no_pm_actions": {
+      "prod": 288,
+      "pm": 0,
+      "end": 0,
+      "other": 0
+    },
+    "step1_no_pm_time": 1.4482991695404053,
+    "step123_no_pm": 11651.869428634644,
+    "step123_no_pm_actions": {
+      "prod": 98,
+      "pm": 0,
+      "end": 78,
+      "other": 0
+    },
+    "step123_no_pm_time": 1.0567669868469238
+  },
+  "instance_9": {
+    "step1_no_pm": 78249.12859988213,
+    "step1_no_pm_actions": {
+      "prod": 288,
+      "pm": 0,
+      "end": 0,
+      "other": 0
+    },
+    "step1_no_pm_time": 1.2714130878448486,
+    "step123_no_pm": 13761.446338653564,
+    "step123_no_pm_actions": {
+      "prod": 105,
+      "pm": 0,
+      "end": 87,
+      "other": 0
+    },
+    "step123_no_pm_time": 0.7651238441467285
+  },
+  "instance_10": {
+    "step1_no_pm": 73089.89767026901,
+    "step1_no_pm_actions": {
+      "prod": 288,
+      "pm": 0,
+      "end": 0,
+      "other": 0
+    },
+    "step1_no_pm_time": 1.380953073501587,
+    "step123_no_pm": 12430.76459312439,
+    "step123_no_pm_actions": {
+      "prod": 101,
+      "pm": 0,
+      "end": 131,
+      "other": 0
+    },
+    "step123_no_pm_time": 1.627612829208374
+  },
+  "_summary": {
+    "n": 10,
+    "step123_no_pm_mean": 12760.046190929414,
+    "step123_no_pm_min": 11651.869428634644,
+    "step123_no_pm_max": 13761.446338653564,
+    "gap_vs_rh2_pct": -28.09954580612884
+  }
+}

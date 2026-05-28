@@ -1,0 +1,16 @@
+[Fri May 29 00:16:25 +07 2026] Starting large gated-PM benchmarks from 26_9_4
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /Users/nhi/.netrc.
+wandb: Currently logged in as: tntvan-iac (tntvan-iac-instagram) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run 7hypbml0
+wandb: Tracking run with wandb version 0.26.1
+wandb: Run data is saved locally in results/BOSCH/rmappo/benchmark_26_9_4_gated_pm/wandb/run-20260529_001628-7hypbml0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run rmappo_benchmark_26_9_4_gated_pm_seed1
+wandb: ⭐️ View project at https://wandb.ai/tntvan-iac-instagram/BOSCH
+wandb: 🚀 View run at https://wandb.ai/tntvan-iac-instagram/BOSCH/runs/7hypbml0
+
+============================================================
+STEP 1: Training P=26 L=9 T=4  kill_switch=20  num_env_steps=3000000
+============================================================
+BOSCH: using multiprocessing start_method='fork' on macOS.

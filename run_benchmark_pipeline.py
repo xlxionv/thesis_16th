@@ -28,6 +28,9 @@ import numpy as np
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, PROJECT_ROOT)
+CURRENT_RESULT_TAG = None
+CURRENT_PM_ACTION_MODE = "normal"
+CURRENT_PM_GATE_RISK_THRESHOLD = 1.0
 
 # Best hyperparameters from P=5 sweep
 BEST_HPARAMS = {
@@ -73,8 +76,22 @@ def get_num_steps(P):
         return 3_000_000
 
 
+def benchmark_key(P, L, T):
+    key = f"{P}_{L}_{T}"
+    if CURRENT_RESULT_TAG:
+        key = f"{key}_{CURRENT_RESULT_TAG}"
+    return key
+
+
+def experiment_name(P, L, T):
+    name = f"benchmark_{P}_{L}_{T}"
+    if CURRENT_RESULT_TAG:
+        name = f"{name}_{CURRENT_RESULT_TAG}"
+    return name
+
+
 def results_dir(P, L, T):
-    return os.path.join(PROJECT_ROOT, "benchmark_results", f"{P}_{L}_{T}")
+    return os.path.join(PROJECT_ROOT, "benchmark_results", benchmark_key(P, L, T))
 
 
 def model_dir(P, L, T):
@@ -102,14 +119,17 @@ def instance_path(P, L, T, i):
 # Step 1: Train
 # ---------------------------------------------------------------------------
 
-def train(P, L, T):
+def train(P, L, T, num_env_steps=None):
     mdir = model_dir(P, L, T)
     os.makedirs(mdir, exist_ok=True)
 
     kill_switch = get_kill_switch(P)
-    experiment_name = f"benchmark_{P}_{L}_{T}"
+    exp_name = experiment_name(P, L, T)
     print(f"\n{'='*60}")
-    print(f"STEP 1: Training P={P} L={L} T={T}  kill_switch={kill_switch}")
+    if num_env_steps is None:
+        num_env_steps = get_num_steps(P)
+
+    print(f"STEP 1: Training P={P} L={L} T={T}  kill_switch={kill_switch}  num_env_steps={num_env_steps}")
     print(f"{'='*60}")
 
     eval_configs = [
@@ -119,7 +139,7 @@ def train(P, L, T):
 
     train_args = [
         "--algorithm_name",         "rmappo",
-        "--experiment_name",        experiment_name,
+        "--experiment_name",        exp_name,
         "--seed",                   "1",
         "--num_products",           str(P),
         "--num_lines",              str(L),
@@ -132,12 +152,12 @@ def train(P, L, T):
         "--max_actions_per_period", "8",
         "--n_rollout_threads",      "8",
         "--n_training_threads",     "1",
-        "--num_env_steps",          str(get_num_steps(P)),
+        "--num_env_steps",          str(num_env_steps),
         "--log_interval",           "5",
         "--num_mini_batch",         "1",
         "--use_linear_lr_decay",
         "--use_eval",
-        "--n_eval_rollout_threads", "5",
+        "--n_eval_rollout_threads", "10",
         "--eval_interval",          "50",
         "--eval_configs",           *eval_configs,
         "--hidden_size",            str(BEST_HPARAMS["hidden_size"]),
@@ -151,6 +171,8 @@ def train(P, L, T):
         "--gae_lambda",             str(BEST_HPARAMS["gae_lambda"]),
         "--gamma",                  str(BEST_HPARAMS["gamma"]),
         "--kill_switch_penalty",    str(kill_switch),
+        "--pm_action_mode",         str(CURRENT_PM_ACTION_MODE),
+        "--pm_gate_risk_threshold", str(CURRENT_PM_GATE_RISK_THRESHOLD),
         "--use_wandb",
         "--user_name",              "tntvan-iac-instagram",
     ]
@@ -162,7 +184,7 @@ def train(P, L, T):
     # When W&B is enabled, model saves to wandb run dir; otherwise to run1/models/.
     import shutil, glob
 
-    base = os.path.join(PROJECT_ROOT, "results", "BOSCH", "rmappo", experiment_name)
+    base = os.path.join(PROJECT_ROOT, "results", "BOSCH", "rmappo", exp_name)
     candidates = (
         glob.glob(os.path.join(base, "wandb", "run-*", "files", "actor_agent0.pt")) +
         glob.glob(os.path.join(base, "run*", "models", "actor_agent0.pt"))
@@ -266,6 +288,8 @@ def build_env_and_policies(P, L, T, config_path, milp_lot_sizes_path=None):
         "--reward_mode",           "step1",
         "--allocator_mode",        "jit",
         "--obs_mode",              "binary",
+        "--pm_action_mode",        str(CURRENT_PM_ACTION_MODE),
+        "--pm_gate_risk_threshold",str(CURRENT_PM_GATE_RISK_THRESHOLD),
         "--algorithm_name",        "rmappo",
         "--experiment_name",       "inference",
         "--seed",                  "1",
@@ -374,9 +398,9 @@ def approach_rh2(config_path):
     cmd = [sys.executable,
            os.path.join(PROJECT_ROOT, "configs/bosch/rh2_baseline.py"),
            "--config", config_path, "--quiet",
-           "--time_limit", "300"]
+           "--time_limit", "500"]
     result = subprocess.run(cmd, capture_output=True, text=True,
-                            cwd=PROJECT_ROOT, timeout=1500)
+                            cwd=PROJECT_ROOT, timeout=5000)
     output = result.stdout + result.stderr
     match = re.search(r'TOTAL COST\s*:\s*\$\s*([\d,]+\.?\d*)', output)
     if match:
@@ -391,7 +415,7 @@ def approach_rh2(config_path):
 N_COMPARE = 10  # number of instances to compare (RH2 is expensive for large P)
 
 
-def run_comparison(P, L, T):
+def run_comparison(P, L, T, rerun_rl=False, rerun_rh2=False, skip_rh2=False):
     rdir = results_dir(P, L, T)
     os.makedirs(rdir, exist_ok=True)
     output_file = os.path.join(rdir, "comparison_100instances.json")
@@ -409,14 +433,22 @@ def run_comparison(P, L, T):
             print(f"[{i}/100] SKIP — not found: {cfg}")
             continue
 
-        if key in results and all(results[key].get(k) is not None
-                                  for k in ["step1_only", "step1_2_3", "rh2"]):
+        if key not in results:
+            results[key] = {}
+
+        if rerun_rl:
+            for field in ["step1_only", "step1_only_time", "step1_2_3", "step1_2_3_time"]:
+                results[key].pop(field, None)
+        if rerun_rh2:
+            for field in ["rh2", "rh2_time"]:
+                results[key].pop(field, None)
+
+        if all(results[key].get(k) is not None
+               for k in ["step1_only", "step1_2_3", "rh2"]):
             print(f"[{i}/100] Already complete, skipping")
             continue
 
         print(f"\n[{i}/100] {P}_{L}_{T} instance {i}")
-        if key not in results:
-            results[key] = {}
 
         if results[key].get("step1_only") is None:
             try:
@@ -442,7 +474,7 @@ def run_comparison(P, L, T):
                 print(f"  Step1+2+3 FAILED: {e}")
                 results[key]["step1_2_3"] = None
 
-        if results[key].get("rh2") is None:
+        if not skip_rh2 and results[key].get("rh2") is None:
             try:
                 t0 = time.time()
                 c = approach_rh2(cfg)
@@ -453,6 +485,8 @@ def run_comparison(P, L, T):
             except Exception as e:
                 print(f"  RH2 FAILED: {e}")
                 results[key]["rh2"] = None
+        elif skip_rh2 and "rh2" not in results[key]:
+            results[key]["rh2"] = None
 
         with open(output_file, "w") as f:
             json.dump(results, f, indent=2)
@@ -501,9 +535,31 @@ def main():
     parser.add_argument("--num_periods",  type=int, required=True)
     parser.add_argument("--skip_train",   action="store_true",
                         help="Skip Step 1 training (use existing model in benchmark_results/)")
+    parser.add_argument("--force_train",  action="store_true",
+                        help="Retrain even if benchmark_results already contains a model.")
     parser.add_argument("--skip_compare", action="store_true",
                         help="Run training only, skip comparison")
+    parser.add_argument("--rerun_rl_compare", action="store_true",
+                        help="Recompute RL comparison values while preserving existing RH2 results.")
+    parser.add_argument("--rerun_rh2_compare", action="store_true",
+                        help="Recompute RH2 comparison values while preserving existing RL results.")
+    parser.add_argument("--skip_rh2_compare", action="store_true",
+                        help="Skip RH2 during comparison and leave RH2 values missing.")
+    parser.add_argument("--num_env_steps", type=int, default=None,
+                        help="Override the default training budget.")
+    parser.add_argument("--pm_action_mode", type=str, default="normal",
+                        choices=["normal", "no_pm", "gated"],
+                        help="Controls PM action availability for machine agents.")
+    parser.add_argument("--pm_gate_risk_threshold", type=float, default=1.0,
+                        help="For pm_action_mode=gated, allow PM after work when hazard_rate * age reaches this threshold.")
+    parser.add_argument("--result_tag", type=str, default=None,
+                        help="Optional suffix for benchmark_results and W&B experiment name.")
     args = parser.parse_args()
+
+    global CURRENT_RESULT_TAG, CURRENT_PM_ACTION_MODE, CURRENT_PM_GATE_RISK_THRESHOLD
+    CURRENT_RESULT_TAG = args.result_tag
+    CURRENT_PM_ACTION_MODE = args.pm_action_mode
+    CURRENT_PM_GATE_RISK_THRESHOLD = args.pm_gate_risk_threshold
 
     P, L, T = args.num_products, args.num_lines, args.num_periods
 
@@ -512,17 +568,22 @@ def main():
                     os.path.exists(os.path.join(mdir, "actor_agent1.pt")))
 
     if not args.skip_train:
-        if model_exists:
+        if model_exists and not args.force_train:
             print(f"[Step 1] Model already exists at {mdir}, skipping training.")
         else:
-            train(P, L, T)
+            train(P, L, T, num_env_steps=args.num_env_steps)
     else:
         if not model_exists:
             print(f"ERROR: --skip_train set but no model found at {mdir}")
             sys.exit(1)
 
     if not args.skip_compare:
-        run_comparison(P, L, T)
+        run_comparison(
+            P, L, T,
+            rerun_rl=args.rerun_rl_compare,
+            rerun_rh2=args.rerun_rh2_compare,
+            skip_rh2=args.skip_rh2_compare,
+        )
 
 
 if __name__ == "__main__":

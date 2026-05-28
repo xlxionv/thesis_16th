@@ -331,6 +331,19 @@ def parse_args(args, parser):
         help="Robust setup-time estimate used in relaxed MILP capacity.",
     )
     parser.add_argument(
+        "--pm_action_mode",
+        type=str,
+        default="normal",
+        choices=["normal", "no_pm", "gated"],
+        help="Controls PM action availability for machine agents.",
+    )
+    parser.add_argument(
+        "--pm_gate_risk_threshold",
+        type=float,
+        default=1.0,
+        help="For pm_action_mode=gated, allow PM after work when hazard_rate * age reaches this threshold.",
+    )
+    parser.add_argument(
         "--relaxed_milp_setup_time_std_mult",
         type=float,
         default=1.0,
@@ -456,7 +469,14 @@ def main(args):
     run_dir.mkdir(parents=True, exist_ok=True)
 
     if all_args.use_wandb:
-        run = wandb.init(config=all_args,
+        # Create a shallow copy of the parameters and remove the heavy 100-evaluation
+        # dataset configs so we don't violate W&B's 15 MB metadata limits.
+        wandb_config = vars(all_args).copy()
+        for key in ["eval_configs", "eval_config_dicts"]:
+            if key in wandb_config:
+                del wandb_config[key]
+
+        run = wandb.init(config=wandb_config,
                          project=all_args.env_name,
                          entity=all_args.user_name,
                          notes=socket.gethostname(),

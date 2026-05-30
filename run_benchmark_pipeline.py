@@ -29,8 +29,10 @@ import numpy as np
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, PROJECT_ROOT)
 CURRENT_RESULT_TAG = None
-CURRENT_PM_ACTION_MODE = "normal"
+CURRENT_PM_ACTION_MODE = "gated"
 CURRENT_PM_GATE_RISK_THRESHOLD = 1.0
+CURRENT_HPARAM_OVERRIDES = {}
+CURRENT_KILL_SWITCH_OVERRIDE = None
 
 # Best hyperparameters from P=5 sweep
 BEST_HPARAMS = {
@@ -56,15 +58,23 @@ LARGE_P_ENTROPY_COEF = 0.01   # ~6× the P=5 optimized value; prevents premature
 
 
 def get_kill_switch(P):
+    if CURRENT_KILL_SWITCH_OVERRIDE is not None:
+        return CURRENT_KILL_SWITCH_OVERRIDE
     if P >= 10:
         return LARGE_P_KILL_SWITCH
     return int(BASE_KILL_SWITCH * P / BASE_P)
 
 
 def get_entropy_coef(P):
+    if "entropy_coef" in CURRENT_HPARAM_OVERRIDES:
+        return CURRENT_HPARAM_OVERRIDES["entropy_coef"]
     if P >= 10:
         return LARGE_P_ENTROPY_COEF
     return BEST_HPARAMS["entropy_coef"]
+
+
+def get_hparam(name):
+    return CURRENT_HPARAM_OVERRIDES.get(name, BEST_HPARAMS[name])
 
 
 def get_num_steps(P):
@@ -162,14 +172,14 @@ def train(P, L, T, num_env_steps=None):
         "--eval_configs",           *eval_configs,
         "--hidden_size",            str(BEST_HPARAMS["hidden_size"]),
         "--recurrent_N",            str(BEST_HPARAMS["recurrent_N"]),
-        "--lr",                     str(BEST_HPARAMS["lr"]),
-        "--critic_lr",              str(BEST_HPARAMS["critic_lr"]),
-        "--dense_production_reward",str(BEST_HPARAMS["dense_production_reward"]),
+        "--lr",                     str(get_hparam("lr")),
+        "--critic_lr",              str(get_hparam("critic_lr")),
+        "--dense_production_reward",str(get_hparam("dense_production_reward")),
         "--entropy_coef",           str(get_entropy_coef(P)),
-        "--clip_param",             str(BEST_HPARAMS["clip_param"]),
-        "--ppo_epoch",              str(BEST_HPARAMS["ppo_epoch"]),
-        "--gae_lambda",             str(BEST_HPARAMS["gae_lambda"]),
-        "--gamma",                  str(BEST_HPARAMS["gamma"]),
+        "--clip_param",             str(get_hparam("clip_param")),
+        "--ppo_epoch",              str(get_hparam("ppo_epoch")),
+        "--gae_lambda",             str(get_hparam("gae_lambda")),
+        "--gamma",                  str(get_hparam("gamma")),
         "--kill_switch_penalty",    str(kill_switch),
         "--pm_action_mode",         str(CURRENT_PM_ACTION_MODE),
         "--pm_gate_risk_threshold", str(CURRENT_PM_GATE_RISK_THRESHOLD),
@@ -206,12 +216,18 @@ def train(P, L, T, num_env_steps=None):
         else:
             import yaml
             cfg = {
-                "hidden_size":             {"value": BEST_HPARAMS["hidden_size"]},
-                "recurrent_N":             {"value": BEST_HPARAMS["recurrent_N"]},
+                "hidden_size":             {"value": get_hparam("hidden_size")},
+                "recurrent_N":             {"value": get_hparam("recurrent_N")},
                 "reward_mode":             {"value": "step1"},
                 "allocator_mode":          {"value": "jit"},
                 "obs_mode":                {"value": "binary"},
                 "max_actions_per_period":  {"value": 8},
+                "lr":                      {"value": get_hparam("lr")},
+                "critic_lr":               {"value": get_hparam("critic_lr")},
+                "entropy_coef":            {"value": get_entropy_coef(P)},
+                "clip_param":              {"value": get_hparam("clip_param")},
+                "gamma":                   {"value": get_hparam("gamma")},
+                "kill_switch_penalty":     {"value": get_kill_switch(P)},
             }
             with open(dst_cfg, "w") as f:
                 yaml.dump(cfg, f)
@@ -547,19 +563,44 @@ def main():
                         help="Skip RH2 during comparison and leave RH2 values missing.")
     parser.add_argument("--num_env_steps", type=int, default=None,
                         help="Override the default training budget.")
-    parser.add_argument("--pm_action_mode", type=str, default="normal",
+    parser.add_argument("--pm_action_mode", type=str, default="gated",
                         choices=["normal", "no_pm", "gated"],
                         help="Controls PM action availability for machine agents.")
     parser.add_argument("--pm_gate_risk_threshold", type=float, default=1.0,
                         help="For pm_action_mode=gated, allow PM after work when hazard_rate * age reaches this threshold.")
     parser.add_argument("--result_tag", type=str, default=None,
                         help="Optional suffix for benchmark_results and W&B experiment name.")
+    parser.add_argument("--kill_switch_penalty", type=float, default=None,
+                        help="Override the default kill-switch/backlog penalty used for training.")
+    parser.add_argument("--entropy_coef", type=float, default=None,
+                        help="Override PPO entropy coefficient for training.")
+    parser.add_argument("--lr", type=float, default=None,
+                        help="Override PPO actor learning rate for training.")
+    parser.add_argument("--critic_lr", type=float, default=None,
+                        help="Override PPO critic learning rate for training.")
+    parser.add_argument("--lr_scale", type=float, default=None,
+                        help="Scale both default actor and critic learning rates for training.")
+    parser.add_argument("--clip_param", type=float, default=None,
+                        help="Override PPO clip parameter for training.")
+    parser.add_argument("--gamma", type=float, default=None,
+                        help="Override PPO discount factor for training.")
     args = parser.parse_args()
 
     global CURRENT_RESULT_TAG, CURRENT_PM_ACTION_MODE, CURRENT_PM_GATE_RISK_THRESHOLD
+    global CURRENT_HPARAM_OVERRIDES, CURRENT_KILL_SWITCH_OVERRIDE
     CURRENT_RESULT_TAG = args.result_tag
     CURRENT_PM_ACTION_MODE = args.pm_action_mode
     CURRENT_PM_GATE_RISK_THRESHOLD = args.pm_gate_risk_threshold
+    CURRENT_KILL_SWITCH_OVERRIDE = args.kill_switch_penalty
+
+    CURRENT_HPARAM_OVERRIDES = {}
+    if args.lr_scale is not None:
+        CURRENT_HPARAM_OVERRIDES["lr"] = BEST_HPARAMS["lr"] * args.lr_scale
+        CURRENT_HPARAM_OVERRIDES["critic_lr"] = BEST_HPARAMS["critic_lr"] * args.lr_scale
+    for name in ["entropy_coef", "lr", "critic_lr", "clip_param", "gamma"]:
+        value = getattr(args, name)
+        if value is not None:
+            CURRENT_HPARAM_OVERRIDES[name] = value
 
     P, L, T = args.num_products, args.num_lines, args.num_periods
 

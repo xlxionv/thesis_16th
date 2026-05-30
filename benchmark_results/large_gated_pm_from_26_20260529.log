@@ -24206,3 +24206,2911 @@ eval average episode rewards of agent7: -379.39447
 eval average episode rewards of agent8: -379.43024
 eval average episode rewards of agent9: -379.34094
 eval average episode costs: Backlog: 100488.50, Inventory: 0.00, Maintenance: 71.70, Production: 2855.08, Setup: 2632.18, TOTAL: 106047.45
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7105/10416 episodes, total num timesteps 2046528/3000000, FPS 46.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7110/10416 episodes, total num timesteps 2047968/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7115/10416 episodes, total num timesteps 2049408/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7120/10416 episodes, total num timesteps 2050848/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7125/10416 episodes, total num timesteps 2052288/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7130/10416 episodes, total num timesteps 2053728/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7135/10416 episodes, total num timesteps 2055168/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7140/10416 episodes, total num timesteps 2056608/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7145/10416 episodes, total num timesteps 2058048/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7150/10416 episodes, total num timesteps 2059488/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.0993 seconds
+eval average episode rewards of agent0: -383.26926
+eval average episode rewards of agent1: -379.78906
+eval average episode rewards of agent2: -379.81204
+eval average episode rewards of agent3: -379.7404
+eval average episode rewards of agent4: -379.8073
+eval average episode rewards of agent5: -379.792
+eval average episode rewards of agent6: -379.84433
+eval average episode rewards of agent7: -379.79645
+eval average episode rewards of agent8: -379.83487
+eval average episode rewards of agent9: -379.79926
+eval average episode costs: Backlog: 100633.14, Inventory: 0.00, Maintenance: 76.82, Production: 2777.99, Setup: 2505.39, TOTAL: 105993.35
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7155/10416 episodes, total num timesteps 2060928/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7160/10416 episodes, total num timesteps 2062368/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7165/10416 episodes, total num timesteps 2063808/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7170/10416 episodes, total num timesteps 2065248/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7175/10416 episodes, total num timesteps 2066688/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7180/10416 episodes, total num timesteps 2068128/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7185/10416 episodes, total num timesteps 2069568/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7190/10416 episodes, total num timesteps 2071008/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7195/10416 episodes, total num timesteps 2072448/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7200/10416 episodes, total num timesteps 2073888/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.1751 seconds
+eval average episode rewards of agent0: -384.08307
+eval average episode rewards of agent1: -380.64694
+eval average episode rewards of agent2: -380.664
+eval average episode rewards of agent3: -380.65143
+eval average episode rewards of agent4: -380.6484
+eval average episode rewards of agent5: -380.57343
+eval average episode rewards of agent6: -380.67847
+eval average episode rewards of agent7: -380.6705
+eval average episode rewards of agent8: -380.68478
+eval average episode rewards of agent9: -380.60626
+eval average episode costs: Backlog: 100837.20, Inventory: 0.00, Maintenance: 59.25, Production: 2785.84, Setup: 2581.97, TOTAL: 106264.27
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7205/10416 episodes, total num timesteps 2075328/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7210/10416 episodes, total num timesteps 2076768/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7215/10416 episodes, total num timesteps 2078208/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7220/10416 episodes, total num timesteps 2079648/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7225/10416 episodes, total num timesteps 2081088/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7230/10416 episodes, total num timesteps 2082528/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7235/10416 episodes, total num timesteps 2083968/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7240/10416 episodes, total num timesteps 2085408/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7245/10416 episodes, total num timesteps 2086848/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7250/10416 episodes, total num timesteps 2088288/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.0275 seconds
+eval average episode rewards of agent0: -380.71613
+eval average episode rewards of agent1: -377.34164
+eval average episode rewards of agent2: -377.39697
+eval average episode rewards of agent3: -377.36435
+eval average episode rewards of agent4: -377.3525
+eval average episode rewards of agent5: -377.2789
+eval average episode rewards of agent6: -377.38226
+eval average episode rewards of agent7: -377.35086
+eval average episode rewards of agent8: -377.3979
+eval average episode rewards of agent9: -377.3247
+eval average episode costs: Backlog: 99984.45, Inventory: 0.00, Maintenance: 72.73, Production: 2912.98, Setup: 2505.01, TOTAL: 105475.17
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7255/10416 episodes, total num timesteps 2089728/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7260/10416 episodes, total num timesteps 2091168/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7265/10416 episodes, total num timesteps 2092608/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7270/10416 episodes, total num timesteps 2094048/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7275/10416 episodes, total num timesteps 2095488/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7280/10416 episodes, total num timesteps 2096928/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7285/10416 episodes, total num timesteps 2098368/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7290/10416 episodes, total num timesteps 2099808/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7295/10416 episodes, total num timesteps 2101248/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7300/10416 episodes, total num timesteps 2102688/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.0625 seconds
+eval average episode rewards of agent0: -382.51947
+eval average episode rewards of agent1: -378.92227
+eval average episode rewards of agent2: -378.99408
+eval average episode rewards of agent3: -378.96564
+eval average episode rewards of agent4: -378.93936
+eval average episode rewards of agent5: -378.87326
+eval average episode rewards of agent6: -378.94717
+eval average episode rewards of agent7: -378.94513
+eval average episode rewards of agent8: -378.9848
+eval average episode rewards of agent9: -378.90732
+eval average episode costs: Backlog: 100356.02, Inventory: 0.00, Maintenance: 70.74, Production: 2872.29, Setup: 2681.94, TOTAL: 105981.00
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7305/10416 episodes, total num timesteps 2104128/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7310/10416 episodes, total num timesteps 2105568/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7315/10416 episodes, total num timesteps 2107008/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7320/10416 episodes, total num timesteps 2108448/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7325/10416 episodes, total num timesteps 2109888/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7330/10416 episodes, total num timesteps 2111328/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7335/10416 episodes, total num timesteps 2112768/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7340/10416 episodes, total num timesteps 2114208/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7345/10416 episodes, total num timesteps 2115648/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7350/10416 episodes, total num timesteps 2117088/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.0482 seconds
+eval average episode rewards of agent0: -383.38446
+eval average episode rewards of agent1: -379.8262
+eval average episode rewards of agent2: -379.87616
+eval average episode rewards of agent3: -379.84607
+eval average episode rewards of agent4: -379.84207
+eval average episode rewards of agent5: -379.7716
+eval average episode rewards of agent6: -379.88544
+eval average episode rewards of agent7: -379.84332
+eval average episode rewards of agent8: -379.89377
+eval average episode rewards of agent9: -379.8131
+eval average episode costs: Backlog: 100611.19, Inventory: 0.00, Maintenance: 77.46, Production: 2838.00, Setup: 2613.69, TOTAL: 106140.33
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7355/10416 episodes, total num timesteps 2118528/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7360/10416 episodes, total num timesteps 2119968/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7365/10416 episodes, total num timesteps 2121408/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7370/10416 episodes, total num timesteps 2122848/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7375/10416 episodes, total num timesteps 2124288/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7380/10416 episodes, total num timesteps 2125728/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7385/10416 episodes, total num timesteps 2127168/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7390/10416 episodes, total num timesteps 2128608/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7395/10416 episodes, total num timesteps 2130048/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7400/10416 episodes, total num timesteps 2131488/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 0.9893 seconds
+eval average episode rewards of agent0: -383.77264
+eval average episode rewards of agent1: -380.1754
+eval average episode rewards of agent2: -380.2165
+eval average episode rewards of agent3: -380.18735
+eval average episode rewards of agent4: -380.2045
+eval average episode rewards of agent5: -380.12512
+eval average episode rewards of agent6: -380.19675
+eval average episode rewards of agent7: -380.2263
+eval average episode rewards of agent8: -380.22546
+eval average episode rewards of agent9: -380.13968
+eval average episode costs: Backlog: 100695.59, Inventory: 0.00, Maintenance: 73.17, Production: 2845.42, Setup: 2642.97, TOTAL: 106257.15
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7405/10416 episodes, total num timesteps 2132928/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7410/10416 episodes, total num timesteps 2134368/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7415/10416 episodes, total num timesteps 2135808/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7420/10416 episodes, total num timesteps 2137248/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7425/10416 episodes, total num timesteps 2138688/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7430/10416 episodes, total num timesteps 2140128/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7435/10416 episodes, total num timesteps 2141568/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7440/10416 episodes, total num timesteps 2143008/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7445/10416 episodes, total num timesteps 2144448/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7450/10416 episodes, total num timesteps 2145888/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.0078 seconds
+eval average episode rewards of agent0: -383.76575
+eval average episode rewards of agent1: -380.21777
+eval average episode rewards of agent2: -380.3122
+eval average episode rewards of agent3: -380.25638
+eval average episode rewards of agent4: -380.3156
+eval average episode rewards of agent5: -380.21588
+eval average episode rewards of agent6: -380.28412
+eval average episode rewards of agent7: -380.32098
+eval average episode rewards of agent8: -380.32187
+eval average episode rewards of agent9: -380.24088
+eval average episode costs: Backlog: 100731.93, Inventory: 0.00, Maintenance: 71.56, Production: 2826.46, Setup: 2607.93, TOTAL: 106237.89
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7455/10416 episodes, total num timesteps 2147328/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7460/10416 episodes, total num timesteps 2148768/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7465/10416 episodes, total num timesteps 2150208/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7470/10416 episodes, total num timesteps 2151648/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7475/10416 episodes, total num timesteps 2153088/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7480/10416 episodes, total num timesteps 2154528/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7485/10416 episodes, total num timesteps 2155968/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7490/10416 episodes, total num timesteps 2157408/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7495/10416 episodes, total num timesteps 2158848/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7500/10416 episodes, total num timesteps 2160288/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 0.9916 seconds
+eval average episode rewards of agent0: -385.08942
+eval average episode rewards of agent1: -381.7394
+eval average episode rewards of agent2: -381.80832
+eval average episode rewards of agent3: -381.73907
+eval average episode rewards of agent4: -381.74585
+eval average episode rewards of agent5: -381.66202
+eval average episode rewards of agent6: -381.71664
+eval average episode rewards of agent7: -381.77734
+eval average episode rewards of agent8: -381.80637
+eval average episode rewards of agent9: -381.69214
+eval average episode costs: Backlog: 101156.41, Inventory: 0.00, Maintenance: 77.48, Production: 2796.03, Setup: 2453.08, TOTAL: 106483.00
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7505/10416 episodes, total num timesteps 2161728/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7510/10416 episodes, total num timesteps 2163168/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7515/10416 episodes, total num timesteps 2164608/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7520/10416 episodes, total num timesteps 2166048/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7525/10416 episodes, total num timesteps 2167488/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7530/10416 episodes, total num timesteps 2168928/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7535/10416 episodes, total num timesteps 2170368/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7540/10416 episodes, total num timesteps 2171808/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7545/10416 episodes, total num timesteps 2173248/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7550/10416 episodes, total num timesteps 2174688/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 0.9855 seconds
+eval average episode rewards of agent0: -383.65332
+eval average episode rewards of agent1: -380.53275
+eval average episode rewards of agent2: -380.62482
+eval average episode rewards of agent3: -380.4849
+eval average episode rewards of agent4: -380.5472
+eval average episode rewards of agent5: -380.47803
+eval average episode rewards of agent6: -380.58344
+eval average episode rewards of agent7: -380.5725
+eval average episode rewards of agent8: -380.5987
+eval average episode rewards of agent9: -380.49292
+eval average episode costs: Backlog: 100913.75, Inventory: 0.00, Maintenance: 81.21, Production: 2761.81, Setup: 2182.65, TOTAL: 105939.41
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7555/10416 episodes, total num timesteps 2176128/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7560/10416 episodes, total num timesteps 2177568/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7565/10416 episodes, total num timesteps 2179008/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7570/10416 episodes, total num timesteps 2180448/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7575/10416 episodes, total num timesteps 2181888/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7580/10416 episodes, total num timesteps 2183328/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7585/10416 episodes, total num timesteps 2184768/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7590/10416 episodes, total num timesteps 2186208/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7595/10416 episodes, total num timesteps 2187648/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7600/10416 episodes, total num timesteps 2189088/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 0.9820 seconds
+eval average episode rewards of agent0: -383.47617
+eval average episode rewards of agent1: -380.32877
+eval average episode rewards of agent2: -380.42392
+eval average episode rewards of agent3: -380.35107
+eval average episode rewards of agent4: -380.353
+eval average episode rewards of agent5: -380.29196
+eval average episode rewards of agent6: -380.36517
+eval average episode rewards of agent7: -380.3598
+eval average episode rewards of agent8: -380.4387
+eval average episode rewards of agent9: -380.3211
+eval average episode costs: Backlog: 100844.66, Inventory: 0.00, Maintenance: 75.19, Production: 2739.49, Setup: 2259.43, TOTAL: 105918.77
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7605/10416 episodes, total num timesteps 2190528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7610/10416 episodes, total num timesteps 2191968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7615/10416 episodes, total num timesteps 2193408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7620/10416 episodes, total num timesteps 2194848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7625/10416 episodes, total num timesteps 2196288/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7630/10416 episodes, total num timesteps 2197728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7635/10416 episodes, total num timesteps 2199168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7640/10416 episodes, total num timesteps 2200608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7645/10416 episodes, total num timesteps 2202048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7650/10416 episodes, total num timesteps 2203488/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.0068 seconds
+eval average episode rewards of agent0: -383.1906
+eval average episode rewards of agent1: -379.89795
+eval average episode rewards of agent2: -380.00974
+eval average episode rewards of agent3: -379.90118
+eval average episode rewards of agent4: -379.9842
+eval average episode rewards of agent5: -379.89124
+eval average episode rewards of agent6: -379.97318
+eval average episode rewards of agent7: -379.9334
+eval average episode rewards of agent8: -379.99197
+eval average episode rewards of agent9: -379.86542
+eval average episode costs: Backlog: 100701.73, Inventory: 0.00, Maintenance: 83.41, Production: 2834.42, Setup: 2385.37, TOTAL: 106004.94
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7655/10416 episodes, total num timesteps 2204928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7660/10416 episodes, total num timesteps 2206368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7665/10416 episodes, total num timesteps 2207808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7670/10416 episodes, total num timesteps 2209248/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7675/10416 episodes, total num timesteps 2210688/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7680/10416 episodes, total num timesteps 2212128/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7685/10416 episodes, total num timesteps 2213568/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7690/10416 episodes, total num timesteps 2215008/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7695/10416 episodes, total num timesteps 2216448/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7700/10416 episodes, total num timesteps 2217888/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 0.9893 seconds
+eval average episode rewards of agent0: -384.15192
+eval average episode rewards of agent1: -380.83585
+eval average episode rewards of agent2: -380.9066
+eval average episode rewards of agent3: -380.85178
+eval average episode rewards of agent4: -380.9315
+eval average episode rewards of agent5: -380.84454
+eval average episode rewards of agent6: -380.90497
+eval average episode rewards of agent7: -380.87946
+eval average episode rewards of agent8: -380.87997
+eval average episode rewards of agent9: -380.8273
+eval average episode costs: Backlog: 100941.26, Inventory: 0.00, Maintenance: 88.94, Production: 2834.22, Setup: 2401.16, TOTAL: 106265.59
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7705/10416 episodes, total num timesteps 2219328/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7710/10416 episodes, total num timesteps 2220768/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7715/10416 episodes, total num timesteps 2222208/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7720/10416 episodes, total num timesteps 2223648/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7725/10416 episodes, total num timesteps 2225088/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7730/10416 episodes, total num timesteps 2226528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7735/10416 episodes, total num timesteps 2227968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7740/10416 episodes, total num timesteps 2229408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7745/10416 episodes, total num timesteps 2230848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7750/10416 episodes, total num timesteps 2232288/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 0.9851 seconds
+eval average episode rewards of agent0: -383.58496
+eval average episode rewards of agent1: -380.4282
+eval average episode rewards of agent2: -380.50287
+eval average episode rewards of agent3: -380.4217
+eval average episode rewards of agent4: -380.44962
+eval average episode rewards of agent5: -380.3528
+eval average episode rewards of agent6: -380.45782
+eval average episode rewards of agent7: -380.43164
+eval average episode rewards of agent8: -380.4853
+eval average episode rewards of agent9: -380.4061
+eval average episode costs: Backlog: 100839.95, Inventory: 0.00, Maintenance: 75.85, Production: 2841.06, Setup: 2352.62, TOTAL: 106109.48
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7755/10416 episodes, total num timesteps 2233728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7760/10416 episodes, total num timesteps 2235168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7765/10416 episodes, total num timesteps 2236608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7770/10416 episodes, total num timesteps 2238048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7775/10416 episodes, total num timesteps 2239488/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7780/10416 episodes, total num timesteps 2240928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7785/10416 episodes, total num timesteps 2242368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7790/10416 episodes, total num timesteps 2243808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7795/10416 episodes, total num timesteps 2245248/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7800/10416 episodes, total num timesteps 2246688/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 0.9890 seconds
+eval average episode rewards of agent0: -384.11737
+eval average episode rewards of agent1: -380.9716
+eval average episode rewards of agent2: -381.08392
+eval average episode rewards of agent3: -380.9924
+eval average episode rewards of agent4: -381.0231
+eval average episode rewards of agent5: -380.92032
+eval average episode rewards of agent6: -381.01263
+eval average episode rewards of agent7: -381.01288
+eval average episode rewards of agent8: -381.04373
+eval average episode rewards of agent9: -380.90503
+eval average episode costs: Backlog: 100994.39, Inventory: 0.00, Maintenance: 72.63, Production: 2822.57, Setup: 2327.67, TOTAL: 106217.25
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7805/10416 episodes, total num timesteps 2248128/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7810/10416 episodes, total num timesteps 2249568/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7815/10416 episodes, total num timesteps 2251008/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7820/10416 episodes, total num timesteps 2252448/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7825/10416 episodes, total num timesteps 2253888/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7830/10416 episodes, total num timesteps 2255328/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7835/10416 episodes, total num timesteps 2256768/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7840/10416 episodes, total num timesteps 2258208/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7845/10416 episodes, total num timesteps 2259648/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7850/10416 episodes, total num timesteps 2261088/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 0.9930 seconds
+eval average episode rewards of agent0: -382.73282
+eval average episode rewards of agent1: -379.8525
+eval average episode rewards of agent2: -379.9466
+eval average episode rewards of agent3: -379.85535
+eval average episode rewards of agent4: -379.89423
+eval average episode rewards of agent5: -379.8523
+eval average episode rewards of agent6: -379.93463
+eval average episode rewards of agent7: -379.8642
+eval average episode rewards of agent8: -379.90848
+eval average episode rewards of agent9: -379.83127
+eval average episode costs: Backlog: 100772.04, Inventory: 0.00, Maintenance: 77.31, Production: 2821.01, Setup: 2067.10, TOTAL: 105737.45
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7855/10416 episodes, total num timesteps 2262528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7860/10416 episodes, total num timesteps 2263968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7865/10416 episodes, total num timesteps 2265408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7870/10416 episodes, total num timesteps 2266848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7875/10416 episodes, total num timesteps 2268288/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7880/10416 episodes, total num timesteps 2269728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7885/10416 episodes, total num timesteps 2271168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7890/10416 episodes, total num timesteps 2272608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7895/10416 episodes, total num timesteps 2274048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7900/10416 episodes, total num timesteps 2275488/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.0214 seconds
+eval average episode rewards of agent0: -377.5524
+eval average episode rewards of agent1: -374.75012
+eval average episode rewards of agent2: -374.89706
+eval average episode rewards of agent3: -374.80072
+eval average episode rewards of agent4: -374.79926
+eval average episode rewards of agent5: -374.79285
+eval average episode rewards of agent6: -374.89325
+eval average episode rewards of agent7: -374.78632
+eval average episode rewards of agent8: -374.86096
+eval average episode rewards of agent9: -374.73355
+eval average episode costs: Backlog: 99446.55, Inventory: 0.00, Maintenance: 91.42, Production: 2986.52, Setup: 2004.12, TOTAL: 104528.60
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7905/10416 episodes, total num timesteps 2276928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7910/10416 episodes, total num timesteps 2278368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7915/10416 episodes, total num timesteps 2279808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7920/10416 episodes, total num timesteps 2281248/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7925/10416 episodes, total num timesteps 2282688/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7930/10416 episodes, total num timesteps 2284128/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7935/10416 episodes, total num timesteps 2285568/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7940/10416 episodes, total num timesteps 2287008/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7945/10416 episodes, total num timesteps 2288448/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7950/10416 episodes, total num timesteps 2289888/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.0383 seconds
+eval average episode rewards of agent0: -380.87393
+eval average episode rewards of agent1: -378.3758
+eval average episode rewards of agent2: -378.47955
+eval average episode rewards of agent3: -378.41348
+eval average episode rewards of agent4: -378.38184
+eval average episode rewards of agent5: -378.3574
+eval average episode rewards of agent6: -378.47406
+eval average episode rewards of agent7: -378.4094
+eval average episode rewards of agent8: -378.4928
+eval average episode rewards of agent9: -378.33847
+eval average episode costs: Backlog: 100453.67, Inventory: 0.00, Maintenance: 78.76, Production: 2827.61, Setup: 1800.21, TOTAL: 105160.23
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7955/10416 episodes, total num timesteps 2291328/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7960/10416 episodes, total num timesteps 2292768/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7965/10416 episodes, total num timesteps 2294208/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7970/10416 episodes, total num timesteps 2295648/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7975/10416 episodes, total num timesteps 2297088/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7980/10416 episodes, total num timesteps 2298528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7985/10416 episodes, total num timesteps 2299968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7990/10416 episodes, total num timesteps 2301408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 7995/10416 episodes, total num timesteps 2302848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8000/10416 episodes, total num timesteps 2304288/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.2584 seconds
+eval average episode rewards of agent0: -381.34665
+eval average episode rewards of agent1: -378.79535
+eval average episode rewards of agent2: -378.8755
+eval average episode rewards of agent3: -378.82532
+eval average episode rewards of agent4: -378.81256
+eval average episode rewards of agent5: -378.76556
+eval average episode rewards of agent6: -378.86517
+eval average episode rewards of agent7: -378.8278
+eval average episode rewards of agent8: -378.87592
+eval average episode rewards of agent9: -378.75717
+eval average episode costs: Backlog: 100555.70, Inventory: 0.00, Maintenance: 74.21, Production: 2812.72, Setup: 1826.92, TOTAL: 105269.55
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8005/10416 episodes, total num timesteps 2305728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8010/10416 episodes, total num timesteps 2307168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8015/10416 episodes, total num timesteps 2308608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8020/10416 episodes, total num timesteps 2310048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8025/10416 episodes, total num timesteps 2311488/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8030/10416 episodes, total num timesteps 2312928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8035/10416 episodes, total num timesteps 2314368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8040/10416 episodes, total num timesteps 2315808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8045/10416 episodes, total num timesteps 2317248/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8050/10416 episodes, total num timesteps 2318688/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.0584 seconds
+eval average episode rewards of agent0: -381.62204
+eval average episode rewards of agent1: -378.81927
+eval average episode rewards of agent2: -378.90372
+eval average episode rewards of agent3: -378.93057
+eval average episode rewards of agent4: -378.91818
+eval average episode rewards of agent5: -378.8647
+eval average episode rewards of agent6: -378.8957
+eval average episode rewards of agent7: -378.91104
+eval average episode rewards of agent8: -378.90698
+eval average episode rewards of agent9: -378.79535
+eval average episode costs: Backlog: 100528.92, Inventory: 0.00, Maintenance: 75.38, Production: 2849.27, Setup: 1981.86, TOTAL: 105435.42
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8055/10416 episodes, total num timesteps 2320128/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8060/10416 episodes, total num timesteps 2321568/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8065/10416 episodes, total num timesteps 2323008/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8070/10416 episodes, total num timesteps 2324448/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8075/10416 episodes, total num timesteps 2325888/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8080/10416 episodes, total num timesteps 2327328/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8085/10416 episodes, total num timesteps 2328768/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8090/10416 episodes, total num timesteps 2330208/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8095/10416 episodes, total num timesteps 2331648/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8100/10416 episodes, total num timesteps 2333088/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.0218 seconds
+eval average episode rewards of agent0: -378.28244
+eval average episode rewards of agent1: -375.4628
+eval average episode rewards of agent2: -375.5621
+eval average episode rewards of agent3: -375.57358
+eval average episode rewards of agent4: -375.5123
+eval average episode rewards of agent5: -375.45612
+eval average episode rewards of agent6: -375.50824
+eval average episode rewards of agent7: -375.61765
+eval average episode rewards of agent8: -375.56235
+eval average episode rewards of agent9: -375.46347
+eval average episode costs: Backlog: 99621.20, Inventory: 0.00, Maintenance: 87.76, Production: 2972.34, Setup: 2053.30, TOTAL: 104734.61
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8105/10416 episodes, total num timesteps 2334528/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8110/10416 episodes, total num timesteps 2335968/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8115/10416 episodes, total num timesteps 2337408/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8120/10416 episodes, total num timesteps 2338848/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8125/10416 episodes, total num timesteps 2340288/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8130/10416 episodes, total num timesteps 2341728/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8135/10416 episodes, total num timesteps 2343168/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8140/10416 episodes, total num timesteps 2344608/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8145/10416 episodes, total num timesteps 2346048/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8150/10416 episodes, total num timesteps 2347488/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.0238 seconds
+eval average episode rewards of agent0: -380.23102
+eval average episode rewards of agent1: -377.13132
+eval average episode rewards of agent2: -377.21902
+eval average episode rewards of agent3: -377.23178
+eval average episode rewards of agent4: -377.22614
+eval average episode rewards of agent5: -377.1619
+eval average episode rewards of agent6: -377.20087
+eval average episode rewards of agent7: -377.2884
+eval average episode rewards of agent8: -377.21243
+eval average episode rewards of agent9: -377.15747
+eval average episode costs: Backlog: 100011.80, Inventory: 0.00, Maintenance: 79.81, Production: 2904.26, Setup: 2261.41, TOTAL: 105257.29
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8155/10416 episodes, total num timesteps 2348928/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8160/10416 episodes, total num timesteps 2350368/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8165/10416 episodes, total num timesteps 2351808/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8170/10416 episodes, total num timesteps 2353248/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8175/10416 episodes, total num timesteps 2354688/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8180/10416 episodes, total num timesteps 2356128/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8185/10416 episodes, total num timesteps 2357568/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8190/10416 episodes, total num timesteps 2359008/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8195/10416 episodes, total num timesteps 2360448/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8200/10416 episodes, total num timesteps 2361888/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.1836 seconds
+eval average episode rewards of agent0: -380.89777
+eval average episode rewards of agent1: -377.88422
+eval average episode rewards of agent2: -377.987
+eval average episode rewards of agent3: -377.9891
+eval average episode rewards of agent4: -377.98618
+eval average episode rewards of agent5: -377.92926
+eval average episode rewards of agent6: -377.94006
+eval average episode rewards of agent7: -378.05212
+eval average episode rewards of agent8: -377.97144
+eval average episode rewards of agent9: -377.90933
+eval average episode costs: Backlog: 100234.40, Inventory: 0.00, Maintenance: 93.84, Production: 2905.51, Setup: 2159.63, TOTAL: 105393.36
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8205/10416 episodes, total num timesteps 2363328/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8210/10416 episodes, total num timesteps 2364768/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8215/10416 episodes, total num timesteps 2366208/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8220/10416 episodes, total num timesteps 2367648/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8225/10416 episodes, total num timesteps 2369088/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8230/10416 episodes, total num timesteps 2370528/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8235/10416 episodes, total num timesteps 2371968/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8240/10416 episodes, total num timesteps 2373408/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8245/10416 episodes, total num timesteps 2374848/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8250/10416 episodes, total num timesteps 2376288/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.0255 seconds
+eval average episode rewards of agent0: -382.9683
+eval average episode rewards of agent1: -380.2757
+eval average episode rewards of agent2: -380.39664
+eval average episode rewards of agent3: -380.35297
+eval average episode rewards of agent4: -380.33463
+eval average episode rewards of agent5: -380.2501
+eval average episode rewards of agent6: -380.2645
+eval average episode rewards of agent7: -380.45386
+eval average episode rewards of agent8: -380.3903
+eval average episode rewards of agent9: -380.31036
+eval average episode costs: Backlog: 100933.52, Inventory: 0.00, Maintenance: 81.64, Production: 2814.65, Setup: 1886.51, TOTAL: 105716.33
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8255/10416 episodes, total num timesteps 2377728/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8260/10416 episodes, total num timesteps 2379168/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8265/10416 episodes, total num timesteps 2380608/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8270/10416 episodes, total num timesteps 2382048/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8275/10416 episodes, total num timesteps 2383488/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8280/10416 episodes, total num timesteps 2384928/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8285/10416 episodes, total num timesteps 2386368/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8290/10416 episodes, total num timesteps 2387808/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8295/10416 episodes, total num timesteps 2389248/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8300/10416 episodes, total num timesteps 2390688/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.0495 seconds
+eval average episode rewards of agent0: -377.9914
+eval average episode rewards of agent1: -375.20142
+eval average episode rewards of agent2: -375.27655
+eval average episode rewards of agent3: -375.2895
+eval average episode rewards of agent4: -375.2575
+eval average episode rewards of agent5: -375.18124
+eval average episode rewards of agent6: -375.2466
+eval average episode rewards of agent7: -375.37982
+eval average episode rewards of agent8: -375.24298
+eval average episode rewards of agent9: -375.25916
+eval average episode costs: Backlog: 99552.95, Inventory: 0.00, Maintenance: 96.83, Production: 2956.10, Setup: 2025.85, TOTAL: 104631.73
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8305/10416 episodes, total num timesteps 2392128/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8310/10416 episodes, total num timesteps 2393568/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8315/10416 episodes, total num timesteps 2395008/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8320/10416 episodes, total num timesteps 2396448/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8325/10416 episodes, total num timesteps 2397888/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8330/10416 episodes, total num timesteps 2399328/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8335/10416 episodes, total num timesteps 2400768/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8340/10416 episodes, total num timesteps 2402208/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8345/10416 episodes, total num timesteps 2403648/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8350/10416 episodes, total num timesteps 2405088/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.6524 seconds
+eval average episode rewards of agent0: -378.266
+eval average episode rewards of agent1: -375.36032
+eval average episode rewards of agent2: -375.47897
+eval average episode rewards of agent3: -375.46088
+eval average episode rewards of agent4: -375.4582
+eval average episode rewards of agent5: -375.37976
+eval average episode rewards of agent6: -375.44458
+eval average episode rewards of agent7: -375.4817
+eval average episode rewards of agent8: -375.4853
+eval average episode rewards of agent9: -375.38184
+eval average episode costs: Backlog: 99590.66, Inventory: 0.00, Maintenance: 81.51, Production: 3011.42, Setup: 2087.14, TOTAL: 104770.73
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8355/10416 episodes, total num timesteps 2406528/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8360/10416 episodes, total num timesteps 2407968/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8365/10416 episodes, total num timesteps 2409408/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8370/10416 episodes, total num timesteps 2410848/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8375/10416 episodes, total num timesteps 2412288/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8380/10416 episodes, total num timesteps 2413728/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8385/10416 episodes, total num timesteps 2415168/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8390/10416 episodes, total num timesteps 2416608/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8395/10416 episodes, total num timesteps 2418048/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8400/10416 episodes, total num timesteps 2419488/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.4718 seconds
+eval average episode rewards of agent0: -376.70502
+eval average episode rewards of agent1: -373.71698
+eval average episode rewards of agent2: -373.87997
+eval average episode rewards of agent3: -373.82605
+eval average episode rewards of agent4: -373.82074
+eval average episode rewards of agent5: -373.78607
+eval average episode rewards of agent6: -373.81653
+eval average episode rewards of agent7: -373.8747
+eval average episode rewards of agent8: -373.89932
+eval average episode rewards of agent9: -373.76572
+eval average episode costs: Backlog: 99143.80, Inventory: 0.00, Maintenance: 91.68, Production: 3028.59, Setup: 2158.56, TOTAL: 104422.62
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8405/10416 episodes, total num timesteps 2420928/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8410/10416 episodes, total num timesteps 2422368/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8415/10416 episodes, total num timesteps 2423808/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8420/10416 episodes, total num timesteps 2425248/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8425/10416 episodes, total num timesteps 2426688/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8430/10416 episodes, total num timesteps 2428128/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8435/10416 episodes, total num timesteps 2429568/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8440/10416 episodes, total num timesteps 2431008/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8445/10416 episodes, total num timesteps 2432448/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8450/10416 episodes, total num timesteps 2433888/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8719 seconds
+eval average episode rewards of agent0: -379.03784
+eval average episode rewards of agent1: -376.14386
+eval average episode rewards of agent2: -376.3081
+eval average episode rewards of agent3: -376.22818
+eval average episode rewards of agent4: -376.2568
+eval average episode rewards of agent5: -376.16312
+eval average episode rewards of agent6: -376.25275
+eval average episode rewards of agent7: -376.308
+eval average episode rewards of agent8: -376.26654
+eval average episode rewards of agent9: -376.15533
+eval average episode costs: Backlog: 99810.20, Inventory: 0.00, Maintenance: 80.49, Production: 2971.88, Setup: 2048.95, TOTAL: 104911.50
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8455/10416 episodes, total num timesteps 2435328/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8460/10416 episodes, total num timesteps 2436768/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8465/10416 episodes, total num timesteps 2438208/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8470/10416 episodes, total num timesteps 2439648/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8475/10416 episodes, total num timesteps 2441088/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8480/10416 episodes, total num timesteps 2442528/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8485/10416 episodes, total num timesteps 2443968/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8490/10416 episodes, total num timesteps 2445408/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8495/10416 episodes, total num timesteps 2446848/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8500/10416 episodes, total num timesteps 2448288/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8896 seconds
+eval average episode rewards of agent0: -378.89243
+eval average episode rewards of agent1: -376.21075
+eval average episode rewards of agent2: -376.32462
+eval average episode rewards of agent3: -376.25598
+eval average episode rewards of agent4: -376.2702
+eval average episode rewards of agent5: -376.2268
+eval average episode rewards of agent6: -376.29303
+eval average episode rewards of agent7: -376.36166
+eval average episode rewards of agent8: -376.3333
+eval average episode rewards of agent9: -376.2693
+eval average episode costs: Backlog: 99859.59, Inventory: 0.00, Maintenance: 80.03, Production: 2906.35, Setup: 1921.95, TOTAL: 104767.92
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8505/10416 episodes, total num timesteps 2449728/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8510/10416 episodes, total num timesteps 2451168/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8515/10416 episodes, total num timesteps 2452608/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8520/10416 episodes, total num timesteps 2454048/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8525/10416 episodes, total num timesteps 2455488/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8530/10416 episodes, total num timesteps 2456928/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8535/10416 episodes, total num timesteps 2458368/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8540/10416 episodes, total num timesteps 2459808/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8545/10416 episodes, total num timesteps 2461248/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8550/10416 episodes, total num timesteps 2462688/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.2100 seconds
+eval average episode rewards of agent0: -379.38986
+eval average episode rewards of agent1: -376.62756
+eval average episode rewards of agent2: -376.71512
+eval average episode rewards of agent3: -376.65723
+eval average episode rewards of agent4: -376.6739
+eval average episode rewards of agent5: -376.65146
+eval average episode rewards of agent6: -376.67313
+eval average episode rewards of agent7: -376.71417
+eval average episode rewards of agent8: -376.77008
+eval average episode rewards of agent9: -376.6352
+eval average episode costs: Backlog: 99939.35, Inventory: 0.00, Maintenance: 88.22, Production: 2892.27, Setup: 2008.78, TOTAL: 104928.62
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8555/10416 episodes, total num timesteps 2464128/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8560/10416 episodes, total num timesteps 2465568/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8565/10416 episodes, total num timesteps 2467008/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8570/10416 episodes, total num timesteps 2468448/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8575/10416 episodes, total num timesteps 2469888/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8580/10416 episodes, total num timesteps 2471328/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8585/10416 episodes, total num timesteps 2472768/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8590/10416 episodes, total num timesteps 2474208/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8595/10416 episodes, total num timesteps 2475648/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8600/10416 episodes, total num timesteps 2477088/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.1255 seconds
+eval average episode rewards of agent0: -379.6213
+eval average episode rewards of agent1: -376.83212
+eval average episode rewards of agent2: -376.94058
+eval average episode rewards of agent3: -376.84186
+eval average episode rewards of agent4: -376.87207
+eval average episode rewards of agent5: -376.82614
+eval average episode rewards of agent6: -376.8403
+eval average episode rewards of agent7: -376.94882
+eval average episode rewards of agent8: -376.9329
+eval average episode rewards of agent9: -376.8108
+eval average episode costs: Backlog: 99984.50, Inventory: 0.00, Maintenance: 86.29, Production: 2901.86, Setup: 2015.39, TOTAL: 104988.04
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8605/10416 episodes, total num timesteps 2478528/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8610/10416 episodes, total num timesteps 2479968/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8615/10416 episodes, total num timesteps 2481408/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8620/10416 episodes, total num timesteps 2482848/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8625/10416 episodes, total num timesteps 2484288/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8630/10416 episodes, total num timesteps 2485728/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8635/10416 episodes, total num timesteps 2487168/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8640/10416 episodes, total num timesteps 2488608/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8645/10416 episodes, total num timesteps 2490048/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8650/10416 episodes, total num timesteps 2491488/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 3.2746 seconds
+eval average episode rewards of agent0: -378.08746
+eval average episode rewards of agent1: -375.02603
+eval average episode rewards of agent2: -375.13724
+eval average episode rewards of agent3: -375.08414
+eval average episode rewards of agent4: -375.08
+eval average episode rewards of agent5: -375.054
+eval average episode rewards of agent6: -375.071
+eval average episode rewards of agent7: -375.2228
+eval average episode rewards of agent8: -375.1704
+eval average episode rewards of agent9: -375.0627
+eval average episode costs: Backlog: 99468.95, Inventory: 0.00, Maintenance: 92.28, Production: 2955.56, Setup: 2195.89, TOTAL: 104712.67
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8655/10416 episodes, total num timesteps 2492928/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8660/10416 episodes, total num timesteps 2494368/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8665/10416 episodes, total num timesteps 2495808/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8670/10416 episodes, total num timesteps 2497248/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8675/10416 episodes, total num timesteps 2498688/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8680/10416 episodes, total num timesteps 2500128/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8685/10416 episodes, total num timesteps 2501568/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8690/10416 episodes, total num timesteps 2503008/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8695/10416 episodes, total num timesteps 2504448/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8700/10416 episodes, total num timesteps 2505888/3000000, FPS 49.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.1327 seconds
+eval average episode rewards of agent0: -380.07632
+eval average episode rewards of agent1: -377.18738
+eval average episode rewards of agent2: -377.31055
+eval average episode rewards of agent3: -377.1989
+eval average episode rewards of agent4: -377.15512
+eval average episode rewards of agent5: -377.14166
+eval average episode rewards of agent6: -377.18997
+eval average episode rewards of agent7: -377.23904
+eval average episode rewards of agent8: -377.2907
+eval average episode rewards of agent9: -377.16504
+eval average episode costs: Backlog: 100052.34, Inventory: 0.00, Maintenance: 88.90, Production: 2858.46, Setup: 2108.49, TOTAL: 105108.19
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8705/10416 episodes, total num timesteps 2507328/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8710/10416 episodes, total num timesteps 2508768/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8715/10416 episodes, total num timesteps 2510208/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8720/10416 episodes, total num timesteps 2511648/3000000, FPS 49.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8725/10416 episodes, total num timesteps 2513088/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8730/10416 episodes, total num timesteps 2514528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8735/10416 episodes, total num timesteps 2515968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8740/10416 episodes, total num timesteps 2517408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8745/10416 episodes, total num timesteps 2518848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8750/10416 episodes, total num timesteps 2520288/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.9925 seconds
+eval average episode rewards of agent0: -380.43356
+eval average episode rewards of agent1: -377.42886
+eval average episode rewards of agent2: -377.5352
+eval average episode rewards of agent3: -377.50943
+eval average episode rewards of agent4: -377.46942
+eval average episode rewards of agent5: -377.41043
+eval average episode rewards of agent6: -377.48578
+eval average episode rewards of agent7: -377.56143
+eval average episode rewards of agent8: -377.54608
+eval average episode rewards of agent9: -377.4412
+eval average episode costs: Backlog: 100111.55, Inventory: 0.00, Maintenance: 80.54, Production: 2909.84, Setup: 2165.14, TOTAL: 105267.06
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8755/10416 episodes, total num timesteps 2521728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8760/10416 episodes, total num timesteps 2523168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8765/10416 episodes, total num timesteps 2524608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8770/10416 episodes, total num timesteps 2526048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8775/10416 episodes, total num timesteps 2527488/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8780/10416 episodes, total num timesteps 2528928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8785/10416 episodes, total num timesteps 2530368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8790/10416 episodes, total num timesteps 2531808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8795/10416 episodes, total num timesteps 2533248/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8800/10416 episodes, total num timesteps 2534688/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.2096 seconds
+eval average episode rewards of agent0: -380.41666
+eval average episode rewards of agent1: -377.62152
+eval average episode rewards of agent2: -377.72766
+eval average episode rewards of agent3: -377.66266
+eval average episode rewards of agent4: -377.63458
+eval average episode rewards of agent5: -377.59982
+eval average episode rewards of agent6: -377.66098
+eval average episode rewards of agent7: -377.73856
+eval average episode rewards of agent8: -377.7218
+eval average episode rewards of agent9: -377.64148
+eval average episode costs: Backlog: 100196.25, Inventory: 0.00, Maintenance: 80.55, Production: 2833.42, Setup: 2017.59, TOTAL: 105127.81
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8805/10416 episodes, total num timesteps 2536128/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8810/10416 episodes, total num timesteps 2537568/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8815/10416 episodes, total num timesteps 2539008/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8820/10416 episodes, total num timesteps 2540448/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8825/10416 episodes, total num timesteps 2541888/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8830/10416 episodes, total num timesteps 2543328/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8835/10416 episodes, total num timesteps 2544768/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8840/10416 episodes, total num timesteps 2546208/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8845/10416 episodes, total num timesteps 2547648/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8850/10416 episodes, total num timesteps 2549088/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.0993 seconds
+eval average episode rewards of agent0: -379.23468
+eval average episode rewards of agent1: -376.48138
+eval average episode rewards of agent2: -376.57938
+eval average episode rewards of agent3: -376.52872
+eval average episode rewards of agent4: -376.54602
+eval average episode rewards of agent5: -376.48553
+eval average episode rewards of agent6: -376.5584
+eval average episode rewards of agent7: -376.55856
+eval average episode rewards of agent8: -376.60385
+eval average episode rewards of agent9: -376.46375
+eval average episode costs: Backlog: 99892.02, Inventory: 0.00, Maintenance: 79.87, Production: 2931.86, Setup: 2045.54, TOTAL: 104949.29
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8855/10416 episodes, total num timesteps 2550528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8860/10416 episodes, total num timesteps 2551968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8865/10416 episodes, total num timesteps 2553408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8870/10416 episodes, total num timesteps 2554848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8875/10416 episodes, total num timesteps 2556288/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8880/10416 episodes, total num timesteps 2557728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8885/10416 episodes, total num timesteps 2559168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8890/10416 episodes, total num timesteps 2560608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8895/10416 episodes, total num timesteps 2562048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8900/10416 episodes, total num timesteps 2563488/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.5642 seconds
+eval average episode rewards of agent0: -381.1561
+eval average episode rewards of agent1: -378.4165
+eval average episode rewards of agent2: -378.52667
+eval average episode rewards of agent3: -378.42065
+eval average episode rewards of agent4: -378.4318
+eval average episode rewards of agent5: -378.39975
+eval average episode rewards of agent6: -378.4621
+eval average episode rewards of agent7: -378.43256
+eval average episode rewards of agent8: -378.5143
+eval average episode rewards of agent9: -378.42868
+eval average episode costs: Backlog: 100398.11, Inventory: 0.00, Maintenance: 86.22, Production: 2838.34, Setup: 2036.89, TOTAL: 105359.56
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8905/10416 episodes, total num timesteps 2564928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8910/10416 episodes, total num timesteps 2566368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8915/10416 episodes, total num timesteps 2567808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8920/10416 episodes, total num timesteps 2569248/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8925/10416 episodes, total num timesteps 2570688/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8930/10416 episodes, total num timesteps 2572128/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8935/10416 episodes, total num timesteps 2573568/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8940/10416 episodes, total num timesteps 2575008/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8945/10416 episodes, total num timesteps 2576448/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8950/10416 episodes, total num timesteps 2577888/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.1697 seconds
+eval average episode rewards of agent0: -378.2349
+eval average episode rewards of agent1: -375.55426
+eval average episode rewards of agent2: -375.6437
+eval average episode rewards of agent3: -375.58405
+eval average episode rewards of agent4: -375.62625
+eval average episode rewards of agent5: -375.58078
+eval average episode rewards of agent6: -375.5862
+eval average episode rewards of agent7: -375.6065
+eval average episode rewards of agent8: -375.68417
+eval average episode rewards of agent9: -375.53705
+eval average episode costs: Backlog: 99675.10, Inventory: 0.00, Maintenance: 87.75, Production: 2938.56, Setup: 1929.28, TOTAL: 104630.69
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8955/10416 episodes, total num timesteps 2579328/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8960/10416 episodes, total num timesteps 2580768/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8965/10416 episodes, total num timesteps 2582208/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8970/10416 episodes, total num timesteps 2583648/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8975/10416 episodes, total num timesteps 2585088/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8980/10416 episodes, total num timesteps 2586528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8985/10416 episodes, total num timesteps 2587968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8990/10416 episodes, total num timesteps 2589408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 8995/10416 episodes, total num timesteps 2590848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9000/10416 episodes, total num timesteps 2592288/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.1258 seconds
+eval average episode rewards of agent0: -379.24323
+eval average episode rewards of agent1: -376.0999
+eval average episode rewards of agent2: -376.18604
+eval average episode rewards of agent3: -376.1582
+eval average episode rewards of agent4: -376.21167
+eval average episode rewards of agent5: -376.16486
+eval average episode rewards of agent6: -376.1588
+eval average episode rewards of agent7: -376.17307
+eval average episode rewards of agent8: -376.21948
+eval average episode rewards of agent9: -376.0806
+eval average episode costs: Backlog: 99732.37, Inventory: 0.00, Maintenance: 79.36, Production: 2925.31, Setup: 2298.37, TOTAL: 105035.42
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9005/10416 episodes, total num timesteps 2593728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9010/10416 episodes, total num timesteps 2595168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9015/10416 episodes, total num timesteps 2596608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9020/10416 episodes, total num timesteps 2598048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9025/10416 episodes, total num timesteps 2599488/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9030/10416 episodes, total num timesteps 2600928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9035/10416 episodes, total num timesteps 2602368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9040/10416 episodes, total num timesteps 2603808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9045/10416 episodes, total num timesteps 2605248/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9050/10416 episodes, total num timesteps 2606688/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.0269 seconds
+eval average episode rewards of agent0: -380.41803
+eval average episode rewards of agent1: -377.3098
+eval average episode rewards of agent2: -377.38815
+eval average episode rewards of agent3: -377.34308
+eval average episode rewards of agent4: -377.45612
+eval average episode rewards of agent5: -377.37613
+eval average episode rewards of agent6: -377.3421
+eval average episode rewards of agent7: -377.34332
+eval average episode rewards of agent8: -377.42392
+eval average episode rewards of agent9: -377.30908
+eval average episode costs: Backlog: 100058.17, Inventory: 0.00, Maintenance: 91.59, Production: 2874.42, Setup: 2255.59, TOTAL: 105279.77
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9055/10416 episodes, total num timesteps 2608128/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9060/10416 episodes, total num timesteps 2609568/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9065/10416 episodes, total num timesteps 2611008/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9070/10416 episodes, total num timesteps 2612448/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9075/10416 episodes, total num timesteps 2613888/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9080/10416 episodes, total num timesteps 2615328/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9085/10416 episodes, total num timesteps 2616768/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9090/10416 episodes, total num timesteps 2618208/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9095/10416 episodes, total num timesteps 2619648/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9100/10416 episodes, total num timesteps 2621088/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8215 seconds
+eval average episode rewards of agent0: -383.99152
+eval average episode rewards of agent1: -380.56168
+eval average episode rewards of agent2: -380.65137
+eval average episode rewards of agent3: -380.63724
+eval average episode rewards of agent4: -380.70767
+eval average episode rewards of agent5: -380.6232
+eval average episode rewards of agent6: -380.60623
+eval average episode rewards of agent7: -380.68982
+eval average episode rewards of agent8: -380.66275
+eval average episode rewards of agent9: -380.6066
+eval average episode costs: Backlog: 100855.45, Inventory: 0.00, Maintenance: 72.21, Production: 2786.01, Setup: 2522.02, TOTAL: 106235.69
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9105/10416 episodes, total num timesteps 2622528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9110/10416 episodes, total num timesteps 2623968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9115/10416 episodes, total num timesteps 2625408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9120/10416 episodes, total num timesteps 2626848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9125/10416 episodes, total num timesteps 2628288/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9130/10416 episodes, total num timesteps 2629728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9135/10416 episodes, total num timesteps 2631168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9140/10416 episodes, total num timesteps 2632608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9145/10416 episodes, total num timesteps 2634048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9150/10416 episodes, total num timesteps 2635488/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.9915 seconds
+eval average episode rewards of agent0: -379.65665
+eval average episode rewards of agent1: -376.12335
+eval average episode rewards of agent2: -376.23755
+eval average episode rewards of agent3: -376.30237
+eval average episode rewards of agent4: -376.30878
+eval average episode rewards of agent5: -376.24945
+eval average episode rewards of agent6: -376.20294
+eval average episode rewards of agent7: -376.29852
+eval average episode rewards of agent8: -376.30194
+eval average episode rewards of agent9: -376.22275
+eval average episode costs: Backlog: 99682.10, Inventory: 0.00, Maintenance: 22.84, Production: 2998.29, Setup: 2632.44, TOTAL: 105335.66
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9155/10416 episodes, total num timesteps 2636928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9160/10416 episodes, total num timesteps 2638368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9165/10416 episodes, total num timesteps 2639808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9170/10416 episodes, total num timesteps 2641248/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9175/10416 episodes, total num timesteps 2642688/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9180/10416 episodes, total num timesteps 2644128/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9185/10416 episodes, total num timesteps 2645568/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9190/10416 episodes, total num timesteps 2647008/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9195/10416 episodes, total num timesteps 2648448/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9200/10416 episodes, total num timesteps 2649888/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.1678 seconds
+eval average episode rewards of agent0: -376.43942
+eval average episode rewards of agent1: -373.44788
+eval average episode rewards of agent2: -373.53607
+eval average episode rewards of agent3: -373.63168
+eval average episode rewards of agent4: -373.54117
+eval average episode rewards of agent5: -373.502
+eval average episode rewards of agent6: -373.49982
+eval average episode rewards of agent7: -373.59454
+eval average episode rewards of agent8: -373.60968
+eval average episode rewards of agent9: -373.5207
+eval average episode costs: Backlog: 99054.20, Inventory: 0.00, Maintenance: 90.51, Production: 3034.65, Setup: 2222.84, TOTAL: 104402.20
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9205/10416 episodes, total num timesteps 2651328/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9210/10416 episodes, total num timesteps 2652768/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9215/10416 episodes, total num timesteps 2654208/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9220/10416 episodes, total num timesteps 2655648/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9225/10416 episodes, total num timesteps 2657088/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9230/10416 episodes, total num timesteps 2658528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9235/10416 episodes, total num timesteps 2659968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9240/10416 episodes, total num timesteps 2661408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9245/10416 episodes, total num timesteps 2662848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9250/10416 episodes, total num timesteps 2664288/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8522 seconds
+eval average episode rewards of agent0: -378.40714
+eval average episode rewards of agent1: -375.94073
+eval average episode rewards of agent2: -376.02783
+eval average episode rewards of agent3: -376.03668
+eval average episode rewards of agent4: -376.05157
+eval average episode rewards of agent5: -375.97324
+eval average episode rewards of agent6: -375.9645
+eval average episode rewards of agent7: -376.02032
+eval average episode rewards of agent8: -376.0889
+eval average episode rewards of agent9: -375.9709
+eval average episode costs: Backlog: 99832.08, Inventory: 0.00, Maintenance: 90.42, Production: 2885.59, Setup: 1742.20, TOTAL: 104550.28
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9255/10416 episodes, total num timesteps 2665728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9260/10416 episodes, total num timesteps 2667168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9265/10416 episodes, total num timesteps 2668608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9270/10416 episodes, total num timesteps 2670048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9275/10416 episodes, total num timesteps 2671488/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9280/10416 episodes, total num timesteps 2672928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9285/10416 episodes, total num timesteps 2674368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9290/10416 episodes, total num timesteps 2675808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9295/10416 episodes, total num timesteps 2677248/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9300/10416 episodes, total num timesteps 2678688/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8372 seconds
+eval average episode rewards of agent0: -382.3818
+eval average episode rewards of agent1: -379.7953
+eval average episode rewards of agent2: -379.8923
+eval average episode rewards of agent3: -379.92218
+eval average episode rewards of agent4: -379.88757
+eval average episode rewards of agent5: -379.8048
+eval average episode rewards of agent6: -379.82614
+eval average episode rewards of agent7: -379.86462
+eval average episode rewards of agent8: -379.9243
+eval average episode rewards of agent9: -379.84094
+eval average episode costs: Backlog: 100810.85, Inventory: 0.00, Maintenance: 82.65, Production: 2794.39, Setup: 1883.98, TOTAL: 105571.88
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9305/10416 episodes, total num timesteps 2680128/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9310/10416 episodes, total num timesteps 2681568/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9315/10416 episodes, total num timesteps 2683008/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9320/10416 episodes, total num timesteps 2684448/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9325/10416 episodes, total num timesteps 2685888/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9330/10416 episodes, total num timesteps 2687328/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9335/10416 episodes, total num timesteps 2688768/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9340/10416 episodes, total num timesteps 2690208/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9345/10416 episodes, total num timesteps 2691648/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9350/10416 episodes, total num timesteps 2693088/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.9735 seconds
+eval average episode rewards of agent0: -381.7702
+eval average episode rewards of agent1: -379.03284
+eval average episode rewards of agent2: -379.11398
+eval average episode rewards of agent3: -379.10602
+eval average episode rewards of agent4: -379.1258
+eval average episode rewards of agent5: -379.02963
+eval average episode rewards of agent6: -379.05283
+eval average episode rewards of agent7: -379.10416
+eval average episode rewards of agent8: -379.14044
+eval average episode rewards of agent9: -379.04486
+eval average episode costs: Backlog: 100573.23, Inventory: 0.00, Maintenance: 79.43, Production: 2820.36, Setup: 2011.69, TOTAL: 105484.70
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9355/10416 episodes, total num timesteps 2694528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9360/10416 episodes, total num timesteps 2695968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9365/10416 episodes, total num timesteps 2697408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9370/10416 episodes, total num timesteps 2698848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9375/10416 episodes, total num timesteps 2700288/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9380/10416 episodes, total num timesteps 2701728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9385/10416 episodes, total num timesteps 2703168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9390/10416 episodes, total num timesteps 2704608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9395/10416 episodes, total num timesteps 2706048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9400/10416 episodes, total num timesteps 2707488/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8735 seconds
+eval average episode rewards of agent0: -382.16238
+eval average episode rewards of agent1: -379.33688
+eval average episode rewards of agent2: -379.41278
+eval average episode rewards of agent3: -379.41116
+eval average episode rewards of agent4: -379.4058
+eval average episode rewards of agent5: -379.3827
+eval average episode rewards of agent6: -379.36288
+eval average episode rewards of agent7: -379.38385
+eval average episode rewards of agent8: -379.47717
+eval average episode rewards of agent9: -379.37366
+eval average episode costs: Backlog: 100645.83, Inventory: 0.00, Maintenance: 77.19, Production: 2840.07, Setup: 2040.58, TOTAL: 105603.67
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9405/10416 episodes, total num timesteps 2708928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9410/10416 episodes, total num timesteps 2710368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9415/10416 episodes, total num timesteps 2711808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9420/10416 episodes, total num timesteps 2713248/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9425/10416 episodes, total num timesteps 2714688/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9430/10416 episodes, total num timesteps 2716128/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9435/10416 episodes, total num timesteps 2717568/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9440/10416 episodes, total num timesteps 2719008/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9445/10416 episodes, total num timesteps 2720448/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9450/10416 episodes, total num timesteps 2721888/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8384 seconds
+eval average episode rewards of agent0: -383.185
+eval average episode rewards of agent1: -380.5119
+eval average episode rewards of agent2: -380.5821
+eval average episode rewards of agent3: -380.57
+eval average episode rewards of agent4: -380.52594
+eval average episode rewards of agent5: -380.47995
+eval average episode rewards of agent6: -380.46017
+eval average episode rewards of agent7: -380.58417
+eval average episode rewards of agent8: -380.62552
+eval average episode rewards of agent9: -380.54266
+eval average episode costs: Backlog: 100970.52, Inventory: 0.00, Maintenance: 79.20, Production: 2820.02, Setup: 1943.46, TOTAL: 105813.20
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9455/10416 episodes, total num timesteps 2723328/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9460/10416 episodes, total num timesteps 2724768/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9465/10416 episodes, total num timesteps 2726208/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9470/10416 episodes, total num timesteps 2727648/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9475/10416 episodes, total num timesteps 2729088/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9480/10416 episodes, total num timesteps 2730528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9485/10416 episodes, total num timesteps 2731968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9490/10416 episodes, total num timesteps 2733408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9495/10416 episodes, total num timesteps 2734848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9500/10416 episodes, total num timesteps 2736288/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.7683 seconds
+eval average episode rewards of agent0: -381.07373
+eval average episode rewards of agent1: -378.503
+eval average episode rewards of agent2: -378.60736
+eval average episode rewards of agent3: -378.58643
+eval average episode rewards of agent4: -378.5445
+eval average episode rewards of agent5: -378.48715
+eval average episode rewards of agent6: -378.4804
+eval average episode rewards of agent7: -378.55402
+eval average episode rewards of agent8: -378.63617
+eval average episode rewards of agent9: -378.55963
+eval average episode costs: Backlog: 100471.44, Inventory: 0.00, Maintenance: 82.59, Production: 2872.15, Setup: 1855.24, TOTAL: 105281.42
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9505/10416 episodes, total num timesteps 2737728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9510/10416 episodes, total num timesteps 2739168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9515/10416 episodes, total num timesteps 2740608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9520/10416 episodes, total num timesteps 2742048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9525/10416 episodes, total num timesteps 2743488/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9530/10416 episodes, total num timesteps 2744928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9535/10416 episodes, total num timesteps 2746368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9540/10416 episodes, total num timesteps 2747808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9545/10416 episodes, total num timesteps 2749248/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9550/10416 episodes, total num timesteps 2750688/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8907 seconds
+eval average episode rewards of agent0: -380.50485
+eval average episode rewards of agent1: -378.03223
+eval average episode rewards of agent2: -378.18616
+eval average episode rewards of agent3: -378.12305
+eval average episode rewards of agent4: -378.1306
+eval average episode rewards of agent5: -378.068
+eval average episode rewards of agent6: -378.0705
+eval average episode rewards of agent7: -378.09677
+eval average episode rewards of agent8: -378.20978
+eval average episode rewards of agent9: -378.10294
+eval average episode costs: Backlog: 100364.45, Inventory: 0.00, Maintenance: 90.01, Production: 2904.13, Setup: 1815.16, TOTAL: 105173.77
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9555/10416 episodes, total num timesteps 2752128/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9560/10416 episodes, total num timesteps 2753568/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9565/10416 episodes, total num timesteps 2755008/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9570/10416 episodes, total num timesteps 2756448/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9575/10416 episodes, total num timesteps 2757888/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9580/10416 episodes, total num timesteps 2759328/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9585/10416 episodes, total num timesteps 2760768/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9590/10416 episodes, total num timesteps 2762208/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9595/10416 episodes, total num timesteps 2763648/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9600/10416 episodes, total num timesteps 2765088/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8483 seconds
+eval average episode rewards of agent0: -380.80493
+eval average episode rewards of agent1: -378.44052
+eval average episode rewards of agent2: -378.5811
+eval average episode rewards of agent3: -378.56403
+eval average episode rewards of agent4: -378.59235
+eval average episode rewards of agent5: -378.53094
+eval average episode rewards of agent6: -378.52753
+eval average episode rewards of agent7: -378.53937
+eval average episode rewards of agent8: -378.64328
+eval average episode rewards of agent9: -378.52252
+eval average episode costs: Backlog: 100520.81, Inventory: 0.00, Maintenance: 83.05, Production: 2821.59, Setup: 1673.02, TOTAL: 105098.48
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9605/10416 episodes, total num timesteps 2766528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9610/10416 episodes, total num timesteps 2767968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9615/10416 episodes, total num timesteps 2769408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9620/10416 episodes, total num timesteps 2770848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9625/10416 episodes, total num timesteps 2772288/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9630/10416 episodes, total num timesteps 2773728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9635/10416 episodes, total num timesteps 2775168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9640/10416 episodes, total num timesteps 2776608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9645/10416 episodes, total num timesteps 2778048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9650/10416 episodes, total num timesteps 2779488/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.0473 seconds
+eval average episode rewards of agent0: -382.2122
+eval average episode rewards of agent1: -379.8314
+eval average episode rewards of agent2: -379.97186
+eval average episode rewards of agent3: -379.98108
+eval average episode rewards of agent4: -379.9543
+eval average episode rewards of agent5: -379.90555
+eval average episode rewards of agent6: -379.89572
+eval average episode rewards of agent7: -379.9532
+eval average episode rewards of agent8: -380.03357
+eval average episode rewards of agent9: -379.93976
+eval average episode costs: Backlog: 100884.52, Inventory: 0.00, Maintenance: 79.19, Production: 2759.31, Setup: 1690.75, TOTAL: 105413.77
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9655/10416 episodes, total num timesteps 2780928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9660/10416 episodes, total num timesteps 2782368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9665/10416 episodes, total num timesteps 2783808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9670/10416 episodes, total num timesteps 2785248/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9675/10416 episodes, total num timesteps 2786688/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9680/10416 episodes, total num timesteps 2788128/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9685/10416 episodes, total num timesteps 2789568/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9690/10416 episodes, total num timesteps 2791008/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9695/10416 episodes, total num timesteps 2792448/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9700/10416 episodes, total num timesteps 2793888/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.0394 seconds
+eval average episode rewards of agent0: -381.75555
+eval average episode rewards of agent1: -379.32428
+eval average episode rewards of agent2: -379.463
+eval average episode rewards of agent3: -379.51062
+eval average episode rewards of agent4: -379.46094
+eval average episode rewards of agent5: -379.41214
+eval average episode rewards of agent6: -379.40237
+eval average episode rewards of agent7: -379.47763
+eval average episode rewards of agent8: -379.5402
+eval average episode rewards of agent9: -379.42938
+eval average episode costs: Backlog: 100749.42, Inventory: 0.00, Maintenance: 79.89, Production: 2796.02, Setup: 1706.14, TOTAL: 105331.48
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9705/10416 episodes, total num timesteps 2795328/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9710/10416 episodes, total num timesteps 2796768/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9715/10416 episodes, total num timesteps 2798208/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9720/10416 episodes, total num timesteps 2799648/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9725/10416 episodes, total num timesteps 2801088/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9730/10416 episodes, total num timesteps 2802528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9735/10416 episodes, total num timesteps 2803968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9740/10416 episodes, total num timesteps 2805408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9745/10416 episodes, total num timesteps 2806848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9750/10416 episodes, total num timesteps 2808288/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.0192 seconds
+eval average episode rewards of agent0: -381.13824
+eval average episode rewards of agent1: -378.65375
+eval average episode rewards of agent2: -378.7773
+eval average episode rewards of agent3: -378.79788
+eval average episode rewards of agent4: -378.8003
+eval average episode rewards of agent5: -378.75714
+eval average episode rewards of agent6: -378.75006
+eval average episode rewards of agent7: -378.8006
+eval average episode rewards of agent8: -378.86884
+eval average episode rewards of agent9: -378.76514
+eval average episode costs: Backlog: 100552.02, Inventory: 0.00, Maintenance: 78.35, Production: 2816.02, Setup: 1781.01, TOTAL: 105227.41
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9755/10416 episodes, total num timesteps 2809728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9760/10416 episodes, total num timesteps 2811168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9765/10416 episodes, total num timesteps 2812608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9770/10416 episodes, total num timesteps 2814048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9775/10416 episodes, total num timesteps 2815488/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9780/10416 episodes, total num timesteps 2816928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9785/10416 episodes, total num timesteps 2818368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9790/10416 episodes, total num timesteps 2819808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9795/10416 episodes, total num timesteps 2821248/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9800/10416 episodes, total num timesteps 2822688/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.7877 seconds
+eval average episode rewards of agent0: -382.9363
+eval average episode rewards of agent1: -380.56482
+eval average episode rewards of agent2: -380.75375
+eval average episode rewards of agent3: -380.7904
+eval average episode rewards of agent4: -380.79498
+eval average episode rewards of agent5: -380.71857
+eval average episode rewards of agent6: -380.80508
+eval average episode rewards of agent7: -380.7669
+eval average episode rewards of agent8: -380.82623
+eval average episode rewards of agent9: -380.73477
+eval average episode costs: Backlog: 101114.54, Inventory: 0.00, Maintenance: 79.40, Production: 2764.21, Setup: 1624.17, TOTAL: 105582.31
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9805/10416 episodes, total num timesteps 2824128/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9810/10416 episodes, total num timesteps 2825568/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9815/10416 episodes, total num timesteps 2827008/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9820/10416 episodes, total num timesteps 2828448/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9825/10416 episodes, total num timesteps 2829888/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9830/10416 episodes, total num timesteps 2831328/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9835/10416 episodes, total num timesteps 2832768/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9840/10416 episodes, total num timesteps 2834208/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9845/10416 episodes, total num timesteps 2835648/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9850/10416 episodes, total num timesteps 2837088/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8674 seconds
+eval average episode rewards of agent0: -380.14575
+eval average episode rewards of agent1: -377.63837
+eval average episode rewards of agent2: -377.83704
+eval average episode rewards of agent3: -377.8589
+eval average episode rewards of agent4: -377.85004
+eval average episode rewards of agent5: -377.80392
+eval average episode rewards of agent6: -377.85458
+eval average episode rewards of agent7: -377.84558
+eval average episode rewards of agent8: -377.91962
+eval average episode rewards of agent9: -377.8001
+eval average episode costs: Backlog: 100309.65, Inventory: 0.00, Maintenance: 77.07, Production: 2889.26, Setup: 1740.99, TOTAL: 105016.98
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9855/10416 episodes, total num timesteps 2838528/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9860/10416 episodes, total num timesteps 2839968/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9865/10416 episodes, total num timesteps 2841408/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9870/10416 episodes, total num timesteps 2842848/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9875/10416 episodes, total num timesteps 2844288/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9880/10416 episodes, total num timesteps 2845728/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9885/10416 episodes, total num timesteps 2847168/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9890/10416 episodes, total num timesteps 2848608/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9895/10416 episodes, total num timesteps 2850048/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9900/10416 episodes, total num timesteps 2851488/3000000, FPS 48.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.1151 seconds
+eval average episode rewards of agent0: -379.91208
+eval average episode rewards of agent1: -377.5161
+eval average episode rewards of agent2: -377.72806
+eval average episode rewards of agent3: -377.7193
+eval average episode rewards of agent4: -377.74515
+eval average episode rewards of agent5: -377.68243
+eval average episode rewards of agent6: -377.7583
+eval average episode rewards of agent7: -377.70496
+eval average episode rewards of agent8: -377.79816
+eval average episode rewards of agent9: -377.67126
+eval average episode costs: Backlog: 100301.95, Inventory: 0.00, Maintenance: 86.20, Production: 2886.55, Setup: 1650.22, TOTAL: 104924.92
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9905/10416 episodes, total num timesteps 2852928/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9910/10416 episodes, total num timesteps 2854368/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9915/10416 episodes, total num timesteps 2855808/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9920/10416 episodes, total num timesteps 2857248/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9925/10416 episodes, total num timesteps 2858688/3000000, FPS 48.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9930/10416 episodes, total num timesteps 2860128/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9935/10416 episodes, total num timesteps 2861568/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9940/10416 episodes, total num timesteps 2863008/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9945/10416 episodes, total num timesteps 2864448/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9950/10416 episodes, total num timesteps 2865888/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.9029 seconds
+eval average episode rewards of agent0: -380.0393
+eval average episode rewards of agent1: -377.50082
+eval average episode rewards of agent2: -377.7018
+eval average episode rewards of agent3: -377.72516
+eval average episode rewards of agent4: -377.7119
+eval average episode rewards of agent5: -377.66675
+eval average episode rewards of agent6: -377.71655
+eval average episode rewards of agent7: -377.71725
+eval average episode rewards of agent8: -377.7847
+eval average episode rewards of agent9: -377.66748
+eval average episode costs: Backlog: 100265.86, Inventory: 0.00, Maintenance: 78.97, Production: 2902.45, Setup: 1769.49, TOTAL: 105016.77
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9955/10416 episodes, total num timesteps 2867328/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9960/10416 episodes, total num timesteps 2868768/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9965/10416 episodes, total num timesteps 2870208/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9970/10416 episodes, total num timesteps 2871648/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9975/10416 episodes, total num timesteps 2873088/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9980/10416 episodes, total num timesteps 2874528/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9985/10416 episodes, total num timesteps 2875968/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9990/10416 episodes, total num timesteps 2877408/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 9995/10416 episodes, total num timesteps 2878848/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10000/10416 episodes, total num timesteps 2880288/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8352 seconds
+eval average episode rewards of agent0: -380.27658
+eval average episode rewards of agent1: -377.75577
+eval average episode rewards of agent2: -377.96695
+eval average episode rewards of agent3: -378.0202
+eval average episode rewards of agent4: -377.9577
+eval average episode rewards of agent5: -377.89362
+eval average episode rewards of agent6: -377.96277
+eval average episode rewards of agent7: -377.97833
+eval average episode rewards of agent8: -378.03784
+eval average episode rewards of agent9: -377.89728
+eval average episode costs: Backlog: 100337.48, Inventory: 0.00, Maintenance: 86.19, Production: 2922.21, Setup: 1748.41, TOTAL: 105094.29
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10005/10416 episodes, total num timesteps 2881728/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10010/10416 episodes, total num timesteps 2883168/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10015/10416 episodes, total num timesteps 2884608/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10020/10416 episodes, total num timesteps 2886048/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10025/10416 episodes, total num timesteps 2887488/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10030/10416 episodes, total num timesteps 2888928/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10035/10416 episodes, total num timesteps 2890368/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10040/10416 episodes, total num timesteps 2891808/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10045/10416 episodes, total num timesteps 2893248/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10050/10416 episodes, total num timesteps 2894688/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8555 seconds
+eval average episode rewards of agent0: -380.27658
+eval average episode rewards of agent1: -377.75577
+eval average episode rewards of agent2: -377.96695
+eval average episode rewards of agent3: -378.0202
+eval average episode rewards of agent4: -377.9577
+eval average episode rewards of agent5: -377.89362
+eval average episode rewards of agent6: -377.96277
+eval average episode rewards of agent7: -377.97833
+eval average episode rewards of agent8: -378.03784
+eval average episode rewards of agent9: -377.89728
+eval average episode costs: Backlog: 100337.48, Inventory: 0.00, Maintenance: 86.19, Production: 2922.21, Setup: 1748.41, TOTAL: 105094.29
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10055/10416 episodes, total num timesteps 2896128/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10060/10416 episodes, total num timesteps 2897568/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10065/10416 episodes, total num timesteps 2899008/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10070/10416 episodes, total num timesteps 2900448/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10075/10416 episodes, total num timesteps 2901888/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10080/10416 episodes, total num timesteps 2903328/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10085/10416 episodes, total num timesteps 2904768/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10090/10416 episodes, total num timesteps 2906208/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10095/10416 episodes, total num timesteps 2907648/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10100/10416 episodes, total num timesteps 2909088/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.7872 seconds
+eval average episode rewards of agent0: -381.55585
+eval average episode rewards of agent1: -379.10718
+eval average episode rewards of agent2: -379.31848
+eval average episode rewards of agent3: -379.36627
+eval average episode rewards of agent4: -379.30087
+eval average episode rewards of agent5: -379.2407
+eval average episode rewards of agent6: -379.3177
+eval average episode rewards of agent7: -379.34048
+eval average episode rewards of agent8: -379.38885
+eval average episode rewards of agent9: -379.28098
+eval average episode costs: Backlog: 100715.83, Inventory: 0.00, Maintenance: 81.44, Production: 2836.54, Setup: 1675.42, TOTAL: 105309.23
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10105/10416 episodes, total num timesteps 2910528/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10110/10416 episodes, total num timesteps 2911968/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10115/10416 episodes, total num timesteps 2913408/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10120/10416 episodes, total num timesteps 2914848/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10125/10416 episodes, total num timesteps 2916288/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10130/10416 episodes, total num timesteps 2917728/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10135/10416 episodes, total num timesteps 2919168/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10140/10416 episodes, total num timesteps 2920608/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10145/10416 episodes, total num timesteps 2922048/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10150/10416 episodes, total num timesteps 2923488/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.7630 seconds
+eval average episode rewards of agent0: -381.55585
+eval average episode rewards of agent1: -379.10718
+eval average episode rewards of agent2: -379.31848
+eval average episode rewards of agent3: -379.36627
+eval average episode rewards of agent4: -379.30087
+eval average episode rewards of agent5: -379.2407
+eval average episode rewards of agent6: -379.3177
+eval average episode rewards of agent7: -379.34048
+eval average episode rewards of agent8: -379.38885
+eval average episode rewards of agent9: -379.28098
+eval average episode costs: Backlog: 100715.83, Inventory: 0.00, Maintenance: 81.44, Production: 2836.54, Setup: 1675.42, TOTAL: 105309.23
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10155/10416 episodes, total num timesteps 2924928/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10160/10416 episodes, total num timesteps 2926368/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10165/10416 episodes, total num timesteps 2927808/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10170/10416 episodes, total num timesteps 2929248/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10175/10416 episodes, total num timesteps 2930688/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10180/10416 episodes, total num timesteps 2932128/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10185/10416 episodes, total num timesteps 2933568/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10190/10416 episodes, total num timesteps 2935008/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10195/10416 episodes, total num timesteps 2936448/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10200/10416 episodes, total num timesteps 2937888/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 2.2385 seconds
+eval average episode rewards of agent0: -381.2951
+eval average episode rewards of agent1: -378.81076
+eval average episode rewards of agent2: -379.02197
+eval average episode rewards of agent3: -379.0687
+eval average episode rewards of agent4: -379.00446
+eval average episode rewards of agent5: -378.94427
+eval average episode rewards of agent6: -379.02936
+eval average episode rewards of agent7: -379.04752
+eval average episode rewards of agent8: -379.0925
+eval average episode rewards of agent9: -378.96625
+eval average episode costs: Backlog: 100626.75, Inventory: 0.00, Maintenance: 82.95, Production: 2873.06, Setup: 1711.31, TOTAL: 105294.06
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10205/10416 episodes, total num timesteps 2939328/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10210/10416 episodes, total num timesteps 2940768/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10215/10416 episodes, total num timesteps 2942208/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10220/10416 episodes, total num timesteps 2943648/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10225/10416 episodes, total num timesteps 2945088/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10230/10416 episodes, total num timesteps 2946528/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10235/10416 episodes, total num timesteps 2947968/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10240/10416 episodes, total num timesteps 2949408/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10245/10416 episodes, total num timesteps 2950848/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10250/10416 episodes, total num timesteps 2952288/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8397 seconds
+eval average episode rewards of agent0: -381.2951
+eval average episode rewards of agent1: -378.81076
+eval average episode rewards of agent2: -379.02197
+eval average episode rewards of agent3: -379.0687
+eval average episode rewards of agent4: -379.00446
+eval average episode rewards of agent5: -378.94427
+eval average episode rewards of agent6: -379.02936
+eval average episode rewards of agent7: -379.04752
+eval average episode rewards of agent8: -379.0925
+eval average episode rewards of agent9: -378.96625
+eval average episode costs: Backlog: 100626.75, Inventory: 0.00, Maintenance: 82.95, Production: 2873.06, Setup: 1711.31, TOTAL: 105294.06
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10255/10416 episodes, total num timesteps 2953728/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10260/10416 episodes, total num timesteps 2955168/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10265/10416 episodes, total num timesteps 2956608/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10270/10416 episodes, total num timesteps 2958048/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10275/10416 episodes, total num timesteps 2959488/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10280/10416 episodes, total num timesteps 2960928/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10285/10416 episodes, total num timesteps 2962368/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10290/10416 episodes, total num timesteps 2963808/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10295/10416 episodes, total num timesteps 2965248/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10300/10416 episodes, total num timesteps 2966688/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8834 seconds
+eval average episode rewards of agent0: -381.2951
+eval average episode rewards of agent1: -378.81076
+eval average episode rewards of agent2: -379.02197
+eval average episode rewards of agent3: -379.0687
+eval average episode rewards of agent4: -379.00446
+eval average episode rewards of agent5: -378.94427
+eval average episode rewards of agent6: -379.02936
+eval average episode rewards of agent7: -379.04752
+eval average episode rewards of agent8: -379.0925
+eval average episode rewards of agent9: -378.96625
+eval average episode costs: Backlog: 100626.75, Inventory: 0.00, Maintenance: 82.95, Production: 2873.06, Setup: 1711.31, TOTAL: 105294.06
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10305/10416 episodes, total num timesteps 2968128/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10310/10416 episodes, total num timesteps 2969568/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10315/10416 episodes, total num timesteps 2971008/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10320/10416 episodes, total num timesteps 2972448/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10325/10416 episodes, total num timesteps 2973888/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10330/10416 episodes, total num timesteps 2975328/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10335/10416 episodes, total num timesteps 2976768/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10340/10416 episodes, total num timesteps 2978208/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10345/10416 episodes, total num timesteps 2979648/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10350/10416 episodes, total num timesteps 2981088/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.9116 seconds
+eval average episode rewards of agent0: -381.2951
+eval average episode rewards of agent1: -378.81076
+eval average episode rewards of agent2: -379.02197
+eval average episode rewards of agent3: -379.0687
+eval average episode rewards of agent4: -379.00446
+eval average episode rewards of agent5: -378.94427
+eval average episode rewards of agent6: -379.02936
+eval average episode rewards of agent7: -379.04752
+eval average episode rewards of agent8: -379.0925
+eval average episode rewards of agent9: -378.96625
+eval average episode costs: Backlog: 100626.75, Inventory: 0.00, Maintenance: 82.95, Production: 2873.06, Setup: 1711.31, TOTAL: 105294.06
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10355/10416 episodes, total num timesteps 2982528/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10360/10416 episodes, total num timesteps 2983968/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10365/10416 episodes, total num timesteps 2985408/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10370/10416 episodes, total num timesteps 2986848/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10375/10416 episodes, total num timesteps 2988288/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10380/10416 episodes, total num timesteps 2989728/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10385/10416 episodes, total num timesteps 2991168/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10390/10416 episodes, total num timesteps 2992608/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10395/10416 episodes, total num timesteps 2994048/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10400/10416 episodes, total num timesteps 2995488/3000000, FPS 47.
+
+
+[EVAL] BOSCH MARL Inference Solving Time for 36 periods: 1.8204 seconds
+eval average episode rewards of agent0: -380.53802
+eval average episode rewards of agent1: -378.0639
+eval average episode rewards of agent2: -378.27487
+eval average episode rewards of agent3: -378.29242
+eval average episode rewards of agent4: -378.25818
+eval average episode rewards of agent5: -378.19812
+eval average episode rewards of agent6: -378.2989
+eval average episode rewards of agent7: -378.29303
+eval average episode rewards of agent8: -378.34634
+eval average episode rewards of agent9: -378.23486
+eval average episode costs: Backlog: 100433.90, Inventory: 0.00, Maintenance: 79.61, Production: 2887.46, Setup: 1700.54, TOTAL: 105101.50
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10405/10416 episodes, total num timesteps 2996928/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10410/10416 episodes, total num timesteps 2998368/3000000, FPS 47.
+
+
+ Scenario BOSCH Algo rmappo Exp benchmark_28_9_4_gated_pm updates 10415/10416 episodes, total num timesteps 2999808/3000000, FPS 47.
+
+
+[Step 1] Training complete. Model copied to: /Users/nhi/thesis_14th-1/benchmark_results/28_9_4_gated_pm/model
+Loaded 10 existing results for 28_9_4
+
+[1/100] 28_9_4 instance 1
+  Step1 only:  84251.04  (1.7s)
+  Step1+2+3:   17670.63  (7.2s)
+
+[2/100] 28_9_4 instance 2
+  Step1 only:  85096.38  (1.4s)
+  Step1+2+3:   18526.63  (5.9s)
+
+[3/100] 28_9_4 instance 3
+  Step1 only:  88751.20  (1.3s)
+  Step1+2+3:   18551.27  (5.7s)
+
+[4/100] 28_9_4 instance 4
+  Step1 only:  90885.93  (1.5s)
+  Step1+2+3:   17879.88  (5.7s)
+
+[5/100] 28_9_4 instance 5
+  Step1 only:  77021.97  (1.4s)
+  Step1+2+3:   17791.87  (6.0s)
+
+[6/100] 28_9_4 instance 6
+  Step1 only:  79831.25  (1.4s)
+  Step1+2+3:   17256.03  (6.0s)
+
+[7/100] 28_9_4 instance 7
+  Step1 only:  82316.37  (1.3s)
+  Step1+2+3:   17838.44  (6.0s)
+
+[8/100] 28_9_4 instance 8
+  Step1 only:  79161.80  (1.4s)
+  Step1+2+3:   17348.37  (5.6s)
+
+[9/100] 28_9_4 instance 9
+  Step1 only:  79727.68  (1.6s)
+  Step1+2+3:   18177.75  (6.0s)
+
+[10/100] 28_9_4 instance 10
+  Step1 only:  84464.77  (1.4s)
+  Step1+2+3:   18135.30  (5.6s)
+No valid results to summarize.
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mrmappo_benchmark_28_9_4_gated_pm_seed1[0m at: [34mhttps://wandb.ai/tntvan-iac-instagram/BOSCH/runs/6fh58nut[0m
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /Users/nhi/.netrc.
+wandb: Currently logged in as: tntvan-iac (tntvan-iac-instagram) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run a3zl84rk
+wandb: Tracking run with wandb version 0.26.1
+wandb: Run data is saved locally in results/BOSCH/rmappo/benchmark_29_10_4_gated_pm/wandb/run-20260530_155456-a3zl84rk
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run rmappo_benchmark_29_10_4_gated_pm_seed1
+wandb: ⭐️ View project at https://wandb.ai/tntvan-iac-instagram/BOSCH
+wandb: 🚀 View run at https://wandb.ai/tntvan-iac-instagram/BOSCH/runs/a3zl84rk
+
+============================================================
+STEP 1: Training P=29 L=10 T=4  kill_switch=20  num_env_steps=3000000
+============================================================
+BOSCH: using multiprocessing start_method='fork' on macOS.

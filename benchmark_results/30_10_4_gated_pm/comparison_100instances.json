@@ -2,51 +2,61 @@
   "instance_1": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 15995.35,
+    "rh2_time": 2784.0
   },
   "instance_2": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 14867.45,
+    "rh2_time": 2783.3
   },
   "instance_3": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 34334.43,
+    "rh2_time": 2783.5
   },
   "instance_4": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 38697.08,
+    "rh2_time": 2785.2
   },
   "instance_5": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 46697.29,
+    "rh2_time": 3196.9
   },
   "instance_6": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 32548.02,
+    "rh2_time": 2783.4
   },
   "instance_7": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 22348.84,
+    "rh2_time": 2784.5
   },
   "instance_8": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 51816.43,
+    "rh2_time": 2783.4
   },
   "instance_9": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 49325.48,
+    "rh2_time": 2783.1
   },
   "instance_10": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 48517.98,
+    "rh2_time": 2784.2
   }
 }

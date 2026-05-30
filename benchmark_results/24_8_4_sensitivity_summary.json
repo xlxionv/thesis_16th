@@ -1,0 +1,29 @@
+{
+  "benchmark": "24_8_4",
+  "baseline_file": "/Users/nhi/thesis_14th-1/benchmark_results/24_8_4/comparison_100instances.json",
+  "selection_metric": "lowest step1_2_3_candidate_mean",
+  "best_by_group": {},
+  "rows": [
+    {
+      "benchmark": "24_8_4",
+      "group": "entropy",
+      "tag": "sensEnt_0p00171964",
+      "status": "missing",
+      "result_file": "/Users/nhi/thesis_14th-1/benchmark_results/24_8_4_sensEnt_0p00171964/comparison_100instances.json"
+    },
+    {
+      "benchmark": "24_8_4",
+      "group": "entropy",
+      "tag": "sensEnt_0p005",
+      "status": "missing",
+      "result_file": "/Users/nhi/thesis_14th-1/benchmark_results/24_8_4_sensEnt_0p005/comparison_100instances.json"
+    },
+    {
+      "benchmark": "24_8_4",
+      "group": "entropy",
+      "tag": "sensEnt_0p02",
+      "status": "missing",
+      "result_file": "/Users/nhi/thesis_14th-1/benchmark_results/24_8_4_sensEnt_0p02/comparison_100instances.json"
+    }
+  ]
+}

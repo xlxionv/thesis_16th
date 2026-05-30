@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """
-Run RH2 only for comparison entries where rh2 is missing/null.
+Run RH2 for comparison entries where rh2 is missing/null, or for all entries
+when --rerun_all is set.
 
 Examples:
   python3 run_missing_rh2.py
   python3 run_missing_rh2.py --benchmarks 23_8_4 24_8_4_gated_pm
+  python3 run_missing_rh2.py --benchmarks 24_8_4 --rerun_all
   python3 run_missing_rh2.py --dry_run
 """
 
@@ -49,7 +51,7 @@ def instance_number(key):
     return int(match.group(1)) if match else None
 
 
-def run_file(name, dims, path, dry_run=False, limit=None):
+def run_file(name, dims, path, dry_run=False, limit=None, rerun_all=False):
     p, l, t = dims
     with open(path) as f:
         results = json.load(f)
@@ -61,17 +63,18 @@ def run_file(name, dims, path, dry_run=False, limit=None):
             continue
         if not isinstance(row, dict):
             continue
-        if row.get("rh2") is None:
+        if rerun_all or row.get("rh2") is None:
             pending.append((idx, key, row))
 
     if limit is not None:
         pending = pending[:limit]
 
     if not pending:
-        print(f"{name}: no missing RH2")
+        print(f"{name}: no RH2 entries to run")
         return 0
 
-    print(f"{name}: {len(pending)} missing RH2")
+    mode = "RH2 entries" if rerun_all else "missing RH2"
+    print(f"{name}: {len(pending)} {mode}")
     if dry_run:
         for idx, _, _ in pending:
             print(f"  would run instance {idx}")
@@ -119,6 +122,11 @@ def main():
     )
     parser.add_argument("--dry_run", action="store_true")
     parser.add_argument(
+        "--rerun_all",
+        action="store_true",
+        help="Run RH2 for every comparison entry, overwriting existing rh2/rh2_time values.",
+    )
+    parser.add_argument(
         "--limit",
         type=int,
         default=None,
@@ -130,7 +138,14 @@ def main():
     seen = False
     for name, dims, path in comparison_files(args.benchmarks):
         seen = True
-        total += run_file(name, dims, path, dry_run=args.dry_run, limit=args.limit)
+        total += run_file(
+            name,
+            dims,
+            path,
+            dry_run=args.dry_run,
+            limit=args.limit,
+            rerun_all=args.rerun_all,
+        )
 
     if args.benchmarks and not seen:
         print("No matching comparison files found.")

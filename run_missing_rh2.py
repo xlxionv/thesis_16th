@@ -6,6 +6,8 @@ when --rerun_all is set.
 Examples:
   python3 run_missing_rh2.py
   python3 run_missing_rh2.py --benchmarks 23_8_4 24_8_4_gated_pm
+  python3 run_missing_rh2.py --benchmarks 29_10_4_gated_pm --create_missing
+  python3 run_missing_rh2.py --benchmarks 29_10_4_gated_pm --create_missing --create_only
   python3 run_missing_rh2.py --benchmarks 24_8_4 --rerun_all
   python3 run_missing_rh2.py --dry_run
 """
@@ -29,11 +31,15 @@ def parse_benchmark_key(name):
     return tuple(int(x) for x in match.groups())
 
 
-def comparison_files(selected=None):
+def comparison_files(selected=None, create_missing=False, n_instances=10, dry_run=False):
     root = os.path.join(PROJECT_ROOT, "benchmark_results")
     selected = set(selected or [])
 
-    for name in sorted(os.listdir(root)):
+    names = sorted(os.listdir(root))
+    if selected:
+        names = sorted(set(names) | selected)
+
+    for name in names:
         if selected and name not in selected:
             continue
 
@@ -41,8 +47,17 @@ def comparison_files(selected=None):
         if parsed is None:
             continue
 
-        path = os.path.join(root, name, "comparison_100instances.json")
+        result_dir = os.path.join(root, name)
+        path = os.path.join(result_dir, "comparison_100instances.json")
         if os.path.exists(path):
+            yield name, parsed, path
+        elif create_missing and dry_run:
+            yield name, parsed, path
+        elif create_missing:
+            os.makedirs(result_dir, exist_ok=True)
+            results = placeholder_results(n_instances)
+            with open(path, "w") as f:
+                json.dump(results, f, indent=2)
             yield name, parsed, path
 
 
@@ -51,10 +66,36 @@ def instance_number(key):
     return int(match.group(1)) if match else None
 
 
-def run_file(name, dims, path, dry_run=False, limit=None, rerun_all=False):
+def placeholder_results(n_instances):
+    return {
+        f"instance_{idx}": {
+            "step1_only": None,
+            "step1_2_3": None,
+            "rh2": None,
+        }
+        for idx in range(1, n_instances + 1)
+    }
+
+
+def run_file(
+    name,
+    dims,
+    path,
+    dry_run=False,
+    limit=None,
+    rerun_all=False,
+    create_missing=False,
+    n_instances=10,
+    create_only=False,
+):
     p, l, t = dims
-    with open(path) as f:
-        results = json.load(f)
+    if os.path.exists(path):
+        with open(path) as f:
+            results = json.load(f)
+    elif create_missing:
+        results = placeholder_results(n_instances)
+    else:
+        return 0
 
     pending = []
     for key, row in sorted(results.items(), key=lambda item: instance_number(item[0]) or 10**9):
@@ -71,6 +112,16 @@ def run_file(name, dims, path, dry_run=False, limit=None, rerun_all=False):
 
     if not pending:
         print(f"{name}: no RH2 entries to run")
+        return 0
+
+    if create_only:
+        if not os.path.exists(path):
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            with open(path, "w") as f:
+                json.dump(results, f, indent=2)
+            print(f"{name}: created placeholders only")
+        else:
+            print(f"{name}: comparison file already exists")
         return 0
 
     mode = "RH2 entries" if rerun_all else "missing RH2"
@@ -106,6 +157,7 @@ def run_file(name, dims, path, dry_run=False, limit=None, rerun_all=False):
                 print(f"  instance {idx}: RH2 {cost:.2f} ({elapsed:.1f}s)")
                 completed += 1
 
+        os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w") as f:
             json.dump(results, f, indent=2)
 
@@ -127,6 +179,22 @@ def main():
         help="Run RH2 for every comparison entry, overwriting existing rh2/rh2_time values.",
     )
     parser.add_argument(
+        "--create_missing",
+        action="store_true",
+        help="Create comparison files/instance rows when they do not exist yet, then run missing RH2 only.",
+    )
+    parser.add_argument(
+        "--create_only",
+        action="store_true",
+        help="With --create_missing, create placeholder files/rows but do not run RH2.",
+    )
+    parser.add_argument(
+        "--n_instances",
+        type=int,
+        default=10,
+        help="Number of placeholder instance rows to create with --create_missing.",
+    )
+    parser.add_argument(
         "--limit",
         type=int,
         default=None,
@@ -136,7 +204,12 @@ def main():
 
     total = 0
     seen = False
-    for name, dims, path in comparison_files(args.benchmarks):
+    for name, dims, path in comparison_files(
+        args.benchmarks,
+        create_missing=args.create_missing,
+        n_instances=args.n_instances,
+        dry_run=args.dry_run,
+    ):
         seen = True
         total += run_file(
             name,
@@ -145,6 +218,9 @@ def main():
             dry_run=args.dry_run,
             limit=args.limit,
             rerun_all=args.rerun_all,
+            create_missing=args.create_missing,
+            n_instances=args.n_instances,
+            create_only=args.create_only,
         )
 
     if args.benchmarks and not seen:

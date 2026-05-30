@@ -398,7 +398,7 @@ def approach_rh2(config_path):
     cmd = [sys.executable,
            os.path.join(PROJECT_ROOT, "configs/bosch/rh2_baseline.py"),
            "--config", config_path, "--quiet",
-           "--time_limit", "500"]
+           "--time_limit", "700"]
     result = subprocess.run(cmd, capture_output=True, text=True,
                             cwd=PROJECT_ROOT, timeout=5000)
     output = result.stdout + result.stderr

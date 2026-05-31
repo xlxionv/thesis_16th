@@ -1,0 +1,15 @@
+[Sun May 31 22:41:19 +07 2026] Resuming sensitivity from sensEnt_0p005
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /Users/nhi/.netrc.
+wandb: Currently logged in as: tntvan-iac (tntvan-iac-instagram) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.26.1
+wandb: Run data is saved locally in results/BOSCH/rmappo/benchmark_24_8_4_sensEnt_0p005/wandb/run-20260531_224123-ugah2o1p
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run rmappo_benchmark_24_8_4_sensEnt_0p005_seed1
+wandb: ⭐️ View project at https://wandb.ai/tntvan-iac-instagram/BOSCH
+wandb: 🚀 View run at https://wandb.ai/tntvan-iac-instagram/BOSCH/runs/ugah2o1p
+
+============================================================
+STEP 1: Training P=24 L=8 T=4  kill_switch=20  num_env_steps=1000000
+============================================================
+BOSCH: using multiprocessing start_method='fork' on macOS.

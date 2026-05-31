@@ -47,7 +47,7 @@ def experiment_grid(groups):
     experiments = []
 
     if "B" in groups:
-        for tau in [0.5, 0.75, 1.0]:
+        for tau in [0.5, 0.75, 1.0, 1.25]:
             experiments.append({
                 "group": "B",
                 "tag": f"sensB_gated_tau{fmt_float_tag(tau)}",
@@ -355,9 +355,23 @@ def main():
                         help="Wait until this tagged comparison file exists before running.")
     parser.add_argument("--wait_poll_seconds", type=int, default=300,
                         help="Polling interval for --wait_for_result_tag.")
+    parser.add_argument("--start_tag", type=str, default=None,
+                        help="Skip experiments until this result tag, then run from there.")
     args = parser.parse_args()
 
     experiments = experiment_grid(args.groups)
+    if args.start_tag:
+        start_idx = None
+        for idx, experiment in enumerate(experiments):
+            if experiment["tag"] == args.start_tag:
+                start_idx = idx
+                break
+        if start_idx is None:
+            tags = [experiment["tag"] for experiment in experiments]
+            print(f"Unknown --start_tag {args.start_tag!r}. Valid tags for selected groups: {tags}")
+            raise SystemExit(1)
+        experiments = experiments[start_idx:]
+
     if not experiments:
         print("No experiments selected.")
         return

@@ -32,26 +32,31 @@
   "instance_6": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 25670.25,
+    "rh2_time": 2762.273118019104
   },
   "instance_7": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 35834.25,
+    "rh2_time": 2766.2789013385773
   },
   "instance_8": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 31243.56,
+    "rh2_time": 2756.4407601356506
   },
   "instance_9": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 33803.19,
+    "rh2_time": 2746.8437161445618
   },
   "instance_10": {
     "step1_only": null,
     "step1_2_3": null,
-    "rh2": null
+    "rh2": 35824.95,
+    "rh2_time": 2755.814404964447
   }
 }

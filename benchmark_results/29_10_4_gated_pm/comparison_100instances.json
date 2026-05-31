@@ -1,62 +1,82 @@
 {
   "instance_1": {
-    "step1_only": null,
-    "step1_2_3": null,
+    "step1_only": 89779.6202660799,
+    "step1_2_3": 18564.842887878418,
     "rh2": 35838.15,
-    "rh2_time": 2081.2
+    "rh2_time": 2081.2,
+    "step1_only_time": 1.5031177997589111,
+    "step1_2_3_time": 6.373733758926392
   },
   "instance_2": {
-    "step1_only": null,
-    "step1_2_3": null,
+    "step1_only": 103904.80794298649,
+    "step1_2_3": 19963.44354248047,
     "rh2": 42635.91,
-    "rh2_time": 1985.4
+    "rh2_time": 1985.4,
+    "step1_only_time": 1.4712319374084473,
+    "step1_2_3_time": 5.338583946228027
   },
   "instance_3": {
-    "step1_only": null,
-    "step1_2_3": null,
+    "step1_only": 91009.92976093292,
+    "step1_2_3": 18409.03048324585,
     "rh2": 29915.14,
-    "rh2_time": 1984.7
+    "rh2_time": 1984.7,
+    "step1_only_time": 1.360116958618164,
+    "step1_2_3_time": 5.540440082550049
   },
   "instance_4": {
-    "step1_only": null,
-    "step1_2_3": null,
+    "step1_only": 92892.0309138298,
+    "step1_2_3": 18909.983768463135,
     "rh2": 24259.59,
-    "rh2_time": 1985.0
+    "rh2_time": 1985.0,
+    "step1_only_time": 1.3338279724121094,
+    "step1_2_3_time": 5.364997863769531
   },
   "instance_5": {
-    "step1_only": null,
-    "step1_2_3": null,
+    "step1_only": 91380.83172655106,
+    "step1_2_3": 18862.830181121826,
     "rh2": 28743.13,
-    "rh2_time": 1985.3
+    "rh2_time": 1985.3,
+    "step1_only_time": 1.428236961364746,
+    "step1_2_3_time": 5.410408020019531
   },
   "instance_6": {
-    "step1_only": null,
-    "step1_2_3": null,
+    "step1_only": 93770.23093748093,
+    "step1_2_3": 19084.45198059082,
     "rh2": 23082.08,
-    "rh2_time": 1985.0
+    "rh2_time": 1985.0,
+    "step1_only_time": 1.3722021579742432,
+    "step1_2_3_time": 5.426863193511963
   },
   "instance_7": {
-    "step1_only": null,
-    "step1_2_3": null,
+    "step1_only": 89599.64586210251,
+    "step1_2_3": 17864.528451919556,
     "rh2": 41405.57,
-    "rh2_time": 1985.2
+    "rh2_time": 1985.2,
+    "step1_only_time": 1.3910152912139893,
+    "step1_2_3_time": 5.364742994308472
   },
   "instance_8": {
-    "step1_only": null,
-    "step1_2_3": null,
+    "step1_only": 100342.50035476685,
+    "step1_2_3": 20100.490175247192,
     "rh2": 55818.67,
-    "rh2_time": 1985.4
+    "rh2_time": 1985.4,
+    "step1_only_time": 1.3534960746765137,
+    "step1_2_3_time": 5.327469110488892
   },
   "instance_9": {
-    "step1_only": null,
-    "step1_2_3": null,
+    "step1_only": 87424.82076883316,
+    "step1_2_3": 17911.768323898315,
     "rh2": 29522.91,
-    "rh2_time": 1985.6
+    "rh2_time": 1985.6,
+    "step1_only_time": 1.3418960571289062,
+    "step1_2_3_time": 5.248089790344238
   },
   "instance_10": {
-    "step1_only": null,
-    "step1_2_3": null,
+    "step1_only": 79039.03792619705,
+    "step1_2_3": 16823.19377708435,
     "rh2": 26070.38,
-    "rh2_time": 1984.8
+    "rh2_time": 1984.8,
+    "step1_only_time": 1.3089501857757568,
+    "step1_2_3_time": 5.199361801147461
   }
 }

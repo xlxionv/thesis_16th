@@ -1,0 +1,24 @@
+allocator_mode:
+  value: jit
+clip_param:
+  value: 0.34949444139736674
+critic_lr:
+  value: 4.679966503672484e-05
+entropy_coef:
+  value: 0.01
+gamma:
+  value: 0.9626502158677256
+hidden_size:
+  value: 128
+kill_switch_penalty:
+  value: 20
+lr:
+  value: 0.00013459302908434487
+max_actions_per_period:
+  value: 8
+obs_mode:
+  value: binary
+recurrent_N:
+  value: 1
+reward_mode:
+  value: step1

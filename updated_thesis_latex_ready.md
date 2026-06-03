@@ -257,8 +257,7 @@ I am deeply grateful to my family, whose quiet and unwavering support sustained 
 
 [Table 5.7: Summary Across Scales [69](#table-5.7-summary-across-scales)](#table-5.7-summary-across-scales)
 
-**\**
-=====
+---
 
 # **List of Figures**
 
@@ -285,7 +284,7 @@ I am deeply grateful to my family, whose quiet and unwavering support sustained 
 [Figure 5.4: Sensitivity analysis for entropy, learning-rate scale, and PPO clipping [73](#_Toc229106962)](#_Toc229106962)
 
 
-**\**
+---
 
 # **List of Abbreviations**
 
@@ -313,6 +312,7 @@ I am deeply grateful to my family, whose quiet and unwavering support sustained 
 | TD | Temporal Difference |
 
 
+
 # Chapter 1: INTRODUCTION
 
 ## **1.1. Background: **
@@ -333,6 +333,7 @@ Loopset manufacturing represents a complex production environment with parallel 
 | LL9 |  | Yes |  | Yes |  | Yes |  |  |
 | LL10 |  |  |  |  |  | Yes | Yes |  |
 | LL11 |  |  |  |  |  | Yes |  | Yes |
+
 
 In addition to line heterogeneity, loopset production is characterized by sequence-dependent setup times and costs. When a line switches from one product family to another, the resulting changeover time and resource cost depend specifically on which product is produced next and which product was produced immediately before it, as well as on the particular line performing the changeover. As a result, the sequence in which lots are scheduled directly influences both the effective production capacity and the total operational cost. Because setup losses can be substantial, the ordering of production lots becomes a critical planning decision that interacts closely with lot sizing and line assignment.
 
@@ -440,6 +441,7 @@ The candidate methods are organised into four practical families: heuristic/math
 | Metaheuristics | GA, SA, TS, PSO, ABC | Reviewed as scalable alternatives, but not selected because feasibility and optimality guarantees are weaker |
 | Pure RL/DRL | REINFORCE, Q-learning, DQN, Double DQN, Basic Actor-Critic, A2C, A3C, DPG, DDPG, PPO, MAPPO/RMAPPO | Reviewed as policy-learning approaches; pure end-to-end quantity scheduling is not selected |
 | RL + heuristic / exact hybrids | RL + GA, RL + OR/MIP, RL + post-hoc LP/MILP, two-stage RL search-space reduction | Selected approach: RL learns routing/sequencing, LP/MILP computes quantities |
+
 
 ### Matheuristic Approaches:
 
@@ -566,6 +568,7 @@ The comparison is organised into two selection layers: the optimization method u
 | Constraint programming | Feasibility-focused | Strong for sequencing | Medium | Limited |
 | MILP / LP | Exact within the reduced model | Strong when routing/setup implications are fixed or bounded | High after RL mask fixation | Direct |
 
+
 The selected framework uses the final row. The full routing and sequencing problem is not sent to the solver. Instead, RMAPPO exports fixed binary masks. With those masks fixed, the post-hoc quantity model solves the reduced continuous allocation problem with inventory, backlog, capacity, production, and expected corrective-maintenance costs.
 
 ###### Table 3.2: RL/DRL Algorithm Comparison
@@ -583,6 +586,7 @@ The selected framework uses the final row. The full routing and sequencing probl
 | DDPG | Extends actor-critic learning to continuous actions | Sensitive to hyperparameters and mismatched with the discrete first-level scheduler |
 | PPO | Stable clipped policy updates, good sample efficiency, and simple implementation | Designed for single-agent use unless extended to multi-agent CTDE |
 | MAPPO / RMAPPO | Supports cooperative multi-agent CTDE, recurrent policies, and masked discrete actions | Requires careful reward design, recurrent buffers, and training stabilisation |
+
 
 The selected policy algorithm is RMAPPO. PPO clipping limits destructive updates, recurrent actors handle partially observed line histories, and the centralised critic provides a shared training signal while preserving decentralised execution.
 
@@ -621,7 +625,7 @@ The proposed system is illustrated in Figure 3.1.
 
 *Figure 3.1: Proposed solution approach - RMAPPO system with post-hoc LP/MILP lot-sizing integration*
 
-**\**
+---
 
 # **Chapter 4: SOLUTION DEVELOPMENT**
 
@@ -650,6 +654,7 @@ The framework therefore uses a three-step benchmark pipeline rather than a singl
 | t in T | Index for a planning period |
 | k | Index for a machine micro-step within a period |
 
+
 ###### Table 4.2: System Parameters
 
 | Symbol | Definition |
@@ -662,6 +667,7 @@ The framework therefore uses a three-step benchmark pipeline rather than a singl
 | k_max | Maximum number of machine micro-steps per planning period |
 | k_w | Demand lookahead horizon (number of future periods) |
 | w | Post-hoc lot-sizing rolling window (number of lookahead periods for quantity allocation) |
+
 
 ###### Table 4.3: Cost Parameters
 
@@ -678,6 +684,7 @@ The framework therefore uses a three-step benchmark pipeline rather than a singl
 | M_RL[l,p,t] | Fixed binary routing mask exported from the trained RL policy |
 | setup_reserve_RL[l,t] | Setup-time overhead reserved from the RL mask/sequence before quantity allocation |
 
+
 ###### Table 4.4: Decision Variables
 
 | Symbol | Type | Definition |
@@ -692,25 +699,52 @@ The framework therefore uses a three-step benchmark pipeline rather than a singl
 | B[p,t] >= 0 | Continuous | Actual backlog of product p at end of period t |
 | Age[l,t] >= 0 | Continuous | Cumulative degradation runtime of line l at period t |
 
+
 **Objective Function**
 
 The implemented framework has two cost expressions. The post-hoc lot-sizing LP minimises quantity-related cost under the fixed RL routing mask:
 
-Equation (1): minimise, over all periods, the sum of holding cost, backlog cost, direct production cost, and expected corrective-maintenance cost:
+Equation (1):
 
-min sum_t [ sum_p (h inv[t,p] + b back[t,p]) + sum_l sum_p M_RL[l,p,t] E[l,p] (ProdCost[l,p] + lambda[l] cm[l] pt[l,p]) x[l,p,t] ].
+$$
+\min \sum_{t \in \mathcal{T}} \left[
+\sum_{p \in \mathcal{P}} \left(h\,\mathrm{inv}_{t,p}+b\,\mathrm{back}_{t,p}\right)
++\sum_{l \in \mathcal{L}}\sum_{p \in \mathcal{P}} M^{RL}_{l,p,t}E_{l,p}
+\left(\mathrm{ProdCost}_{l,p}+\lambda_l cm_l pt_{l,p}\right)x_{l,p,t}
+\right]
+$$
 
 The final reported evaluation cost is then computed by deterministic simulation of the trained actors with the post-hoc lot sizes loaded:
 
-Equation (2): C_eval = sum_t [ sum_p (h I[p,t] + b B[p,t] + beta[p] indicator(B[p,t] > 0)) + sum_l sum_p ProdCost[l,p] Q[l,p,t] + sum_l (C_setup[l,t] + C_PM[l,t] + C_CM[l,t]) ].
+Equation (2):
+
+$$
+\min \sum_{t\in\mathcal{T}}\left[
+\sum_{p\in\mathcal{P}}\left(h\cdot I_{p,t}+b\cdot B_{p,t}+\beta_p\cdot\mathbf{1}[B_{p,t}>0]\right)
++\sum_{l\in\mathcal{L}}\sum_{p\in\mathcal{P}} \mathrm{ProdCost}_{l,p}\cdot Q_{l,p,t}
++\sum_{l\in\mathcal{L}}\left(C^{setup}_{l,t}+C^{PM}_{l,t}+C^{CM}_{l,t}\right)
+\right]
+$$
 
 where the simulation cost components are defined as:
 
-Equation (3): C_setup[l,t] = sum over all product changeovers i to j on line l of sc[l,i,j].
+Equation (3):
 
-Equation (4): C_PM[l,t] = pm[l] if PM is performed on line l in period t, and 0 otherwise.
+$$
+C^{setup}_{l,t}=\sum_{i\ne j} sc_{l,i,j}\cdot \mathbf{1}[\text{changeover } i\rightarrow j \text{ occurs on line } l \text{ in period } t]
+$$
 
-Equation (5): C_CM[l,t] = lambda[l] cm[l] sum_p Q[l,p,t] pt[l,p].
+Equation (4):
+
+$$
+C^{PM}_{l,t}=pm_l\cdot\mathbf{1}[\text{PM performed on line }l\text{ in period }t]
+$$
+
+Equation (5):
+
+$$
+C^{CM}_{l,t}=\lambda_l\cdot cm_l\cdot\sum_{p\in\mathcal{P}} Q_{l,p,t}\cdot pt_{l,p}
+$$
 
 The post-hoc LP does not optimise setup and PM actions directly. Setup time is used as a capacity reservation derived from the fixed RL routing mask, while setup and PM costs are measured in the final simulation. The CM cost formulation uses a deterministic expectation based on hazard rate and active processing time.
 
@@ -718,25 +752,52 @@ The post-hoc LP does not optimise setup and PM actions directly. Setup time is u
 
 **Post-hoc LP inventory and backlog balance:** In the post-hoc lot-sizing model, backlog is a nonnegative slack variable for the current lookahead period. The LP carries inventory forward but does not carry backlog forward inside the post-hoc state:
 
-Equation (6): inv[t-1,p] + sum_l x[l,p,t] - inv[t,p] + back[t,p] = D[p,t] for every product p and period t.
+Equation (6):
+
+$$
+\mathrm{inv}_{t-1,p}+\sum_{l\in\mathcal{L}}x_{l,p,t}-\mathrm{inv}_{t,p}+\mathrm{back}_{t,p}=D_{p,t},\quad \forall p,t
+$$
 
 For final simulation, actual inventory and backlog are updated from realised production quantities:
 
-Equation (7): I[p,t] = max(0, I[p,t-1] + sum_l Q[l,p,t] - D[p,t] - B[p,t-1]).
+Equation (7):
 
-Equation (8): B[p,t] = max(0, D[p,t] + B[p,t-1] - I[p,t-1] - sum_l Q[l,p,t]).
+$$
+I_{p,t}=\max\left(0, I_{p,t-1}+\sum_{l\in\mathcal{L}}Q_{l,p,t}-D_{p,t}-B_{p,t-1}\right)
+$$
+
+Equation (8):
+
+$$
+B_{p,t}=\max\left(0, D_{p,t}+B_{p,t-1}-I_{p,t-1}-\sum_{l\in\mathcal{L}}Q_{l,p,t}\right)
+$$
 
 **Fixed routing and eligibility constraints:** The post-hoc LP can allocate production only to line-product pairs activated by the RL mask and allowed by the eligibility matrix:
 
-Equation (9): x[l,p,t] = 0 if M_RL[l,p,t] = 0 or E[l,p] = 0.
+Equation (9):
+
+$$
+x_{l,p,t}=0 \quad \text{if } M^{RL}_{l,p,t}=0 \text{ or } E_{l,p}=0
+$$
 
 **Capacity constraint:** The post-hoc LP reserves setup overhead implied by the RL mask/sequence before allocating processing time:
 
-Equation (10): sum_p pt[l,p] x[l,p,t] <= max(0, C[l] - setup_reserve_RL[l,t]) for every line l and period t.
+Equation (10):
+
+$$
+\sum_{p\in\mathcal{P}}pt_{l,p}x_{l,p,t}\leq\max\left(0,C_l-setup\_reserve^{RL}_{l,t}\right),\quad \forall l,t
+$$
 
 **Machine age dynamics:**
 
-Equation (11): Age[l,t] = 0 when PM is performed on line l in period t; otherwise Age[l,t] = Age[l,t-1] + sum_p Q[l,p,t] pt[l,p].
+Equation (11):
+
+$$
+\mathrm{Age}_{l,t}=\begin{cases}
+0, & \text{if PM is performed on line }l\text{ in period }t,\\
+\mathrm{Age}_{l,t-1}+\sum_{p\in\mathcal{P}}Q_{l,p,t}pt_{l,p}, & \text{otherwise.}
+\end{cases}
+$$
 
 ## **4.2. Two-Level Optimization**
 
@@ -773,7 +834,11 @@ RMAPPO adopts the Centralised Training with Decentralised Execution (CTDE) parad
 
 The global state fed to the centralised critic is the concatenation of all agents' observations:
 
-Equation (16): s_t = concatenate(o0,t, o1,t, ..., oL,t), with dimension d times N.
+Equation (16):
+
+$$
+s_t=[o_{0,t}\parallel o_{1,t}\parallel\cdots\parallel o_{L,t}]\in\mathbb{R}^{dN}
+$$
 
 where d is the per-agent observation dimension and N = 1 + L is the total number of agents.
 
@@ -781,15 +846,27 @@ where d is the per-agent observation dimension and N = 1 + L is the total number
 
 Under the CTDE assumption of conditional independence given local observations, the joint policy factorises as:
 
-Equation (17): pi_theta(a_t | o_t) = product over agents i of pi_theta_i(a_i,t | o_i,t, h_i,t).
+Equation (17):
+
+$$
+\pi_{\theta}(a_t\mid o_t)=\prod_{i=0}^{L}\pi_{\theta_i}(a_{i,t}\mid o_{i,t},h_{i,t})
+$$
 
 where a_t = (a0,t, a1,t, ..., aL,t) is the joint action vector and o_t = (o0,t, ..., oL,t) is the joint observation. In this work, the manager maintains a dedicated policy pi_theta_0, while all machine agents share a single policy pi_theta_m differentiated by a line-identity one-hot embedding in the observation. The joint policy thus involves two distinct parameter sets: theta_0 and theta_m.
 
 Each recurrent actor is implemented as an MLP feature extractor followed by a single-layer Gated Recurrent Unit (GRU):
 
-Equation (18): f_i,t = MLP_theta_i(o_i,t), then h_i,t = GRU_theta_i(f_i,t, h_i,t-1).
+Equation (18):
 
-Equation (19): a_i,t is sampled from pi_theta_i(. | h_i,t).
+$$
+f_{i,t}=\mathrm{MLP}_{\theta_i}(o_{i,t}),\quad h_{i,t}=\mathrm{GRU}_{\theta_i}(f_{i,t},h_{i,t-1})
+$$
+
+Equation (19):
+
+$$
+a_{i,t}\sim\pi_{\theta_i}(\cdot\mid h_{i,t})
+$$
 
 The GRU hidden state h_i,t has dimension 256 and is reset to zero at episode boundaries, allowing the agent to maintain a within-episode belief state across the sequential micro-steps of each production period.
 
@@ -799,7 +876,11 @@ All agents receive an observation vector of identical dimension d, enabling the 
 
 The observation dimension is:
 
-Equation (30): d = 2P + LP + 3P + k_w P + 1 + L + LP + 2L + L + P + LP + 2P.
+Equation (30):
+
+$$
+d=2P+LP+3P+k_wP+1+L+LP+2L+L+P+LP+2P
+$$
 
 The terms correspond to inventory/backlog, queues, coverage/queue-total/shortfall, demand lookahead, remaining periods, line availability, line setup, ages/line identity, contention, urgency, eligibility, scarcity, and lines-needed features.
 
@@ -825,29 +906,54 @@ The terms correspond to inventory/backlog, queues, coverage/queue-total/shortfal
 | scarcity | P | Product scarcity based on eligible lines | Yes | Zero |
 | lines_needed | P | Periods of capacity needed to clear backlog | Yes | Zero |
 
+
 **Observation scaling.** The environment supports both continuous log-scaled observations and binary observations. In the active benchmark setting, inventory, backlog, queue, demand-window, and shortfall features are represented as present/absent signals; the formulas below describe the continuous/log-scaled counterpart:
 
-Equation (31): inv[p] = ln(1 + I[p,t]) and back[p] = ln(1 + B[p,t]).
+Equation (31):
+
+$$
+\mathrm{inv}_p=\ln(1+I_{p,t}),\quad \mathrm{back}_p=\ln(1+B_{p,t})
+$$
 
 **Shortfall** provides the Process Agent with an urgency signal that accounts for existing queue allocations. In binary mode this becomes a positive/zero indicator; in continuous mode it is:
 
-Equation (32): shortfall[p] = ln(1 + max(0, future_demand[p] + B[p,t] - I[p,t] - sum_l Q[l,p,t])).
+Equation (32):
+
+$$
+\mathrm{shortfall}_p=\ln\left(1+\max\left(0,FD_{p,t}+B_{p,t}-I_{p,t}-\sum_{l\in\mathcal{L}}Q_{l,p,t}\right)\right)
+$$
 
 **Product scarcity** encodes structural supply risk arising from limited line eligibility:
 
-Equation (33): scarcity[p] = 1 / sum_l E[l,p].
+Equation (33):
+
+$$
+\mathrm{scarcity}_p=\frac{1}{\sum_{l\in\mathcal{L}}E_{l,p}}
+$$
 
 **Lines needed** quantifies how many periods of full-factory capacity would be required to eliminate the current backlog:
 
-Equation (34): lines_needed[p] = min(B[p,t] / CapUnits[p], T), where CapUnits[p] is the sum of C[l] / pt[l,p] over eligible lines with positive processing speed.
+Equation (34):
+
+$$
+\mathrm{lines\_needed}_p=\min\left(\frac{B_{p,t}}{\mathrm{CapUnits}_p},T\right),\quad \mathrm{CapUnits}_p=\sum_{l:E_{l,p}=1}\frac{C_l}{pt_{l,p}}
+$$
 
 **Product urgency** encodes the proximity of the next non-zero demand event within the lookahead window:
 
-Equation (35): urgency[p] = 1 / (d_star[p] + 1), where d_star[p] is the nearest lookahead offset with positive demand for product p.
+Equation (35):
+
+$$
+\mathrm{urgency}_p=\frac{1}{d_p^*+1}
+$$
 
 **Line contention** measures how many of a line's eligible products currently have active demand, normalised by the total number of products:
 
-Equation (36): contention[l] = count of products with E[l,p] = 1 and D[t,p] > 0, divided by P.
+Equation (36):
+
+$$
+\mathrm{contention}_l=\frac{|\{p:E_{l,p}=1\land D_{t,p}>0\}|}{P}
+$$
 
 The **one-hot line identity** line\_id = e_l in R^L for machine agent A_l is the key feature enabling the shared machine policy to learn heterogeneous per-line behaviour while sharing a single set of network weights. Because setup times, hazard rates, and production costs differ per line, the policy must condition its decisions on which line it is controlling; the identity embedding provides this information explicitly.
 
@@ -857,7 +963,11 @@ The **one-hot line identity** line\_id = e_l in R^L for machine agent A_l is the
 
 The Process Agent's action space is a multi-discrete binary space, one dimension per (l,p) pair:
 
-Equation (37): A_0 = {0, 1}^(L x P).
+Equation (37):
+
+$$
+A_0=\{0,1\}^{L\times P}
+$$
 
 where a0,t[l,p] = 1 signals that line l should be activated for product p in period t. The action is encoded as a concatenation of L x P two-element one-hot vectors, giving a total action representation of length 2LP.
 
@@ -874,7 +984,11 @@ Eligibility constraints are enforced via a hard availability mask applied before
 
 Each machine agent controls one production line and uses a discrete action space of P+2 choices:
 
-Equation (38): A_l = product actions {0, 1, ..., P-1}, PM, and End-Shift.
+Equation (38):
+
+$$
+A_l=\{0,1,\ldots,P-1,PM,EndShift\}
+$$
 
 **Product execution actions.** A product action is valid only when the product is eligible on the line, a positive queue or demand-based feasible quantity exists, and the remaining capacity can cover the required setup plus at least one unit of production. When the action is executed, the simulator applies the sequence-dependent setup time and cost when the selected product differs from the previous line setup, produces as many units as capacity allows, reduces the queue, updates produced quantities, and increases line age by the active runtime.
 
@@ -891,13 +1005,21 @@ The benchmark training uses the Step 1 reward design. This mode is different fro
 
 At period close, the environment computes inventory, backlog, production, setup, PM, and expected CM costs. If backlog remains, every agent receives a penalty proportional to total unmet demand:
 
-Equation (39): R_kill,t = -kappa sum_p B[p,t].
+Equation (39):
+
+$$
+R^{kill}_t=-\kappa\sum_{p\in\mathcal{P}}B_{p,t}
+$$
 
 where kappa is the kill-switch penalty coefficient. For P >= 10, the benchmark setting uses kappa=20 per unmet unit. For smaller instances, it scales the P=5 base value proportionally with product count.
 
 The team reward also penalises total active processing time and worker-side operational costs:
 
-Equation (40): R_team,t = -(ProcTime[t] + C_setup[t] + C_PM[t] + C_CM[t]).
+Equation (40):
+
+$$
+R^{team}_t=-\left(ProcTime_t+C^{setup}_t+C^{PM}_t+C^{CM}_t\right)
+$$
 
 Optional activation and load-balance penalties may be applied if their coefficients are non-zero, but the benchmark pipeline leaves both at zero. Alternative reward configurations can still use the older manager reward based on inventory, backlog, production, and weighted worker costs; however, that is not the active configuration used in the reported experiments.
 
@@ -908,17 +1030,29 @@ Dense machine-step shaping remains active during production execution. Product a
 
 Advantages are estimated using Generalised Advantage Estimation (GAE), which interpolates between high-variance Monte Carlo returns and high-bias one-step temporal difference targets:
 
-Equation (20): A_hat_t = sum over n >= 0 of (gamma lambda_GAE)^n delta_t+n.
+Equation (20):
+
+$$
+\widehat{A}_t=\sum_{n\geq 0}(\gamma\lambda_{GAE})^n\delta_{t+n}
+$$
 
 where the one-step TD error is:
 
-Equation (21): delta_t = r_t + gamma V_phi(s_t+1) - V_phi(s_t).
+Equation (21):
+
+$$
+\delta_t=r_t+\gamma V_{\phi}(s_{t+1})-V_{\phi}(s_t)
+$$
 
 with gamma the discount factor and lambda_GAE the GAE smoothing parameter controlling the bias-variance trade-off. When lambda_GAE = 1, the estimator recovers the full Monte Carlo return; when lambda_GAE = 0, it reduces to the one-step TD error. In practice, lambda_GAE = 0.95 is used, providing a low-variance estimate at modest bias cost.
 
 Since agents have different activity patterns (the manager acts once per period while machine agents act up to k_max times), advantages are normalised separately per agent using only the active time steps:
 
-Equation (22): A_tilde_i,t = (A_hat_i,t - mean_active_i) / (std_active_i + epsilon).
+Equation (22):
+
+$$
+\widetilde{A}_{i,t}=\frac{\widehat{A}_{i,t}-\mu_i^{active}}{\sigma_i^{active}+\epsilon}
+$$
 
 where mu_i^active and sigma_i^active are the mean and standard deviation of advantages computed exclusively over time steps where agent i was active, and epsilon = 10^-5 is a numerical stability constant.
 
@@ -926,33 +1060,60 @@ where mu_i^active and sigma_i^active are the mean and standard deviation of adva
 
 The actor is updated by maximising the PPO clipped surrogate objective, which constrains the policy update to a trust region without requiring second-order information:
 
-Equation (23): L_CLIP(theta_i) is the mini-batch mean of min(rho_i,t A_tilde_i,t, clip(rho_i,t, 1 - epsilon_clip, 1 + epsilon_clip) A_tilde_i,t), multiplied by the active mask m_i,t.
+Equation (23):
+
+$$
+L^{CLIP}(\theta_i)=\mathbb{E}_t\left[m_{i,t}\min\left(\rho_{i,t}\widetilde{A}_{i,t},\mathrm{clip}(\rho_{i,t},1-\epsilon_{clip},1+\epsilon_{clip})\widetilde{A}_{i,t}\right)\right]
+$$
 
 where the importance sampling ratio is:
 
-Equation (24): rho_i,t = pi_theta_i(a_i,t | o_i,t, h_i,t) / pi_old_i(a_i,t | o_i,t, h_i,t).
+Equation (24):
+
+$$
+\rho_{i,t}=\frac{\pi_{\theta_i}(a_{i,t}\mid o_{i,t},h_{i,t})}{\pi_{old,i}(a_{i,t}\mid o_{i,t},h_{i,t})}
+$$
 
 and m_i,t in 0,1 is the active mask for agent i at time step t, and epsilon_clip = 0.2 is the clipping threshold. The expectation is computed over time steps and environments in the mini-batch. The minimum operation and clipping together prevent both overly optimistic updates when advantages are positive and overly pessimistic updates when advantages are negative, bounding the effective KL divergence between successive policy iterates.
 
 An entropy regularisation term is added to the actor objective to encourage exploration and prevent premature policy collapse:
 
-Equation (28): H[pi_theta_i] = - E[log pi_theta_i(a | o_i,t, h_i,t)].
+Equation (28):
+
+$$
+\mathcal{H}[\pi_{\theta_i}]=-\mathbb{E}\left[\log\pi_{\theta_i}(a\mid o_{i,t},h_{i,t})\right]
+$$
 
 #### **4.2.1.9. Centralized Critic and Value Loss**
 
 The centralised critic V_phi(s_t) is implemented as a separate recurrent network receiving the full global state s_t. To handle the large and non-stationary scale of the cost-based reward signal, the value targets are normalised using a running-mean-variance normaliser (ValueNorm) with momentum beta_vn = 0.99999:
 
-Equation (25): R_hat_norm_t = (R_hat_t - running_mean) / sqrt(running_variance + epsilon).
+Equation (25):
+
+$$
+\widehat{R}^{norm}_t=\frac{\widehat{R}_t-\mu_R}{\sqrt{\sigma_R^2+\epsilon}}
+$$
 
 where R_hat_t = r_t + gamma x R_hat_t+1 is the bootstrapped return and mu, sigma^2 are the running statistics of observed returns.
 
 The value loss uses a clipped Huber formulation to simultaneously prevent value collapse and reduce sensitivity to large TD errors:
 
-Equation (26): L_V(phi) is the mini-batch mean of the larger Huber loss between the unclipped value error and the clipped value error.
+Equation (26):
+
+$$
+L^V(\phi)=\mathbb{E}_t\left[\max\left(\mathrm{Huber}(V_{\phi}(s_t)-\widehat{R}^{norm}_t),\mathrm{Huber}(V^{clip}_{\phi}(s_t)-\widehat{R}^{norm}_t)\right)\right]
+$$
 
 where V_phi^clip(s_t) = V_phi^old(s_t) + clip(V_phi(s_t) - V_phi^old(s_t), - epsilon_clip, epsilon_clip) is the clipped value prediction, and the Huber loss is:
 
-Equation (27): Huber(e) = 0.5 e^2 when |e| <= delta; otherwise Huber(e) = delta (|e| - 0.5 delta).
+Equation (27):
+
+$$
+\mathrm{Huber}(e)=\begin{cases}
+0.5e^2, & |e|\leq\delta,\\
+\delta(|e|-0.5\delta), & |e|>\delta.
+\end{cases}
+$$
 
 with delta = 10.0 as the transition threshold.
 
@@ -960,7 +1121,11 @@ with delta = 10.0 as the transition threshold.
 
 The combined optimisation objective for agent i is:
 
-Equation (29): L(theta_i, phi) = -L_CLIP(theta_i) - eta H[pi_theta_i] + c_v L_V(phi).
+Equation (29):
+
+$$
+\mathcal{L}(\theta_i,\phi)=-L^{CLIP}(\theta_i)-\eta\mathcal{H}[\pi_{\theta_i}]+c_vL^V(\phi)
+$$
 
 where eta is the entropy coefficient and c_v is the value loss coefficient. Both actor and critic parameters are updated by minimising this combined objective via Adam optimisation with gradient clipping to the configured maximum gradient norm.
 
@@ -986,6 +1151,7 @@ The benchmark pipeline uses a tuned P=5 hyperparameter set, with large-instance 
 | Rollout environments | 8 | Parallel rollout environments |
 | Training worker threads | 1 | Training worker threads |
 
+
 ###### Table 4.8: Environment and Reward Configuration
 
 | Parameter | Value used in benchmark pipeline | Description |
@@ -1001,6 +1167,7 @@ The benchmark pipeline uses a tuned P=5 hyperparameter set, with large-instance 
 | PM action availability | Gated | Controls PM action availability |
 | PM risk threshold | 1.0 by default | Risk threshold for gated PM |
 | Result tag | optional | Adds suffix to model/result directories |
+
 
 The saved model directory contains one actor for the manager and one shared actor for the machine agents. When available, the pipeline also stores the configuration so inference utilities can recover architecture and environment settings.
 
@@ -1086,6 +1253,7 @@ For benchmarking, the study uses structured generated datasets grouped into Smal
 | Medium | 14×5×4, 15×5×4, 16×5×4, 17×6×4, 18×6×4, 19×6×4, 20×7×4, 21×7×4, 22×7×4 |
 | Large | 23×8×4, 24×8×4, 25×8×4, 26×9×4, 27×9×4, 28×9×4, 29×10×4, 30×10×4, 31×10×4 |
 
+
 ###### Table 5.2: Parameter Settings of the Generated Instances
 
 | Parameter | Value / Distribution |
@@ -1109,13 +1277,16 @@ For benchmarking, the study uses structured generated datasets grouped into Smal
 | Changeover setup cost | Uniform [25.0, 30.0] for different products |
 | Same-product setup | 0 |
 
+
 The comparison output for each benchmark is saved in the benchmark result directory. Despite the historical result-file naming convention, the reported comparison uses 10 evaluated instances by default.
 
 ## **5.2. Result Illustration and Explanation**
 
 This section reports the benchmark and sensitivity results for the proposed framework. The comparison uses RH2 as the rolling-horizon benchmark and RMAPPO as the proposed three-step hybrid pipeline: Step 1 trains the RMAPPO routing and sequencing policies, Step 2 solves post-hoc LP/MILP lot sizing from the exported allocation mask, and Step 3 re-runs deterministic inference with the corrected quantities. The cost gap is defined as:
 
-Gap = (RH2 Cost - RMAPPO Cost) / RH2 Cost x 100%.
+$$
+\mathrm{Gap}=\frac{\mathrm{RH2\ Cost}-\mathrm{RMAPPO\ Cost}}{\mathrm{RH2\ Cost}}\times100\%
+$$
 
 A positive gap therefore means that RMAPPO produces a lower total cost than RH2.
 
@@ -1133,6 +1304,7 @@ The real-case loopset dataset is retained as the industrial case-study result. I
 | Setup cost | 282.28 | 0.1% |
 | Preventive maintenance cost | 174.33 | 0.1% |
 | **Total cost** | **261,942.31** | **100.0%** |
+
 
 The real-case result is dominated by production cost, which is expected because production volume is the main driver of total expenditure in the industrial dataset. Inventory and backlog costs remain comparatively small, indicating that the schedule balances service fulfilment with stock accumulation. Setup and preventive-maintenance costs are low shares of total cost, but they remain operationally important because poor sequencing or poorly timed PM can reduce available capacity and indirectly increase backlog.
 
@@ -1153,6 +1325,7 @@ The real-case result is dominated by production cost, which is expected because 
 | 9 | 13×4×4 | 10,885.8 | 7,489.6 | 4,000.0 | 4.0 | 31.2% |
 | **Avg.** |  | **5,114.58** | **4,825.47** | **1,853.71** | **2.76** | **5.65%** |
 
+
 Small problems do not fully benefit from learned approximation because RH2 still has enough time to find strong solutions on the easiest instances. RMAPPO underperforms RH2 on the first six small benchmarks, but begins to outperform once the routing space grows to 11×4×4 and above. Even in the small tier, RMAPPO remains much faster, producing schedules in a few seconds.
 
 ###### Table 5.5: Medium Instance Results
@@ -1169,6 +1342,7 @@ Small problems do not fully benefit from learned approximation because RH2 still
 | 8 | 21×7×4 | 40,338.9 | 12,547.2 | 4,000.0 | 4.7 | 68.9% |
 | 9 | 22×7×4 | 39,660.6 | 13,685.9 | 4,000.0 | 4.0 | 65.5% |
 | **Avg.** |  | **19,894.8** | **10,394.6** | **4,000.0** | **4.21** | **47.8%** |
+
 
 The medium tier shows the main crossover. RH2 reaches the 4,000-second time limit across the tier, while the RMAPPO pipeline produces decisions in roughly four seconds on average. RMAPPO outperforms RH2 on every medium benchmark, with especially large improvements from 20×7×4 onward.
 
@@ -1187,6 +1361,7 @@ The medium tier shows the main crossover. RH2 reaches the 4,000-second time limi
 | 9 | 31×10×4 | 40,865.5 | 20,523.1 | 4,000.0 | 6.5 | 49.8% |
 | **Avg.** |  | **28,691.2** | **17,074.4** | **4,000.0** | **5.1** | **40.5%** |
 
+
 The large tier confirms the scalability advantage of the proposed method. RH2 is capped at 4,000 seconds for every large benchmark, while RMAPPO remains within seconds. The hybrid method scales better because RL handles high-level allocation quickly, and the post-hoc LP/MILP solves only the reduced lot-sizing problem conditioned on the RL routing mask.
 
 ###### Table 5.7: Summary Across Scales
@@ -1197,13 +1372,16 @@ The large tier confirms the scalability advantage of the proposed method. RH2 is
 | Medium | 19,894.8 | 10,394.6 | 47.8% | 4,000.0 | 4.2 | RMAPPO better on all cases |
 | Large | 28,691.2 | 17,074.4 | 40.5% | 4,000.0 | 5.1 | RMAPPO better on all cases |
 
+
 Across benchmark sizes, RH2 performs well on small instances but becomes slow and less effective as the problem size increases. RMAPPO achieves much faster inference, typically within seconds, and outperforms RH2 on most medium and large instances.
 
 ## **5.3. Sensitivity Analysis**
 
 The sensitivity analysis uses the representative 24×8×4 benchmark. Each setting reports the final RMAPPO cost after the three-step pipeline, the runtime in seconds, and the percentage change relative to the baseline:
 
-Change vs Baseline = (Cost_setting - Cost_baseline) / Cost_baseline x 100%.
+$$
+\mathrm{Change\ vs\ Baseline}=\frac{\mathrm{Cost}_{setting}-\mathrm{Cost}_{baseline}}{\mathrm{Cost}_{baseline}}\times100\%
+$$
 
 Negative values indicate an improvement over the baseline.
 
@@ -1219,6 +1397,7 @@ This test varies when preventive maintenance becomes available under gated PM. L
 | tau=1.0 | 15,472.4 | 4.7 | -0.45% |
 | tau=1.25 | 15,459.6 | 4.7 | -0.54% |
 
+
 The best tested setting is a PM threshold of 0.5. Allowing PM earlier prevents machine-risk accumulation while still preserving enough capacity for production. Higher thresholds behave close to the baseline.
 
 ### **5.3.2. Kill-Switch Penalty**
@@ -1231,6 +1410,7 @@ This test varies how strongly the policy is penalised for unmet demand and backl
 | kill=10 | 15,104.5 | 9.2 | -2.82% |
 | kill=40 | 15,479.6 | 5.2 | -0.41% |
 
+
 A slightly lower penalty can reduce over-conservative behaviour and improve allocation. A penalty that is too high may force production choices that are costly or inflexible.
 
 ### **5.3.3. Entropy Coefficient**
@@ -1242,6 +1422,7 @@ A slightly lower penalty can reduce over-conservative behaviour and improve allo
 | entropy=0.005 | 12,643.6 | 4.0 | -18.65% |
 | entropy=0.02 | 12,766.7 | 4.1 | -17.86% |
 
+
 Very low entropy limits exploration, while higher entropy can help avoid early convergence in this benchmark. In the completed sensitivity run, the entropy coefficient of 0.005 gives the best entropy setting.
 
 ### **5.3.4. Learning Rate Scale**
@@ -1252,6 +1433,7 @@ Very low entropy limits exploration, while higher entropy can help avoid early c
 | lr scale=0.5 | 15,560.4 | 5.5 | 0.11% |
 | lr scale=2.0 | 15,495.2 | 5.4 | -0.31% |
 
+
 Learning-rate scaling has only a small effect in the completed run. The 2.0 scale gives a minor cost reduction, while the 0.5 scale is nearly identical to the baseline.
 
 ### **5.3.5. PPO Clip Parameter**
@@ -1261,6 +1443,7 @@ Learning-rate scaling has only a small effect in the completed run. The 2.0 scal
 | Baseline: clip=0.349 | 15,542.9 | 3.4 | baseline |
 | clip=0.2 | 13,040.6 | 3.2 | -16.10% |
 | clip=0.5 | 15,514.8 | 3.3 | -0.18% |
+
 
 Smaller clipping makes PPO updates more conservative and improves this benchmark run. Larger clipping remains close to the baseline but does not provide the same cost reduction as clip=0.2.
 
@@ -1273,6 +1456,7 @@ This test varies how strongly the policy values future rewards during training.
 | Baseline: gamma=0.96265 | 15,542.9 | 3.4 | baseline |
 | gamma=0.95 | 13,669.9 | 3.1 | -12.05% |
 | gamma=0.99 | 12,844.9 | 3.1 | -17.36% |
+
 
 A higher discount factor performs best in this completed run, indicating that the policy benefits from placing more weight on future inventory, backlog, and maintenance consequences.
 
